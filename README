@@ -1,0 +1,216 @@
+# Hospital AI Agent
+
+**Internal README** – A comprehensive guide to our Hospital AI Agent prototype, covering architecture, components, and development workflow.
+
+---
+
+## Table of Contents
+
+1. [Project Overview](#project-overview)
+2. [Directory Structure](#directory-structure)
+3. [Prerequisites](#prerequisites)
+4. [Environment Configuration](#environment-configuration)
+5. [Backend Setup](#backend-setup)
+
+   * [Entities](#entities)
+   * [Services](#services)
+   * [API](#api)
+6. [Frontend Setup](#frontend-setup)
+7. [Running Locally](#running-locally)
+8. [Testing](#testing)
+9. [Next Steps](#next-steps)
+
+---
+
+## Project Overview
+
+Our **Hospital AI Agent** prototype integrates patient monitoring, discharge prediction, and bottleneck detection into a cohesive platform:
+
+* **Backend**: Python with FastAPI
+
+  * **Entities**: Data models representing patients, vitals, medical records, social context, wards, and hospital
+  * **Services**: Business logic for EMR integration, LLM calls, predictive modeling, notifications, and conversations
+  * **API**: REST endpoints for data access and AI interactions
+
+* **Frontend**: React + TypeScript + Tailwind CSS + shadcn/ui
+
+  * **Dashboards**: Role-based UIs for nurses, doctors, and administrators
+  * **Chat**: Tablet-friendly interface for AI-driven patient and staff interactions
+  * **Notifications**: Mobile-centric notification center with priority queue
+
+This stack is designed to launch as a hackathon demo and evolve into a production-ready hospital solution.
+
+---
+
+## Directory Structure
+
+```
+HospitalAssistant/           # Repository root
+├─ entities/                 # Domain model definitions (Python)
+│   ├─ __init__.py
+│   ├─ VitalSign.py          # VitalSign: measurements & range checking
+│   ├─ MedicalRecord.py      # MedicalRecord: clinical notes & labs
+│   ├─ SocialProfile.py      # SocialProfile: discharge-related social data
+│   ├─ Patient.py            # Patient: aggregates demographics, vitals, record, social
+│   ├─ Ward.py               # Ward: collection of patients & capacity management
+│   └─ Hospital.py           # Hospital: collection of wards, system-level reporting
+│
+├─ services/                 # Core business logic (Python)
+│   ├─ __init__.py
+│   ├─ EMRConnector.py       # EMRConnector: FHIR REST integration
+│   ├─ LLMService.py         # LLMService: generic LLM API wrapper
+│   ├─ ConversationService.py# ConversationService: multilingual chat management
+│   ├─ PredictiveModelController.py  # PredictiveModelController: discharge & deterioration inference
+│   └─ NotificationService.py# NotificationService: alert dispatch & scheduling
+│
+├─ api/                      # FastAPI application
+│   ├─ __init__.py
+│   └─ app.py                # app: REST endpoints and service instantiation
+│
+└─ frontend/                 # React UI application
+    ├─ package.json
+    ├─ tsconfig.json
+    └─ src/
+       ├─ queues/            # NotificationQueue.ts, ChatQueue.ts
+       ├─ context/           # QueueContext.tsx (React context for queues)
+       └─ components/        # Role-based dashboards & UI components
+           ├─ NurseDashboard.tsx
+           ├─ DoctorDashboard.tsx
+           ├─ AdminDashboard.tsx
+           ├─ ChatInterface.tsx
+           └─ NotificationCenter.tsx
+```
+
+**Highlights:**
+
+* Each Python folder isolates one layer: **entities** for data structures, **services** for logic, **api** for endpoints.
+* Frontend follows a feature-based layout (queues, context, components).
+* Encapsulates clear responsibilities to support scaling and maintainability.
+
+---
+
+## Prerequisites
+
+* **Python 3.10+** and **pip**
+* **Node.js 16+** and **npm** or **yarn**
+* (Optional) **Docker** for containerized runs
+
+---
+
+## Environment Configuration
+
+### Backend (`api/`)
+
+Create a `.env` file:
+
+```
+FHIR_BASE_URL=http://your-emr-server/fhir
+FHIR_API_KEY=YOUR_FHIR_KEY
+LLM_API_URL=https://your-llm-service/api
+LLM_API_KEY=YOUR_LLM_KEY
+ML_MODEL_PATH=./models/discharge_model.pkl
+```
+
+### Frontend (`frontend/`)
+
+Create a `.env` file:
+
+```
+REACT_APP_API_URL=http://localhost:8000
+```
+
+---
+
+## Backend Setup
+
+### Entities
+
+Detailed classes under `entities/`:
+
+* **VitalSign**: stores `timestamp`, `type` (e.g., BP, HR), `value`; methods `is_within_normal_range()`, `trend(window)` stub for time-series trends.
+* **MedicalRecord**: holds `notes` and `lab_results`; methods for `summarize_history(llm)`, `generate_justification(llm, data)`, `flag_critical_labs()`, and `get_lab_trends(test_code)`.
+* **SocialProfile**: tracks `living_situation`, `caregiver_available`, `home_address`; methods `is_socially_ready()`, `needs_social_work_referral()`, `get_support_contacts()` stub.
+* **Patient**: aggregates `patient_id`, `name`, `age`, `ward_id`, `preferred_language`, `social_profile`, plus lists of `vitals` and `record`; methods for status updates, history loading, risk scoring, and data refresh.
+* **Ward**: manages `ward_id`, `name`, `capacity`, and list of `patients`; methods `list_patients()`, `add_patient()`, `remove_patient()`, `get_bed_availability()`, `generate_occupancy_report()` stub.
+* **Hospital**: wraps multiple `Ward` instances; methods `list_wards()`, `add_ward()`, `remove_ward()`, `get_bottlenecks(threshold)`, `generate_system_report()`, and a stub `optimize_resource_allocation()`.
+
+### Services
+
+Key components in `services/`:
+
+* **EMRConnector**: handles FHIR REST calls (`fetch_patient_data()`, `push_prediction()`), stub for `authenticate()`, `subscribe_to_patient()`, `fetch_ward_data()`, `audit_logs()`.
+* **LLMService**: generic API client for LLM operations (`summarize_clinical_notes()`, `generate_justification()`, `translate()`, `chat()`, plus stubs `load_model()`, `health_check()`, `fine_tune()`, `get_usage_metrics()`).
+* **ConversationService**: orchestrates multi-lingual chat flows with methods for translating messages, generating AI responses (`generate_patient_response()`), plus stubs for session lifecycle (`start_conversation()`, `get_conversation_history()`, `end_conversation()`).
+* **PredictiveModelController**: loads ML pipelines (stub), methods for discharge readiness (`predict_discharge_readiness()`), deterioration detection (`detect_deterioration()`), and stubs for retraining and evaluation.
+* **NotificationService**: handles alert dispatch and scheduling via `notify_user()`, `schedule_follow_up()`, `cancel_notification()`, `bulk_notify()`, `get_notification_status()` stubs.
+
+### API (FastAPI)
+
+`api/app.py` stitches everything together:
+
+* Configures CORS middleware to allow frontend origin.
+* Instantiates connectors and controllers at startup.
+* Defines Pydantic models (`PatientResponse`, `ChatRequest`, etc.) and endpoint handlers for patient data, chat, predictions, ward queries, and hospital-level reports.
+* All handlers are currently stubs returning HTTP 501 until logic is implemented.
+
+---
+
+## Frontend Setup
+
+* **Framework**: CRA with TypeScript, Tailwind CSS, shadcn/ui components, Framer Motion.
+* **Context & Queues**: `QueueContext` provides `NotificationQueue` and `ChatQueue` to manage real-time events.
+* **Components**:
+
+  * `NurseDashboard`: grid of patient cards with status indicators and actions.
+  * `DoctorDashboard`: search/filter bar, case cards with diagnoses and recommendations.
+  * `AdminDashboard`: ward overview with occupancy metrics.
+  * `ChatInterface`: two-pane chat UI for AI/patient conversations.
+  * `NotificationCenter`: mobile-friendly feed for queued alerts.
+* **Data Flow**: build an API client (`fetchPatient()`, `postChat()`, etc.) to connect to FastAPI endpoints.
+* **Routing**: adopt React Router for views (`/dashboard/nurse`, `/dashboard/doctor`, `/notifications`).
+
+---
+
+## Running Locally
+
+### Backend
+
+```bash
+cd my_project/api
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+uvicorn app:app --reload --port 8000
+```
+
+### Frontend
+
+```bash
+cd my_project/frontend
+npm install
+npm start
+```
+
+---
+
+## Testing
+
+* **Backend**: `pytest` for unit and integration tests; `TestClient` for endpoint tests.
+* **Frontend**: `npm test` using Jest & React Testing Library; component and hook tests.
+* **E2E**: consider Cypress for full-stack scenarios (login, fetch patient, receive alert).
+
+---
+
+## Next Steps
+
+1. Implement all stub methods in entities and services.
+2. Train or load predictive ML models; integrate with `PredictiveModelController`.
+3. Secure API with authentication/authorization (JWT or OAuth2).
+4. Build out React API client and wire state management (e.g. React Query).
+5. Enhance UI with real patient data, navigation, and error handling.
+6. Deploy containers via Docker, Kubernetes, or serverless platforms.
+7. Collect clinical user feedback and iterate UI/UX and functionality.
+
+---
+
+*This README serves as an internal guide to kickstart development and align team members on architecture and next steps.*
