@@ -45,7 +45,7 @@ This stack is designed to launch as a hackathon demo and evolve into a productio
 ## Directory Structure
 
 ```
-my_project/                  # Repository root
+HospitalAssistant/                  # Repository root
 ├─ entities/                 # Domain model definitions (Python)
 │   ├─ __init__.py
 │   ├─ VitalSign.py          # VitalSign: measurements & range checking
