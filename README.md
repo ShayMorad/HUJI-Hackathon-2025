@@ -1,1 +1,1 @@
-# -HUJI-Hackathon-2025
+# HUJI-Hackathon-2025
