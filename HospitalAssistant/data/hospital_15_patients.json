@@ -19,7 +19,7 @@
       "patients": [
         {
           "patient_id": "p001",
-          "name": "Patient 1",
+          "name": "John Doe",
           "age": 58,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -42,7 +42,7 @@
         },
         {
           "patient_id": "p002",
-          "name": "Patient 2",
+          "name": "Noam Shabat",
           "age": 26,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -65,7 +65,7 @@
         },
         {
           "patient_id": "p003",
-          "name": "Patient 3",
+          "name": "Samm samm",
           "age": 82,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -88,7 +88,7 @@
         },
         {
           "patient_id": "p004",
-          "name": "Patient 4",
+          "name": "Avigail Silverman",
           "age": 64,
           "ward_id": "A1",
           "preferred_language": "hebrew",

@@ -1,7 +1,7 @@
 """
 LLMService
 
-Generic client for a Large Language Model API.
+A specialized service for medical-focused interactions using Google's Gemini AI models.
 Provides:
   - summarize_clinical_notes()
   - generate_justification()
@@ -9,57 +9,158 @@ Provides:
   - chat()
   - load_model()
   - health_check()
-  - fine_tune()
-  - get_usage_metrics()
 """
 
-import requests
+import google.generativeai as genai
+from google.oauth2 import service_account
 from typing import Dict, Any, List
-
+import os
 
 class LLMService:
-    def __init__(self, api_url: str, api_key: str = ''):
-        self.api_url = api_url.rstrip('/')
-        self.api_key = api_key
+    # Available Gemini models with descriptions
+    AVAILABLE_MODELS = {
+        "gemini-1.5-flash": "Fast and versatile (recommended for general medical queries)",
+        "gemini-1.5-pro": "Complex medical reasoning tasks",
+        "gemini-2.0-flash": "Newest multimodal, fastest response time",
+        "gemini-2.0-flash-lite": "Most cost-efficient for basic medical tasks",
+        "gemini-2.5-flash-preview-05-20": "Best price-performance with medical thinking capabilities",
+        "gemini-2.5-pro-preview-05-06": "Most powerful for complex medical reasoning"
+    }
 
-    def call_api(self, endpoint: str, payload: Dict[str, Any]) -> Dict[str, Any]:
-        headers = {'Authorization': f'Bearer {self.api_key}'} if self.api_key else {}
-        resp = requests.post(f"{self.api_url}/{endpoint}", json=payload, headers=headers)
-        resp.raise_for_status()
-        return resp.json()
+    def __init__(self, model_name: str = "gemini-1.5-pro"):
+        """Initialize the LLM service with Gemini.
+
+        Args:
+            model_name: The Gemini model to use. Defaults to gemini-1.5-pro for medical tasks.
+        """
+        self._initialize_gemini(model_name)
+
+    def _initialize_gemini(self, model_name: str):
+        """Initialize Gemini with the specified model."""
+        if model_name not in self.AVAILABLE_MODELS:
+            raise ValueError(f"Invalid model. Available models: {list(self.AVAILABLE_MODELS.keys())}")
+
+        try:
+            # Initialize credentials from the service account file
+            credentials = service_account.Credentials.from_service_account_file(
+                'gemini/hackathon-team-46_gen-lang-client-0325865525_iam_gserviceaccount_com_1747758552.json'
+            )
+            genai.configure(credentials=credentials)
+
+            # Initialize model and chat
+            self.model = genai.GenerativeModel(model_name)
+            self._chat_session = self.model.start_chat(history=[])
+            self.model_name = model_name
+        except Exception as e:
+            raise Exception(f"Failed to initialize Gemini: {e}")
 
     def summarize_clinical_notes(self, notes: str) -> str:
-        return self.call_api('summarize', {'text': notes}).get('summary', '')
+        """Summarize clinical notes using medical context-aware prompting."""
+        prompt = """
+        Please provide a concise medical summary of the following clinical notes. 
+        Focus on key diagnoses, treatments, and important clinical observations.
+        Use professional medical terminology where appropriate.
+        
+        Clinical Notes:
+        {notes}
+        """.format(notes=notes)
+
+        try:
+            response = self.model.generate_content(prompt)
+            return response.text
+        except Exception as e:
+            raise Exception(f"Error summarizing clinical notes: {e}")
 
     def generate_justification(self, data: Dict[str, Any]) -> str:
-        return self.call_api('justify', {'data': data}).get('justification', '')
+        """Generate medical justification based on provided clinical data."""
+        prompt = """
+        Based on the following clinical data, generate a detailed medical justification.
+        Include:
+        - Clinical reasoning
+        - Evidence-based support
+        - Relevant medical guidelines
+        - Risk-benefit analysis if applicable
+        
+        Clinical Data:
+        {data}
+        """.format(data=str(data))
+
+        try:
+            response = self.model.generate_content(prompt)
+            return response.text
+        except Exception as e:
+            raise Exception(f"Error generating justification: {e}")
 
     def translate(self, message: str, target_language: str) -> str:
-        return self.call_api('translate', {
-            'text': message, 'target_language': target_language
-        }).get('translation', '')
+        """Translate medical content while preserving medical terminology."""
+        prompt = """
+        Translate the following medical text to {language}.
+        Maintain medical terminology accuracy and professional tone.
+        Preserve any technical terms in their standard medical form.
+        
+        Text to translate:
+        {message}
+        """.format(language=target_language, message=message)
+
+        try:
+            response = self.model.generate_content(prompt)
+            return response.text
+        except Exception as e:
+            raise Exception(f"Error in translation: {e}")
 
     def chat(self, context: Dict[str, Any], prompt: str, language: str) -> str:
-        return self.call_api('chat', {
-            'context': context, 'prompt': prompt, 'language': language
-        }).get('response', '')
+        """Engage in medical conversation with context awareness."""
+        formatted_context = self._format_medical_context(context)
+
+        try:
+            # Add context to chat history if it's new
+            if formatted_context:
+                self._chat_session.send_message(
+                    f"Medical Context:\\n{formatted_context}\\n\\nPlease consider this context for the following conversation."
+                )
+
+            # Send the actual prompt
+            response = self._chat_session.send_message(
+                f"User ({language}): {prompt}"
+            )
+            return response.text
+        except Exception as e:
+            raise Exception(f"Error in chat: {e}")
 
     def load_model(self, model_name: str):
-        """Load a custom or fine‐tuned model."""
-        # TODO
-        pass
+        """Load a different Gemini model."""
+        self._initialize_gemini(model_name)
 
     def health_check(self) -> bool:
-        """Verify the LLM endpoint is reachable."""
-        # TODO
-        return True
+        """Verify the Gemini endpoint is reachable and functioning."""
+        try:
+            response = self.model.generate_content("System health check.")
+            return response is not None and response.text != ""
+        except Exception:
+            return False
 
-    def fine_tune(self, dataset: List[Dict[str, Any]]) -> str:
-        """Start a fine‐tuning job & return job ID."""
-        # TODO
-        pass
+    def get_available_models(self) -> Dict[str, str]:
+        """Get list of available Gemini models with descriptions."""
+        return self.AVAILABLE_MODELS.copy()
 
-    def get_usage_metrics(self) -> Dict[str, Any]:
-        """Retrieve token usage and latency statistics."""
-        # TODO
-        pass
+    def _format_medical_context(self, context: Dict[str, Any]) -> str:
+        """Format medical context for better Gemini understanding."""
+        formatted_parts = []
+
+        # Format different types of medical context
+        if 'patient_history' in context:
+            formatted_parts.append(f"Patient History:\n{context['patient_history']}")
+
+        if 'current_condition' in context:
+            formatted_parts.append(f"Current Condition:\n{context['current_condition']}")
+
+        if 'medications' in context:
+            formatted_parts.append(f"Current Medications:\n{context['medications']}")
+
+        if 'allergies' in context:
+            formatted_parts.append(f"Allergies:\n{context['allergies']}")
+
+        if 'vital_signs' in context:
+            formatted_parts.append(f"Vital Signs:\n{context['vital_signs']}")
+
+        return "\n\n".join(formatted_parts)
