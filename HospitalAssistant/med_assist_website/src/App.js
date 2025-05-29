@@ -8,6 +8,7 @@ import {
 import LoginPage from './components/LoginPage';
 import HomePage from './components/HomePage';
 import Header from './components/Header';
+import PatientsStatusPage from './components/PatientsStatusPage';
 import { authService } from './services/authService';
 import './App.css';
 
@@ -72,6 +73,10 @@ function App() {
           <Route 
             path="/" 
             element={isLoggedIn ? <HomePage currentUser={currentUser} /> : <Navigate to="/login" />} 
+          />
+          <Route 
+            path="/patients-status" 
+            element={isLoggedIn ? <PatientsStatusPage /> : <Navigate to="/login" />} 
           />
           {/* Add a route for SettingsPage when it's created */}
           {/* <Route path="/settings" element={isLoggedIn ? <SettingsPage /> : <Navigate to="/login" />} /> */}
