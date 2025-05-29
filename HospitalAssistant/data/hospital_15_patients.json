@@ -100,7 +100,20 @@
             "Dr. Emily Carter (Cardiologist)",
             "Dr. Johnathan Lee (Neurologist)"
           ],
-          "vitals": [],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 88.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T14:00:00"
+            },
+            {
+              "name": "Temperature",
+              "value": 34.1,
+              "unit": "C",
+              "timestamp": "2025-05-29T14:00:00"
+            }
+          ],
           "social_profile": {
             "living_situation": "family",
             "caregiver_available": true,
@@ -111,7 +124,7 @@
         },
         {
           "patient_id": "p005",
-          "name": "Patient 5",
+          "name": "Samuel Jackson",
           "age": 40,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -134,7 +147,7 @@
         },
         {
           "patient_id": "p006",
-          "name": "Patient 6",
+          "name": "Amir Meron",
           "age": 37,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -157,7 +170,7 @@
         },
         {
           "patient_id": "p007",
-          "name": "Patient 7",
+          "name": "Ben Cohen",
           "age": 81,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -180,7 +193,7 @@
         },
         {
           "patient_id": "p008",
-          "name": "Patient 8",
+          "name": "Shoshana Levi",
           "age": 78,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -203,7 +216,7 @@
         },
         {
           "patient_id": "p009",
-          "name": "Patient 9",
+          "name": "Sima Biton",
           "age": 84,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -226,7 +239,7 @@
         },
         {
           "patient_id": "p010",
-          "name": "Patient 10",
+          "name": "Amir Shalom",
           "age": 50,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -249,7 +262,7 @@
         },
         {
           "patient_id": "p011",
-          "name": "Patient 11",
+          "name": "Shaken Amos",
           "age": 32,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -272,7 +285,7 @@
         },
         {
           "patient_id": "p012",
-          "name": "Patient 12",
+          "name": "Shelly Cohen",
           "age": 68,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -295,7 +308,7 @@
         },
         {
           "patient_id": "p013",
-          "name": "Patient 13",
+          "name": "Karen Abutbul",
           "age": 32,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -318,7 +331,7 @@
         },
         {
           "patient_id": "p014",
-          "name": "Patient 14",
+          "name": "Chris Brown",
           "age": 82,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -341,7 +354,7 @@
         },
         {
           "patient_id": "p015",
-          "name": "Patient 15",
+          "name": "Yuval Rahmani",
           "age": 68,
           "ward_id": "A1",
           "preferred_language": "hebrew",

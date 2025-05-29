@@ -1,6 +1,6 @@
 // This file will contain functions to interact with the backend patient API.
 
-const API_BASE_URL = 'http://localhost:8000'; // IMPORTANT: Replace YOUR_BACKEND_PORT with your actual backend port
+const API_BASE_URL = 'http://localhost:8003'; // IMPORTANT: Replace YOUR_BACKEND_PORT with your actual backend port
 
 export const fetchPatients = async () => {
   try {
@@ -86,7 +86,7 @@ export const sendChatMessagePost = async (loggedInUser, selectedPatient, message
     timestamp: new Date().toISOString(),
   };
 
-  const requestUrl = `${API_BASE_URL}/chat_plain`; // Assuming your chat endpoint is /chat for POST requests
+  const requestUrl = `${API_BASE_URL}/chat`; // Assuming your chat endpoint is /chat for POST requests
 
   try {
     const response = await fetch(requestUrl, {

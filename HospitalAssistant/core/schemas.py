@@ -4,8 +4,9 @@ from datetime import datetime
 
 
 class VitalSignSchema(BaseModel):
-    name: str
+    name: str       # maps to VitalSign.type
     value: float
+    unit: str       # you were missing this
     timestamp: str
 
 

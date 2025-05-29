@@ -10,7 +10,8 @@ Provides:
   - load_model()
   - health_check()
 """
-
+import logging
+logger = logging.getLogger("uvicorn.error")
 import google.generativeai as genai
 from google.oauth2 import service_account
 from typing import Dict, Any, List
@@ -108,35 +109,56 @@ class LLMService:
         except Exception as e:
             raise Exception(f"Error in translation: {e}")
 
+    import logging
+    logger = logging.getLogger("uvicorn.error")
+
     def chat(self, context: Dict[str, Any], prompt: str, language: str) -> str:
-        """Engage in medical conversation with context awareness."""
+        """Engage in medical conversation with context awareness and better error visibility."""
         formatted_context = self._format_medical_context(context)
 
         try:
-            print("💬 Sending prompt to Gemini:")
-            print(f">>> Prompt: {prompt}")
-            print(f">>> Context: {formatted_context}")
+            # ------------------------------------------------------------------
+            # 1)  Log what we’re about to send
+            # ------------------------------------------------------------------
+            logger.info("🩺 Gemini prompt: %s", prompt)
+            logger.debug("Context sent: %s", formatted_context)
 
-            # Send context to Gemini first (optional)
+            # ------------------------------------------------------------------
+            # 2)  Send context once per session (if any)
+            # ------------------------------------------------------------------
             if formatted_context:
                 self._chat_session.send_message(
-                    f"Medical Context:\n{formatted_context}\n\nPlease consider this context for the following conversation."
+                    f"Medical Context:\n{formatted_context}\n\n"
+                    "Please consider this context for the conversation."
                 )
 
-            # Send the actual prompt
-            response = self._chat_session.send_message(f"User ({language}): {prompt}")
+            # ------------------------------------------------------------------
+            # 3)  Send user prompt
+            # ------------------------------------------------------------------
+            raw = self._chat_session.send_message(f"User ({language}): {prompt}")
+            logger.debug("Gemini raw response: %r", raw)
 
-            # Print and check Gemini response
-            print("📨 Gemini raw response:", response)
+            # ------------------------------------------------------------------
+            # 4)  Extract text robustly
+            # ------------------------------------------------------------------
+            if hasattr(raw, "text") and raw.text:
+                return raw.text
 
-            if not response or not hasattr(response, "text") or not response.text:
-                raise ValueError("Empty or malformed response from Gemini.")
+            # Gemini 1.5+ sometimes returns candidates
+            if getattr(raw, "candidates", None):
+                try:
+                    return raw.candidates[0].content.parts[0].text
+                except Exception:
+                    pass  # fall through to error below
 
-            return response.text
+            raise ValueError("Gemini returned empty or unknown format")
 
         except Exception as e:
-            print("❌ Gemini Error:", repr(e))  # Print actual exception
-            raise Exception("Received, but couldn't process AI response this time.")
+            # ------------------------------------------------------------------
+            # 5)  Log full traceback and re-raise **real** error
+            # ------------------------------------------------------------------
+            logger.exception("Gemini chat failed")
+            raise  # let FastAPI propagate real message/traceback
 
     def load_model(self, model_name: str):
         """Load a different Gemini model."""

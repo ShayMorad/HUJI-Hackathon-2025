@@ -86,9 +86,12 @@ def add_patient(patient_data: PatientCreate):
         raise HTTPException(400, detail="Ward is full or not found")
     return {"status": "added"}
 
+# ---------- Patient vitals ----------
 @app.put("/patients/{pid}/vitals")
 def update_vitals(pid: str, vitals: List[VitalSignSchema]):
-    update_patient_vitals(hospital, pid, [VitalSign(**v.dict()) for v in vitals])
+    vs = [VitalSign.from_schema(v) for v in vitals]
+    update_patient_vitals(hospital, pid, vs)
+    save_hospital(hospital)           # persist immediately
     return {"status": "updated"}
 
 
@@ -98,22 +101,23 @@ def remove_patient(pid: str):
         raise HTTPException(404)
     return {"status": "discharged"}
 
-@app.post("/chat_plain")
+
+# ---------- Extremely simple raw prompt endpoint ----------
+@app.post("/chat_plain", response_model=ChatResponse)
 async def chat_plain(request: Request):
-    try:
-        prompt = await request.body()
-        prompt = prompt.decode("utf-8").strip()
+    data = await request.json()                   # parse JSON
+    prompt = data.get("message", "").strip()
+    if not prompt:
+        raise HTTPException(400, "Empty prompt")
 
-        # Optionally log or validate prompt
-        if not prompt:
-            raise ValueError("Empty prompt received")
+    fake_context = {
+        "patient_history": "John Doe, 55 y, HTN & T2DM",
+        "current_condition": "Post-surgery, mild fever",
+        "vital_signs": "BP 135/85, HR 85, Temp 37.8 °C, SpO₂ 96 %"
+    }
 
-        # Call your Gemini LLM
-        response_text = llm_service.chat(context={}, prompt=prompt, language="hebrew")
-        return JSONResponse(content={"reply": response_text})
-
-    except Exception as e:
-        return JSONResponse(status_code=500, content={"error": str(e)})
+    reply = llm_service.chat(fake_context, prompt=prompt, language="hebrew")
+    return ChatResponse(reply=reply)
 
 @app.post("/chat_simple", response_model=ChatResponse)
 async def chat_simple(payload: PromptOnly):
@@ -123,22 +127,22 @@ async def chat_simple(payload: PromptOnly):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+# ---------- Full chat endpoint used by the frontend ----------
 @app.post("/chat", response_model=ChatResponse)
-async def handle_chat(request: ChatRequest):
-    try:
-        patient = hospital.find_patient(request.patientId)
-        context = {
-            "patient_history": f"{patient.name}, age {patient.age}",
-            "current_condition": patient.status,
-            "vital_signs": str(patient.vitals)
-        }
+async def handle_chat(req: ChatRequest):
+    patient = hospital.find_patient(req.patientId)   # ← use patientId
+    if not patient:
+        raise HTTPException(404, "Patient not found")
 
-        # Call Gemini
-        gemini_reply = llm_service.chat(context, prompt=request.message, language="hebrew")
+    status = patient.update_status()
+    context = {
+        "patient_history": f"{patient.name}, age {patient.age}",
+        "current_condition": status,
+        "vital_signs": str(patient.vitals),
+    }
 
-        return ChatResponse(reply=gemini_reply)
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    reply = llm_service.chat(context, prompt=req.message, language="hebrew")
+    return ChatResponse(reply=reply)
 
 
 

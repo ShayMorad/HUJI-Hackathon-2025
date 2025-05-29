@@ -155,7 +155,15 @@ class Patient:
             social_profile=SocialProfile(**social_dict),
         )
 
-        patient.vitals = [VitalSign(**v) for v in data.get("vitals", [])]
+        patient.vitals = [
+            VitalSign(
+                timestamp=v["timestamp"],
+                type=v["name"],
+                value=v["value"],
+                unit=v.get("unit", "")  # fallback if old file has no "unit"
+            )
+            for v in data.get("vitals", [])
+        ]
         patient.assigned_staff = data.get("assigned_staff", [])
         return patient
 

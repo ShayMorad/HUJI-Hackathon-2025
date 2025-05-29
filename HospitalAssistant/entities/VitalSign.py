@@ -106,8 +106,18 @@ class VitalSign:
         return {
             "name": self.type,
             "value": self.value,
+            "unit": self.unit,  # ← NEW
             "timestamp": self.timestamp
         }
+
+    @classmethod
+    def from_schema(cls, schema: "VitalSignSchema"):
+        return cls(
+            timestamp=schema.timestamp,
+            type=schema.name,
+            value=schema.value,
+            unit=schema.unit,
+        )
 
     # Nice repr for debugging
     def __repr__(self) -> str:  # noqa: D401
