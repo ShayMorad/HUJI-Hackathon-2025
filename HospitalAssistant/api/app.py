@@ -1,115 +1,49 @@
-"""
-FastAPI Application Entry Point
-
-Exposes:
-  - GET  /patients/{patient_id}
-  - POST /chat
-  - POST /predict/{patient_id}
-  - GET  /wards/{ward_id}
-  - GET  /hospital/report
-  - GET  /hospital/bottlenecks
-"""
-
-from typing import List, Dict, Any
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-from HospitalAssistant.services import EMRConnector
-from HospitalAssistant.services import LLMService
-from HospitalAssistant.services import ConversationService
-from HospitalAssistant.services import PredictiveModelController
-from HospitalAssistant.services import NotificationService
-from HospitalAssistant.entities import SocialProfile
-from HospitalAssistant.entities import Patient
-from HospitalAssistant.entities import Ward
-from HospitalAssistant.entities import Hospital
+from services.EMRConnector import EMRConnector
+from services.LLMService import LLMService
+from services.ConversationService import ConversationService
+from services.PredictiveModelController import PredictiveModelController
+from services.NotificationService import NotificationService
+from entities.SocialProfile import SocialProfile
+from entities.Patient import Patient
+from entities.Ward import Ward
+from entities.Hospital import Hospital
 
-app = FastAPI(title="Hospital AI Agent API")
+app = FastAPI(title="MedAssist AI Backend")
 
-# Instantiate shared services & hospital container
-emr_connector = EMRConnector("http://localhost:8080/fhir", api_key="YOUR_KEY")
-llm_service = LLMService("http://localhost:8000/api", api_key="YOUR_KEY")
-conversation_service = ConversationService(llm_service)
-predictive_controller = PredictiveModelController()
-notification_service = NotificationService()
-hospital = Hospital("hosp-001", "General Hospital", wards=[])
+# singleton in-memory hospital object for the demo
+hospital = load_hospital()
 
 
-# Pydantic response models
-class VitalSignResponse(BaseModel):
-    timestamp: str
-    type: str
-    value: float
+# ---------- Hospital-level ----------
+@app.get("/hospital", response_model=HospitalSnapshot)
+def get_hospital():
+    return hospital.to_dict()
 
 
-class PatientResponse(BaseModel):
-    patient_id: str
-    name: str
-    age: int
-    ward_id: str
-    preferred_language: str
-    social: Dict[str, Any]
-    vitals: List[VitalSignResponse]
+# ---------- Ward-level ----------
+@app.get("/wards/{ward_id}", response_model=WardSnapshot)
+def ward_status(ward_id: str):
+    ward = hospital.get_ward(ward_id)
+    if not ward:
+        raise HTTPException(404)
+    return ward.to_dict()
 
 
-class ChatRequest(BaseModel):
-    patient_id: str
-    message: str
+@app.post("/wards/{ward_id}/patients/{pid}/predict_discharge")
+def predict_discharge(ward_id: str, pid: str):
+    ward = hospital.get_ward(ward_id)
+    if not ward or pid not in ward.patients:
+        raise HTTPException(404)
+    patient = ward.patients[pid]
+    # simple rule-based readiness
+    ready = patient.compute_risk_score() < 0.3
+    return {"ready": ready, "confidence": round(1 - patient.compute_risk_score(), 2)}
 
 
-class ChatResponse(BaseModel):
-    response: str
-
-
-class PredictionResponse(BaseModel):
-    type: str
-    value: str
-    description: str
-
-
-class WardResponse(BaseModel):
-    ward_id: str
-    name: str
-    capacity: int
-    occupancy: int
-    free_beds: int
-
-
-class HospitalReport(BaseModel):
-    hospital_id: str
-    name: str
-    total_capacity: int
-    total_occupied: int
-    total_free_beds: int
-    bottlenecks: List[Dict[str, Any]]
-
-
-# Endpoints (stubs)
-@app.get("/patients/{patient_id}", response_model=PatientResponse)
-def get_patient(patient_id: str):
-    raise HTTPException(status_code=501, detail="Not implemented")
-
-
-@app.post("/chat", response_model=ChatResponse)
-def chat_with_patient(req: ChatRequest):
-    raise HTTPException(status_code=501, detail="Not implemented")
-
-
-@app.post("/predict/{patient_id}", response_model=PredictionResponse)
-def predict_discharge(patient_id: str):
-    raise HTTPException(status_code=501, detail="Not implemented")
-
-
-@app.get("/wards/{ward_id}", response_model=WardResponse)
-def get_ward(ward_id: str):
-    raise HTTPException(status_code=501, detail="Not implemented")
-
-
-@app.get("/hospital/report", response_model=HospitalReport)
-def get_hospital_report():
-    raise HTTPException(status_code=501, detail="Not implemented")
-
-
-@app.get("/hospital/bottlenecks", response_model=List[Dict[str, Any]])
-def get_hospital_bottlenecks(threshold: float = 0.8):
-    raise HTTPException(status_code=501, detail="Not implemented")
+# ---------- Persist on shutdown ----------
+@app.on_event("shutdown")
+def _persist():
+    save_hospital(hospital)
