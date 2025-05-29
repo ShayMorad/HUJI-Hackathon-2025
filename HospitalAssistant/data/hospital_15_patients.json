@@ -2,18 +2,17 @@
   "hospital_id": "H-001",
   "name": "City General",
   "total_capacity": 20,
-  "total_occupied": 15,
-  "total_free_beds": 5,
-  "utilisation": 0.75,
+  "total_occupied": 16,
+  "total_free_beds": 4,
+  "utilisation": 0.8,
   "average_patient_risk": 0.05,
-  "bottlenecks": [],
-  "wards": [
+  "bottlenecks": [
     {
       "ward_id": "A1",
       "name": "Internal Med A",
       "capacity": 20,
-      "occupancy": 15,
-      "load_factor": 0.75,
+      "occupancy": 16,
+      "load_factor": 0.8,
       "is_overloaded": false,
       "average_risk": 0.05,
       "patients": [
@@ -103,13 +102,13 @@
           "vitals": [
             {
               "name": "HR",
-              "value": 88.0,
+              "value": 77.0,
               "unit": "bpm",
               "timestamp": "2025-05-29T14:00:00"
             },
             {
               "name": "Temperature",
-              "value": 34.1,
+              "value": 35.0,
               "unit": "C",
               "timestamp": "2025-05-29T14:00:00"
             }
@@ -372,6 +371,447 @@
             "caregiver_available": true,
             "home_address": "Haifa",
             "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p999",
+          "name": "Test Patient",
+          "age": 55,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "stable",
+          "risk_score": 0.1,
+          "room": "209B",
+          "reason": "Test Admission",
+          "assigned_staff": [
+            "Dr. Alex Morgan (Surgeon)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 90.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-30T12:00:00"
+            },
+            {
+              "name": "Temperature",
+              "value": 37.5,
+              "unit": "C",
+              "timestamp": "2025-05-30T12:00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "alone",
+            "caregiver_available": false,
+            "home_address": "123 Main St",
+            "profile_id": "p999",
+            "support_contacts": []
+          }
+        }
+      ]
+    }
+  ],
+  "wards": [
+    {
+      "ward_id": "A1",
+      "name": "Internal Med A",
+      "capacity": 20,
+      "occupancy": 16,
+      "load_factor": 0.8,
+      "is_overloaded": false,
+      "average_risk": 0.05,
+      "patients": [
+        {
+          "patient_id": "p001",
+          "name": "John Doe",
+          "age": 58,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "217A",
+          "reason": "Post Surgery",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p002",
+          "name": "Noam Shabat",
+          "age": 26,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "218B",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p003",
+          "name": "Samm samm",
+          "age": 82,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.15,
+          "room": "212A",
+          "reason": "Neurological Observation",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p004",
+          "name": "Avigail Silverman",
+          "age": 64,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "205B",
+          "reason": "Post Surgery",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 77.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T14:00:00"
+            },
+            {
+              "name": "Temperature",
+              "value": 35.0,
+              "unit": "C",
+              "timestamp": "2025-05-29T14:00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p005",
+          "name": "Samuel Jackson",
+          "age": 40,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "200A",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p006",
+          "name": "Amir Meron",
+          "age": 37,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "205B",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p007",
+          "name": "Ben Cohen",
+          "age": 81,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.15,
+          "room": "203A",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p008",
+          "name": "Shoshana Levi",
+          "age": 78,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.15,
+          "room": "205B",
+          "reason": "Post Surgery",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p009",
+          "name": "Sima Biton",
+          "age": 84,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.15,
+          "room": "217A",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p010",
+          "name": "Amir Shalom",
+          "age": 50,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "205B",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p011",
+          "name": "Shaken Amos",
+          "age": 32,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "216A",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p012",
+          "name": "Shelly Cohen",
+          "age": 68,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "213B",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p013",
+          "name": "Karen Abutbul",
+          "age": 32,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "219A",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p014",
+          "name": "Chris Brown",
+          "age": 82,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.15,
+          "room": "206B",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p015",
+          "name": "Yuval Rahmani",
+          "age": 68,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "200A",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p999",
+          "name": "Test Patient",
+          "age": 55,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "stable",
+          "risk_score": 0.1,
+          "room": "209B",
+          "reason": "Test Admission",
+          "assigned_staff": [
+            "Dr. Alex Morgan (Surgeon)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 90.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-30T12:00:00"
+            },
+            {
+              "name": "Temperature",
+              "value": 37.5,
+              "unit": "C",
+              "timestamp": "2025-05-30T12:00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "alone",
+            "caregiver_available": false,
+            "home_address": "123 Main St",
+            "profile_id": "p999",
             "support_contacts": []
           }
         }

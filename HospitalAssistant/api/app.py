@@ -16,6 +16,7 @@ from core.schemas import (
     PatientCreate,
     VitalSignSchema, ChatResponse, ChatRequest, PromptOnly,
 )
+from entities.SocialProfile import SocialProfile
 from entities.VitalSign import VitalSign
 from services.LLMService import LLMService  # Adjust path as needed
 
@@ -78,12 +79,24 @@ def add_patient(patient_data: PatientCreate):
         age=patient_data.age,
         ward_id=patient_data.ward_id,
         preferred_language=patient_data.preferred_language,
-        social_profile=patient_data.social_profile,
+        room=patient_data.room,  # ✅ Add this
+        reason=patient_data.reason,  # ✅ Add this
+        social_profile=SocialProfile(**patient_data.social_profile.dict()),
+        assigned_staff=patient_data.assigned_staff  # ✅ Add this
     )
-    patient.vitals = patient_data.vitals
+    patient.vitals = [
+        VitalSign(
+            timestamp=v.timestamp,
+            type=v.name,
+            value=v.value,
+            unit=v.unit
+        )
+        for v in patient_data.vitals
+    ]
     success = add_patient_to_ward(hospital, patient_data.ward_id, patient)
     if not success:
         raise HTTPException(400, detail="Ward is full or not found")
+    save_hospital(hospital)
     return {"status": "added"}
 
 # ---------- Patient vitals ----------

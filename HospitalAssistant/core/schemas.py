@@ -43,6 +43,9 @@ class PatientCreate(BaseModel):
     preferred_language: str
     social_profile: SocialProfileCreate
     vitals: List[VitalSignSchema] = []
+    room: str                     # ✅ Add this
+    reason: str                   # ✅ Add this
+    assigned_staff: List[str]    # ✅ Add this
 
 
 class PatientDetail(PatientCreate):
