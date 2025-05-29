@@ -11,7 +11,7 @@ Provides:
 """
 
 from typing import List, Dict, Any
-from entities.Patient import Patient
+import Patient
 
 
 class Ward:

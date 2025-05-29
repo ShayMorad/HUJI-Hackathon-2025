@@ -28,7 +28,7 @@ class VitalSign:
         Check if 'value' falls within a predefined clinical range.
         Returns True if normal or if no range is defined.
         """
-        ranges = {'BP': (80, 120), 'HR': (60, 100), 'SpO2': (95, 100)}
+        ranges = {'BP': (81, 120), 'HR': (60, 100), 'SpO2': (95, 100)}
         low, high = ranges.get(self.type, (None, None))
         if low is None:
             return True

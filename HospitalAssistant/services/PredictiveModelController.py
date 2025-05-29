@@ -9,7 +9,7 @@ Orchestrates ML pipelines:
 """
 
 from typing import Dict, Any, List
-from entities.Patient import Patient
+from HospitalAssistant.entities import Patient
 
 
 class PredictiveModelController:

@@ -13,7 +13,7 @@ Provides:
 """
 
 from typing import List, Dict, Any
-from entities.Ward import Ward
+import Ward
 
 
 class Hospital:
