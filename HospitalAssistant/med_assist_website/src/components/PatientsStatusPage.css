@@ -222,10 +222,52 @@
   padding: 20px;
   border-left: 1px solid #ccc;
   overflow-y: auto; /* If actions list becomes long */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer les boutons si la largeur est limitée */
 }
 
 .actions-panel-area h3 {
   margin-top: 0;
   text-align: center;
+  color: #333;
+}
+
+.action-buttons-container {
+  display: flex;
+  flex-direction: column; /* Aligner les boutons verticalement */
+  gap: 15px; /* Espace entre les boutons */
+  margin-top: 20px;
+  width: 80%; /* Ou une largeur fixe si vous préférez */
+  max-width: 200px; /* Empêcher les boutons de devenir trop larges */
+}
+
+.action-button {
+  display: flex;
+  flex-direction: column; /* Icône au-dessus du texte */
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.action-button:hover {
+  background-color: #e0e0e0;
+}
+
+.action-button img {
+  width: 50px; /* Ajustez selon la taille de vos icônes */
+  height: 50px; /* Ajustez selon la taille de vos icônes */
+  margin-bottom: 8px; /* Espace entre l'icône et le texte */
+  object-fit: contain; /* S'assurer que l'image entière est visible */
+}
+
+.action-button span {
+  font-size: 0.9em;
   color: #333;
 } 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './PatientsStatusPage.css'; // CSS for this page
-import { sendChatMessageGet } from '../api/patientApi'; // Import the new API function
+import { sendChatMessagePost } from '../api/patientApi'; // Updated import
 import { processedInitialPatientsData, statusTypes, getRandomStaff } from '../data/patientData'; // Import data
 
 // Helper to map status to a sort order and color class
@@ -17,6 +17,10 @@ function PatientsStatusPage({ currentUser }) {
   const [currentMessage, setCurrentMessage] = useState('');
   const [isSending, setIsSending] = useState(false); // For send button disabling
   const chatMessagesEndRef = useRef(null);
+
+  const handleActionButtonClick = (buttonName) => {
+    alert(`${buttonName} feature doesn't work yet`);
+  };
 
   const scrollToBottom = () => {
     chatMessagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -99,23 +103,20 @@ function PatientsStatusPage({ currentUser }) {
     setIsSending(true);
 
     try {
-      // Actual API call (simulated for now)
-      const response = await sendChatMessageGet(currentUser, selectedPatient, messageToSend);
-      console.log("Simulated API response:", response);
+      const response = await sendChatMessagePost(currentUser, selectedPatient, messageToSend); // CALLING sendChatMessagePost HERE
+      console.log("API response:", response); // Changed log message
       
-      // Add the bot's reply from the simulated API response
       if (response && response.echo && response.echo.botReply) {
         const botMessage = {
-          id: Date.now() + 1, // Ensure unique ID
+          id: Date.now() + 1, 
           text: response.echo.botReply,
           sender: 'bot',
         };
         setChatMessages(prevMessages => [...prevMessages, botMessage]);
       } else {
-        // Fallback if botReply is not in the expected format
         const fallbackBotMessage = {
             id: Date.now() +1,
-            text: "Received, but couldn't process AI response this time (simulated).",
+            text: "Received, but couldn't process AI response this time.", // Updated fallback message
             sender: 'bot'
         };
         setChatMessages(prevMessages => [...prevMessages, fallbackBotMessage]);
@@ -124,7 +125,7 @@ function PatientsStatusPage({ currentUser }) {
       console.error("Error sending message:", error);
       const errorMessage = {
         id: Date.now() + 1,
-        text: `Error: ${error.message || 'Could not send message.'} (Simulated)`, 
+        text: `Error: ${error.message || 'Could not send message.'}`, // Updated error message
         sender: 'system',
       };
       setChatMessages(prevMessages => [...prevMessages, errorMessage]);
@@ -219,9 +220,17 @@ function PatientsStatusPage({ currentUser }) {
       </div>
 
       <div className="actions-panel-area">
-        <h3>Actions</h3>
-        {/* Les boutons viendront ici */}
-        <p><i>Future buttons area.</i></p>
+        <h3> Further actions </h3>
+        <div className="action-buttons-container">
+          <button className="action-button" onClick={() => handleActionButtonClick('Medical Record')}>
+            <img src={`${process.env.PUBLIC_URL}/patient_status_page/medical_record_icone.jpg`} alt="Medical Record" />
+            <span>Medical Record</span>
+          </button>
+          <button className="action-button" onClick={() => handleActionButtonClick('Vitals')}>
+            <img src={`${process.env.PUBLIC_URL}/patient_status_page/vitals_icone.jpg`} alt="Vitals" />
+            <span>Vitals</span>
+          </button>
+        </div>
       </div>
     </div>
   );
