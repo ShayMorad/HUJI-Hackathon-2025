@@ -1,53 +1,72 @@
-"""
-Ward Entity
+# entities/Ward.py  (append or replace the previous version)
 
-Models a hospital ward with capacity and a list of patients.
-Provides:
-  - list_patients()
-  - add_patient()
-  - remove_patient()
-  - get_bed_availability()
-  - generate_occupancy_report()
-"""
-
-from typing import List, Dict, Any
-import Patient
+from __future__ import annotations
+from dataclasses import dataclass, field
+from typing import Dict, List, Optional
+from entities.Patient import Patient
 
 
+@dataclass
 class Ward:
-    """
-    Attributes:
-        ward_id (str)
-        name (str)
-        capacity (int)
-        patients (List[Patient])
-    """
+    ward_id: str
+    name: str
+    capacity: int
+    patients: Dict[str, Patient] = field(default_factory=dict)  # keyed by patient_id
 
-    def __init__(self, ward_id: str, name: str, capacity: int):
-        self.ward_id = ward_id
-        self.name = name
-        self.capacity = capacity
-        self.patients: List[Patient] = []
+    # ---  original-mapping conveniences -----------------------------------
+    def list_patients(self) -> List[Patient]:                 # NEW
+        """Return a list of all current patients."""
+        return list(self.patients.values())
 
-    def list_patients(self) -> List[Patient]:
-        """Return all current patients."""
-        return self.patients
+    def get_bed_availability(self) -> int:                    # NEW
+        """Number of free beds right now."""
+        return max(0, self.capacity - self.occupancy())
 
-    def add_patient(self, patient: Patient) -> None:
-        """Add patient if capacity allows, else raise."""
-        if len(self.patients) >= self.capacity:
-            raise ValueError("Ward at full capacity")
-        self.patients.append(patient)
+    def generate_occupancy_report(self) -> Dict[str, any]:    # NEW stub
+        """
+        Return an extended report.
+        Later you can add throughput, avg LOS, etc.
+        """
+        return self.to_dict()
 
-    def remove_patient(self, patient_id: str) -> None:
-        """Discharge/remove a patient by ID."""
-        self.patients = [p for p in self.patients if p.patient_id != patient_id]
+    # ---  core methods from earlier draft (unchanged) ----------------------
+    def admit(self, patient: Patient) -> bool:
+        if self.is_full():
+            return False
+        self.patients[patient.patient_id] = patient
+        return True
 
-    def get_bed_availability(self) -> int:
-        """Return number of free beds."""
-        return max(0, self.capacity - len(self.patients))
+    def discharge(self, patient_id: str) -> Optional[Patient]:
+        return self.patients.pop(patient_id, None)
 
-    def generate_occupancy_report(self) -> Dict[str, Any]:
-        """Produce stats on occupancy, throughput, etc."""
-        # TODO
-        pass
+    def occupancy(self) -> int:
+        return len(self.patients)
+
+    def load_factor(self) -> float:
+        return self.occupancy() / max(self.capacity, 1)
+
+    def is_full(self) -> bool:
+        return self.occupancy() >= self.capacity
+
+    def is_overloaded(self, threshold: float = 0.9) -> bool:
+        return self.load_factor() >= threshold
+
+    def average_risk_score(self) -> float:
+        if not self.patients:
+            return 0.0
+        return sum(p.compute_risk_score() for p in self.patients.values()) / len(self.patients)
+
+    def to_dict(self) -> dict:
+        return {
+            "ward_id": self.ward_id,
+            "name": self.name,
+            "capacity": self.capacity,
+            "occupancy": self.occupancy(),
+            "load_factor": round(self.load_factor(), 2),
+            "is_overloaded": self.is_overloaded(),
+            "average_risk": round(self.average_risk_score(), 2),
+            "patients": [p.patient_id for p in self.patients.values()],
+        }
+
+    def __repr__(self):
+        return f"<Ward {self.name} {self.occupancy()}/{self.capacity}>"

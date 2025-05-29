@@ -1,91 +1,97 @@
-"""
-Hospital Entity
+# entities/Hospital.py
+from __future__ import annotations
+from dataclasses import dataclass, field
+from typing import Dict, List, Any
 
-Represents the hospital containing multiple wards and provides tools
-for executive oversight (e.g., bottleneck detection, capacity reports).
-
-Provides:
-  - list_wards()
-  - add_ward()
-  - remove_ward()
-  - get_bottlenecks(): identify wards near capacity or performance issues
-  - generate_system_report(): summary across all wards
-"""
-
-from typing import List, Dict, Any
-import Ward
+from entities.Ward import Ward
 
 
+@dataclass
 class Hospital:
     """
-    Attributes:
-        hospital_id (str): Unique identifier.
-        name (str): Hospital name.
-        wards (List[Ward]): List of Ward instances in this hospital.
+    Container for multiple wards plus high-level analytics.
     """
+    hospital_id: str
+    name: str
+    wards: Dict[str, Ward] = field(default_factory=dict)   # keyed by ward_id
 
-    def __init__(self, hospital_id: str, name: str, wards: List[Ward] = None):
-        self.hospital_id = hospital_id
-        self.name = name
-        self.wards: List[Ward] = wards or []
-
+    # ------------------------------------------------------------------ #
+    # CRUD on wards                                                      #
+    # ------------------------------------------------------------------ #
     def list_wards(self) -> List[Ward]:
-        """
-        Return all wards in the hospital.
-        """
-        return self.wards
+        return list(self.wards.values())
 
     def add_ward(self, ward: Ward) -> None:
-        """
-        Add a new ward to the hospital.
-        """
-        self.wards.append(ward)
+        self.wards[ward.ward_id] = ward
 
     def remove_ward(self, ward_id: str) -> None:
-        """
-        Remove a ward by its ID.
-        """
-        self.wards = [w for w in self.wards if w.ward_id != ward_id]
+        self.wards.pop(ward_id, None)
 
-    def get_bottlenecks(self, capacity_threshold: float = 0.8) -> List[Dict[str, Any]]:
-        """
-        Identify wards where occupancy >= capacity_threshold.
-        Returns a list of dicts with ward_id, name, capacity, occupancy, utilization.
-        """
-        bottlenecks = []
-        for w in self.wards:
-            occupied = len(w.patients)
-            if w.capacity > 0 and (occupied / w.capacity) >= capacity_threshold:
-                bottlenecks.append({
-                    'ward_id': w.ward_id,
-                    'name': w.name,
-                    'capacity': w.capacity,
-                    'occupancy': occupied,
-                    'utilization': occupied / w.capacity
-                })
-        return bottlenecks
+    def get_ward(self, ward_id: str) -> Ward | None:
+        return self.wards.get(ward_id)
 
+    # ------------------------------------------------------------------ #
+    # Analytics                                                          #
+    # ------------------------------------------------------------------ #
+    def total_capacity(self) -> int:
+        return sum(w.capacity for w in self.wards.values())
+
+    def total_occupancy(self) -> int:
+        return sum(w.occupancy() for w in self.wards.values())
+
+    def bed_utilisation(self) -> float:
+        cap = self.total_capacity()
+        return self.total_occupancy() / cap if cap else 0.0
+
+    def get_bottlenecks(self, threshold: float = 0.8) -> List[dict]:
+        """
+        Return wards whose load_factor >= threshold (default 80 %).
+        Each item is ward.to_dict().
+        """
+        return [
+            w.to_dict()
+            for w in self.wards.values()
+            if w.load_factor() >= threshold
+        ]
+
+    def average_patient_risk(self) -> float:
+        """Mean risk score across all in-patients hospital-wide."""
+        pts = [p for w in self.wards.values() for p in w.list_patients()]
+        return (sum(p.compute_risk_score() for p in pts) / len(pts)) if pts else 0.0
+
+    # ------------------------------------------------------------------ #
+    # Reports / serialization                                            #
+    # ------------------------------------------------------------------ #
     def generate_system_report(self) -> Dict[str, Any]:
-        """
-        Produce a summary report with total capacity, total occupied beds,
-        free beds, and current bottlenecks.
-        """
-        total_capacity = sum(w.capacity for w in self.wards)
-        total_occupied = sum(len(w.patients) for w in self.wards)
-        report = {
-            'hospital_id': self.hospital_id,
-            'name': self.name,
-            'total_capacity': total_capacity,
-            'total_occupied': total_occupied,
-            'total_free_beds': total_capacity - total_occupied,
-            'bottlenecks': self.get_bottlenecks()
+        return {
+            "hospital_id": self.hospital_id,
+            "name": self.name,
+            "total_capacity": self.total_capacity(),
+            "total_occupied": self.total_occupancy(),
+            "total_free_beds": self.total_capacity() - self.total_occupancy(),
+            "utilisation": round(self.bed_utilisation(), 2),
+            "average_patient_risk": round(self.average_patient_risk(), 2),
+            "bottlenecks": self.get_bottlenecks(),
         }
-        return report
 
-    # Future stub
+    def to_dict(self) -> Dict[str, Any]:
+        """Full snapshot including every ward (for API responses)."""
+        return {
+            **self.generate_system_report(),
+            "wards": [w.to_dict() for w in self.wards.values()],
+        }
+
+    # ------------------------------------------------------------------ #
+    # Future stub                                                        #
+    # ------------------------------------------------------------------ #
     def optimize_resource_allocation(self) -> None:
         """
-        Analyze utilization and suggest resource redistribution.
+        Placeholder for advanced analytics:
+        e.g. suggest moving two nurses from Ward B to Ward A.
         """
-        # TODO: implement advanced analytics
+        # TODO: implement algorithm / LLM call
         pass
+
+    # nic(er) repr
+    def __repr__(self) -> str:  # noqa: D401
+        return f"<Hospital {self.name} {self.total_occupancy()}/{self.total_capacity()}>"
