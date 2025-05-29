@@ -1,34 +1,80 @@
 // This file will contain functions to interact with the backend patient API.
 
-const API_BASE_URL = 'http://localhost:YOUR_BACKEND_PORT'; // IMPORTANT: Replace YOUR_BACKEND_PORT with your actual backend port
+const API_BASE_URL = 'http://localhost:8000'; // IMPORTANT: Replace YOUR_BACKEND_PORT with your actual backend port
 
 export const fetchPatients = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/patients`); // Assuming your endpoint is /patients
+    const response = await fetch(`${API_BASE_URL}/hospital`); 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status} - ${response.statusText}`);
     }
-    const data = await response.json();
-    return data;
+    const hospitalData = await response.json();
+    const allPatients = [];
+
+    if (hospitalData && hospitalData.wards) {
+      hospitalData.wards.forEach(ward => {
+        if (ward.patients) {
+          ward.patients.forEach(patient => {
+            const transformedStaff = patient.assigned_staff ? patient.assigned_staff.map(staffString => {
+              const match = staffString.match(/(.*)\s\((.*)\)/);
+              if (match && match[1] && match[2]) {
+                return { name: match[1].trim(), role: match[2].trim() };
+              }
+              return { name: staffString, role: 'Unknown' }; // Fallback
+            }) : [];
+
+            let mappedStatus = 'pending'; // Default status
+            if (patient.status) {
+              switch (patient.status.toLowerCase()) {
+                case 'stable':
+                  mappedStatus = 'pending'; // Or another appropriate status like 'ready_to_discharge'
+                  break;
+                // Add cases for other statuses your API might return
+                case 'critical':
+                  mappedStatus = 'urgent';
+                  break;
+                case 'ready for discharge':
+                mappedStatus = 'ready_to_discharge';
+                break;
+                default:
+                  mappedStatus = 'pending';
+              }
+            }
+
+            allPatients.push({
+              id: patient.patient_id,
+              name: patient.name,
+              room: patient.room,
+              reason: patient.reason,
+              status: mappedStatus,
+              assignedStaff: transformedStaff,
+              // Include other fields if your frontend expects them from the patient object
+              // For example, age: patient.age if it exists and is needed directly
+            });
+          });
+        }
+      });
+    }
+    return allPatients;
   } catch (error) {
-    console.error("Failed to fetch patients:", error);
+    console.error("Failed to fetch hospital/patient data:", error);
     throw error; 
   }
 };
 
-export const fetchPatientById = async (patientId) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/patients/${patientId}`); // Assuming your endpoint is /patients/:id
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status} - ${response.statusText}`);
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(`Failed to fetch patient ${patientId}:`, error);
-    throw error;
-  }
-};
+// export const fetchPatientById = async (patientId) => {
+//   try {
+//     const response = await fetch(`${API_BASE_URL}/patients/${patientId}`); // Assuming your endpoint is /patients/:id
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! status: ${response.status} - ${response.statusText}`);
+//     }
+//     const data = await response.json();
+//     return data;
+//   } catch (error) {
+//     console.error(`Failed to fetch patient ${patientId}:`, error);
+//     throw error;
+//   }
+// };
 
 export const sendChatMessagePost = async (loggedInUser, selectedPatient, message) => {
   const payload = {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './PatientsStatusPage.css'; // CSS for this page
-import { sendChatMessagePost } from '../api/patientApi'; // Updated import
-import { processedInitialPatientsData, statusTypes, getRandomStaff } from '../data/patientData'; // Import data
+import { sendChatMessagePost, fetchPatients } from '../api/patientApi'; // Updated import
+// import { processedInitialPatientsData, statusTypes, getRandomStaff } from '../data/patientData'; // Commented out for now
 
 // Helper to map status to a sort order and color class
 const statusMap = {
@@ -17,6 +17,8 @@ function PatientsStatusPage({ currentUser }) {
   const [currentMessage, setCurrentMessage] = useState('');
   const [isSending, setIsSending] = useState(false); // For send button disabling
   const chatMessagesEndRef = useRef(null);
+  const [isLoadingPatients, setIsLoadingPatients] = useState(true); // For loading indicator
+  const [errorLoadingPatients, setErrorLoadingPatients] = useState(null); // For error messages
 
   const handleActionButtonClick = (buttonName) => {
     alert(`${buttonName} feature doesn't work yet`);
@@ -28,32 +30,27 @@ function PatientsStatusPage({ currentUser }) {
 
   useEffect(scrollToBottom, [chatMessages]);
 
+  // Commenting out simulateUpdateAndSortPatients as we will load from API
+  /*
   const simulateUpdateAndSortPatients = () => {
     console.log("Simulating patient data update...");
-    // Use processedInitialPatientsData which ensures every patient has staff info
     let updatedPatientsSource = JSON.parse(JSON.stringify(processedInitialPatientsData));
 
-    // Simulate a patient being removed occasionally for testing this feature
-
-    if (Math.random() < 0.1 && updatedPatientsSource.length > 1 && selectedPatient) { // 10% chance to remove a patient IF one is selected
+    if (Math.random() < 0.1 && updatedPatientsSource.length > 1 && selectedPatient) { 
       const patientToRemoveIndex = updatedPatientsSource.findIndex(p => p.id === selectedPatient.id);
       if (patientToRemoveIndex !== -1) {
         console.log(`Simulating removal of selected patient: ${updatedPatientsSource[patientToRemoveIndex].name}`);
         updatedPatientsSource.splice(patientToRemoveIndex, 1);
       } else {
-        // If selected patient not found (should not happen with this logic), remove another for demo
         const randomIdxToDrop = Math.floor(Math.random() * updatedPatientsSource.length);
         console.log(`Simulating removal of random patient: ${updatedPatientsSource[randomIdxToDrop].name}`);
         updatedPatientsSource.splice(randomIdxToDrop, 1); 
       }
     } else {
-      // Simulate a dynamic status change if no patient was removed
       if (updatedPatientsSource.length > 0) {
         const randomIndex = Math.floor(Math.random() * updatedPatientsSource.length);
         const randomStatusIndex = Math.floor(Math.random() * statusTypes.length);
         updatedPatientsSource[randomIndex].status = statusTypes[randomStatusIndex];
-        // Optionally, simulate staff change too, though not requested
-        // updatedPatientsSource[randomIndex].assignedStaff = getRandomStaff(Math.floor(Math.random() * 2) + 1);
       }
     }
 
@@ -62,7 +59,6 @@ function PatientsStatusPage({ currentUser }) {
     });
     setPatients(sortedPatients);
 
-    // Check if the currently selected patient still exists in the new list
     if (selectedPatient) {
       const stillExists = sortedPatients.find(p => p.id === selectedPatient.id);
       if (!stillExists) {
@@ -73,13 +69,37 @@ function PatientsStatusPage({ currentUser }) {
       }
     }
   };
+  */
 
   useEffect(() => {
     document.title = "MedAssist AI - Patients Status";
-    simulateUpdateAndSortPatients();
-    const intervalId = setInterval(simulateUpdateAndSortPatients, 60000);
-    return () => clearInterval(intervalId);
-  }, []);
+    
+    const loadPatients = async () => {
+      try {
+        setErrorLoadingPatients(null);
+        setIsLoadingPatients(true);
+        const fetchedPatients = await fetchPatients();
+        // Sort patients by status order defined in statusMap
+        const sortedFetchedPatients = fetchedPatients.sort((a, b) => {
+          const orderA = statusMap[a.status] ? statusMap[a.status].order : 99; // Fallback for unknown statuses
+          const orderB = statusMap[b.status] ? statusMap[b.status].order : 99;
+          return orderA - orderB;
+        });
+        setPatients(sortedFetchedPatients);
+      } catch (error) {
+        console.error("Error loading patients:", error);
+        setErrorLoadingPatients(error.message || "Failed to load patient data.");
+      } finally {
+        setIsLoadingPatients(false);
+      }
+    };
+
+    loadPatients();
+    // If you want to refresh data periodically, you can set up an interval here
+    // const intervalId = setInterval(loadPatients, 60000); 
+    // return () => clearInterval(intervalId);
+
+  }, []); // Empty dependency array, run once on mount
 
   const handlePatientSelect = (patient) => {
     setSelectedPatient(patient);
@@ -103,8 +123,8 @@ function PatientsStatusPage({ currentUser }) {
     setIsSending(true);
 
     try {
-      const response = await sendChatMessagePost(currentUser, selectedPatient, messageToSend); // CALLING sendChatMessagePost HERE
-      console.log("API response:", response); // Changed log message
+      const response = await sendChatMessagePost(currentUser, selectedPatient, messageToSend); 
+      console.log("API response:", response);
       
       if (response && response.echo && response.echo.botReply) {
         const botMessage = {
@@ -116,7 +136,7 @@ function PatientsStatusPage({ currentUser }) {
       } else {
         const fallbackBotMessage = {
             id: Date.now() +1,
-            text: "Received, but couldn't process AI response this time.", // Updated fallback message
+            text: "Received, but couldn't process AI response this time.", 
             sender: 'bot'
         };
         setChatMessages(prevMessages => [...prevMessages, fallbackBotMessage]);
@@ -125,7 +145,7 @@ function PatientsStatusPage({ currentUser }) {
       console.error("Error sending message:", error);
       const errorMessage = {
         id: Date.now() + 1,
-        text: `Error: ${error.message || 'Could not send message.'}`, // Updated error message
+        text: `Error: ${error.message || 'Could not send message.'}`, 
         sender: 'system',
       };
       setChatMessages(prevMessages => [...prevMessages, errorMessage]);
@@ -134,8 +154,16 @@ function PatientsStatusPage({ currentUser }) {
     }
   };
 
+  if (isLoadingPatients) {
+    return <div className="info-message-patients">Loading patient data...</div>;
+  }
+
+  if (errorLoadingPatients) {
+    return <div className="error-message-patients">Error: {errorLoadingPatients}</div>;
+  }
+
   if (patients.length === 0 && !selectedPatient) {
-    return <div className="info-message-patients">Loading initial patient data or no patients to display...</div>;
+    return <div className="info-message-patients">No patients to display.</div>;
   }
 
   return (
@@ -155,7 +183,7 @@ function PatientsStatusPage({ currentUser }) {
               {patients.map((patient) => (
                 <tr 
                   key={patient.id} 
-                  className={`${statusMap[patient.status].className} ${selectedPatient?.id === patient.id ? 'selected-patient-row' : ''}`}
+                  className={`${(statusMap[patient.status] || {className: 'status-pending'}).className} ${selectedPatient?.id === patient.id ? 'selected-patient-row' : ''}`}
                   onClick={() => handlePatientSelect(patient)}
                 >
                   <td>{patient.room}</td>
