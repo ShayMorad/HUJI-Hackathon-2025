@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from typing import List, Optional
+from datetime import datetime
 
 
 class VitalSignSchema(BaseModel):
@@ -18,6 +19,16 @@ class SocialProfileCreate(BaseModel):
 class SocialProfileSchema(SocialProfileCreate):
     support_contacts: List[str] = []
 
+class ChatRequest(BaseModel):
+    userId: str
+    userName: str
+    patientId: str
+    patientName: str
+    message: str
+    timestamp: datetime
+
+class ChatResponse(BaseModel):
+    reply: str
 
 class PatientCreate(BaseModel):
     patient_id: str

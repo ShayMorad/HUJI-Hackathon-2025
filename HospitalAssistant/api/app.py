@@ -13,7 +13,7 @@ from core.schemas import (
     WardSnapshot,
     PatientDetail,
     PatientCreate,
-    VitalSignSchema,
+    VitalSignSchema, ChatResponse, ChatRequest,
 )
 from entities.VitalSign import VitalSign
 app = FastAPI(title="MedAssist AI Backend")
@@ -35,6 +35,7 @@ hospital = load_hospital()
 @app.get("/hospital", response_model=HospitalSnapshot)
 def get_hospital():
     return hospital.to_dict()
+
 
 # ---------- Ward-level ----------
 @app.get("/wards/{ward_id}", response_model=WardSnapshot)
@@ -93,8 +94,16 @@ def remove_patient(pid: str):
         raise HTTPException(404)
     return {"status": "discharged"}
 
+@app.post("/chat", response_model=ChatResponse)
+async def handle_chat(request: ChatRequest):
+    # Example: Replace this with your Gemini API call
+    gemini_reply = await send_to_gemini(request.message)
+
+    return ChatResponse(reply=gemini_reply)
+
 
 # ---------- Persist on shutdown ----------
 @app.on_event("shutdown")
 def _persist():
     save_hospital(hospital)
+
