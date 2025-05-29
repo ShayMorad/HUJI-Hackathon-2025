@@ -33,8 +33,7 @@ function LoginPage({ onLogin }) {
   return (
     <div className="login-container">
       <div className="logo-container">
-        {/* Update this path if your logo is named differently or in a subfolder of public */}
-        <img src="/Best Logo.png" alt="Logo" /> 
+        <img src="/login_page/MedAssistLogo.png" alt="Logo" /> 
       </div>
       <form onSubmit={handleLogin}>
         {error && <p className="error-message">{error}</p>}

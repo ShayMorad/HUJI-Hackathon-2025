@@ -1,5 +1,7 @@
 import users from '../users.json';
 
+const USER_STORAGE_KEY = 'currentUser';
+
 // Simulates an API call for login
 const login = async (username, password) => {
   return new Promise((resolve, reject) => {
@@ -10,8 +12,10 @@ const login = async (username, password) => {
       );
 
       if (user) {
-        // In a real backend call, you might receive a token or user object here
-        resolve({ success: true, user: { username: user.username } });
+        // Store the full user object in localStorage
+        localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(user));
+        // Resolve with the full user object
+        resolve({ success: true, user }); 
       } else {
         reject({ success: false, message: 'Invalid username or password' });
       }
@@ -21,6 +25,8 @@ const login = async (username, password) => {
 
 // Placeholder for a future logout API call
 const logout = async () => {
+  // Remove user from localStorage on logout
+  localStorage.removeItem(USER_STORAGE_KEY);
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({ success: true, message: 'Logged out successfully' });
@@ -28,8 +34,25 @@ const logout = async () => {
   });
 };
 
+// Function to get the current user from localStorage
+const getCurrentUser = () => {
+  const userStr = localStorage.getItem(USER_STORAGE_KEY);
+  if (userStr) {
+    try {
+      return JSON.parse(userStr);
+    } catch (e) {
+      console.error("Error parsing user from localStorage", e);
+      // Optionally remove invalid item
+      localStorage.removeItem(USER_STORAGE_KEY);
+      return null;
+    }
+  }
+  return null;
+};
+
 export const authService = {
   login,
   logout,
+  getCurrentUser, // Export the new function
   // We can add other auth-related functions here later (e.g., register, forgotPassword)
 }; 

@@ -1,0 +1,65 @@
+.app-header {
+  background-color: #4A90E2; /* Adjust to match the teal color from the image */
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding doesn't add to width */
+  position: fixed; /* Or sticky, depending on desired behavior */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.user-icon-background {
+  background-color: white;
+  border-radius: 50%;
+  width: 36px; /* Adjust size as needed */
+  height: 36px; /* Adjust size as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.user-icon-char {
+  font-size: 20px; /* Adjust icon size */
+  color: #777; /* Greyish color for the placeholder icon */
+}
+
+.greeting-text {
+  font-size: 1em;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-icon-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px; /* Adjust icon size */
+  margin-left: 15px;
+  cursor: pointer;
+  padding: 5px;
+  line-height: 1; /* Helps align text-based icons */
+  text-decoration: none; /* For Link component */
+}
+
+.header-icon-button:hover {
+  opacity: 0.8;
+}
+
+/* Specific style for the logout icon if needed, e.g., if it's not a standard char */
+.logout-icon {
+  /* font-weight: bold; */ /* Example */
+} 
