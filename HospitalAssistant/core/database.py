@@ -20,7 +20,7 @@ def _default_demo_object() -> Hospital:
 
 def load_hospital() -> Hospital:
     import json
-    with open("data/hospital_15_patients.json") as f:
+    with open("data/hospital_data.json") as f:
         blob = json.load(f)
 
     # Reconstruct wards from list -> dict

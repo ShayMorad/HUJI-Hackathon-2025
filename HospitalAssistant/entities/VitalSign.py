@@ -20,6 +20,7 @@ from typing import List, Tuple
 _NORMAL_RANGES: dict[str, Tuple[float, float]] = {
     "BP": (80, 120),   # systolic
     "HR": (60, 100),
+    "Temp":(35,39),
     "SpO2": (95, 100),
 }
 
