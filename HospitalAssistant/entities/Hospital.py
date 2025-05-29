@@ -1,8 +1,9 @@
 # entities/Hospital.py
 from __future__ import annotations
 from dataclasses import dataclass, field
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
 
+from entities.Patient import Patient
 from entities.Ward import Ward
 
 
@@ -29,6 +30,13 @@ class Hospital:
 
     def get_ward(self, ward_id: str) -> Ward | None:
         return self.wards.get(ward_id)
+
+    def find_patient(self, patient_id: str) -> Optional[Patient]:
+        for ward in self.wards.values():
+            if patient_id in ward.patients:
+                return ward.patients[patient_id]
+        return None
+
 
     # ------------------------------------------------------------------ #
     # Analytics                                                          #
@@ -74,11 +82,18 @@ class Hospital:
             "bottlenecks": self.get_bottlenecks(),
         }
 
-    def to_dict(self) -> Dict[str, Any]:
-        """Full snapshot including every ward (for API responses)."""
+    def to_dict(self) -> dict:
+        wards_data = [w.to_dict() for w in self.wards.values()]
         return {
-            **self.generate_system_report(),
-            "wards": [w.to_dict() for w in self.wards.values()],
+            "hospital_id": self.hospital_id,
+            "name": self.name,
+            "total_capacity": self.total_capacity(),
+            "total_occupied": self.total_occupancy(),
+            "total_free_beds": self.total_capacity() - self.total_occupancy(),
+            "utilisation": round(self.bed_utilisation(), 2),
+            "average_patient_risk": round(self.average_patient_risk(), 2),
+            "bottlenecks": [w.to_dict() for w in self.get_bottlenecks()],
+            "wards": wards_data,
         }
 
     # ------------------------------------------------------------------ #

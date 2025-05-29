@@ -4,7 +4,7 @@ const API_BASE_URL = 'http://localhost:8000'; // IMPORTANT: Replace YOUR_BACKEND
 
 export const fetchPatients = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/hospital`); 
+    const response = await fetch(`${API_BASE_URL}/hospital`); // Assuming your endpoint is /patients
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status} - ${response.statusText}`);
     }

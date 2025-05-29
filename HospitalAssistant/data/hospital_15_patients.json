@@ -1,0 +1,368 @@
+{
+  "hospital_id": "H-001",
+  "name": "City General",
+  "total_capacity": 20,
+  "total_occupied": 15,
+  "total_free_beds": 5,
+  "utilisation": 0.75,
+  "average_patient_risk": 0.05,
+  "bottlenecks": [],
+  "wards": [
+    {
+      "ward_id": "A1",
+      "name": "Internal Med A",
+      "capacity": 20,
+      "occupancy": 15,
+      "load_factor": 0.75,
+      "is_overloaded": false,
+      "average_risk": 0.05,
+      "patients": [
+        {
+          "patient_id": "p001",
+          "name": "Patient 1",
+          "age": 58,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "217A",
+          "reason": "Post Surgery",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p002",
+          "name": "Patient 2",
+          "age": 26,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "218B",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p003",
+          "name": "Patient 3",
+          "age": 82,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.15,
+          "room": "212A",
+          "reason": "Neurological Observation",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p004",
+          "name": "Patient 4",
+          "age": 64,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "205B",
+          "reason": "Post Surgery",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p005",
+          "name": "Patient 5",
+          "age": 40,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "200A",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p006",
+          "name": "Patient 6",
+          "age": 37,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "205B",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p007",
+          "name": "Patient 7",
+          "age": 81,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.15,
+          "room": "203A",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p008",
+          "name": "Patient 8",
+          "age": 78,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.15,
+          "room": "205B",
+          "reason": "Post Surgery",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p009",
+          "name": "Patient 9",
+          "age": 84,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.15,
+          "room": "217A",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p010",
+          "name": "Patient 10",
+          "age": 50,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "205B",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p011",
+          "name": "Patient 11",
+          "age": 32,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "216A",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p012",
+          "name": "Patient 12",
+          "age": 68,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "213B",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p013",
+          "name": "Patient 13",
+          "age": 32,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "219A",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p014",
+          "name": "Patient 14",
+          "age": 82,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.15,
+          "room": "206B",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p015",
+          "name": "Patient 15",
+          "age": 68,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "200A",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        }
+      ]
+    }
+  ]
+}

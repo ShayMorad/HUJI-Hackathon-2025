@@ -86,7 +86,7 @@ class HospitalReport(BaseModel):
 
 #TODO Get patient discharge prediction
 #TODO Get patient summary
-##TODO Get whole database
+#TODO Get whole database
 
 # Endpoints (stubs)
 @app.get("/patients/{patient_id}", response_model=PatientResponse)

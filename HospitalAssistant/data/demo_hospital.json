@@ -5,7 +5,7 @@
   "total_occupied": 1,
   "total_free_beds": 19,
   "utilisation": 0.05,
-  "average_patient_risk": 0.1,
+  "average_patient_risk": 0.0,
   "bottlenecks": [],
   "wards": [
     {
@@ -15,9 +15,31 @@
       "occupancy": 1,
       "load_factor": 0.05,
       "is_overloaded": false,
-      "average_risk": 0.1,
+      "average_risk": 0.0,
       "patients": [
-        "P-001"
+        {
+          "patient_id": "p123",
+          "name": "Alice",
+          "age": 30,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "stable",
+          "risk_score": 0.0,
+          "room": "N/A",
+          "reason": "N/A",
+          "vitals": [],
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "xyz123",
+            "support_contacts": []
+          }
+        }
       ]
     }
   ]

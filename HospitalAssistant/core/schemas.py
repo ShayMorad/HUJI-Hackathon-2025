@@ -1,5 +1,50 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
+from datetime import datetime
+
+
+class VitalSignSchema(BaseModel):
+    name: str
+    value: float
+    timestamp: str
+
+
+class SocialProfileCreate(BaseModel):
+    living_situation: str  # 'alone', 'family', 'institution'
+    caregiver_available: bool
+    home_address: str
+    profile_id: Optional[str] = None
+
+
+class SocialProfileSchema(SocialProfileCreate):
+    support_contacts: List[str] = []
+
+class ChatRequest(BaseModel):
+    userId: str
+    userName: str
+    patientId: str
+    patientName: str
+    message: str
+    timestamp: datetime
+
+class ChatResponse(BaseModel):
+    reply: str
+
+class PatientCreate(BaseModel):
+    patient_id: str
+    name: str
+    age: int
+    ward_id: str
+    preferred_language: str
+    social_profile: SocialProfileCreate
+    vitals: List[VitalSignSchema] = []
+
+
+class PatientDetail(PatientCreate):
+    status: str
+    risk_score: Optional[float] = None
+    social_profile: SocialProfileSchema  # upgraded version
+
 
 class WardSnapshot(BaseModel):
     ward_id: str
@@ -9,7 +54,8 @@ class WardSnapshot(BaseModel):
     load_factor: float
     is_overloaded: bool
     average_risk: float
-    patients: List[str]
+    patients: List[PatientDetail]  # instead of just List[str]
+
 
 class HospitalSnapshot(BaseModel):
     hospital_id: str

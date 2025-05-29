@@ -28,22 +28,27 @@ class Patient:
 
     # --- ctor ----------------------------------------------------------------
     def __init__(
-        self,
-        patient_id: str,
-        name: str,
-        age: int,
-        ward_id: str,
-        preferred_language: str,
-        social_profile: Optional[SocialProfile] = None,
+            self,
+            patient_id: str,
+            name: str,
+            age: int,
+            ward_id: str,
+            preferred_language: str,
+            room: str,
+            reason: str,
+            social_profile: Optional[SocialProfile] = None,
+            assigned_staff: Optional[List[str]] = None
     ):
         self.patient_id = patient_id
+        self.room = room
         self.name = name
         self.age = age
         self.ward_id = ward_id
         self.preferred_language = preferred_language
+        self.reason = reason
         self.social_profile = social_profile or SocialProfile.default()
-
-        self.vitals: List[VitalSign] = []          # populated via load_full_history()
+        self.assigned_staff: List[str] = assigned_staff or []
+        self.vitals: List[VitalSign] = []  # populated via load_full_history()
         self.record: Optional[MedicalRecord] = None
 
     # ------------------------------------------------------------------------
@@ -115,12 +120,51 @@ class Patient:
 
         return min(score, 1.0)
 
+    def to_dict(self) -> dict:
+        return {
+            "patient_id": self.patient_id,
+            "name": self.name,
+            "age": self.age,
+            "ward_id": self.ward_id,
+            "preferred_language": self.preferred_language,
+            "status": self.update_status(),
+            "risk_score": self.compute_risk_score(),
+            "room": self.room,  # ✅ include room
+            "reason": self.reason,  # ✅ include reason
+            "assigned_staff": self.assigned_staff,  # ✅ include staff
+            "vitals": [v.to_dict() for v in self.vitals],
+            "social_profile": {
+                **self.social_profile.to_dict(),
+                "support_contacts": self.social_profile.get_support_contacts()
+            }
+        }
+
+    @staticmethod
+    def from_dict(data: dict) -> Patient:
+        social_dict = data["social_profile"].copy()
+        social_dict.pop("support_contacts", None)  # ← THIS LINE avoids the crash
+
+        patient = Patient(
+            patient_id=data["patient_id"],
+            name=data["name"],
+            age=data["age"],
+            ward_id=data["ward_id"],
+            preferred_language=data["preferred_language"],
+            room=data.get("room", "N/A"),
+            reason=data.get("reason", "N/A"),
+            social_profile=SocialProfile(**social_dict),
+        )
+
+        patient.vitals = [VitalSign(**v) for v in data.get("vitals", [])]
+        patient.assigned_staff = data.get("assigned_staff", [])
+        return patient
 
 # ---------------------------------------------------------------------------
 # Quick factory for unit-test / demo convenience
 # ---------------------------------------------------------------------------
 from datetime import datetime, timezone
 from entities.SocialProfile import SocialProfile
+
 
 def demo_patient_stub(pid: str = "P-001") -> Patient:
     """
@@ -141,8 +185,8 @@ def demo_patient_stub(pid: str = "P-001") -> Patient:
     )
 
     patient.vitals = [
-        VitalSign(timestamp=now, type="BP",   value=110),   # systolic
-        VitalSign(timestamp=now, type="HR",   value=72),
+        VitalSign(timestamp=now, type="BP", value=110),  # systolic
+        VitalSign(timestamp=now, type="HR", value=72),
         VitalSign(timestamp=now, type="SpO2", value=98),
     ]
 
