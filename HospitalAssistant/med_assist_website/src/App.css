@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.App-with-header {
+  padding-top: 60px; /* Adjust based on actual header height. Header is 48px + 2*10px padding approx if line-height normal etc */
+}
