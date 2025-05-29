@@ -1,0 +1,24 @@
+{
+  "hospital_id": "H-001",
+  "name": "City General",
+  "total_capacity": 20,
+  "total_occupied": 1,
+  "total_free_beds": 19,
+  "utilisation": 0.05,
+  "average_patient_risk": 0.1,
+  "bottlenecks": [],
+  "wards": [
+    {
+      "ward_id": "A1",
+      "name": "Internal Med A",
+      "capacity": 20,
+      "occupancy": 1,
+      "load_factor": 0.05,
+      "is_overloaded": false,
+      "average_risk": 0.1,
+      "patients": [
+        "P-001"
+      ]
+    }
+  ]
+}
