@@ -48,7 +48,10 @@ class PatientCreate(BaseModel):
 class PatientDetail(PatientCreate):
     status: str
     risk_score: Optional[float] = None
-    social_profile: SocialProfileSchema  # upgraded version
+    social_profile: SocialProfileSchema
+    room: str
+    reason: str
+    assigned_staff: List[str]
 
 
 class WardSnapshot(BaseModel):

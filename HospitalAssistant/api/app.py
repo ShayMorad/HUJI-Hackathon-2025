@@ -141,7 +141,7 @@ async def handle_chat(req: ChatRequest):
         "vital_signs": str(patient.vitals),
     }
 
-    reply = llm_service.chat(context, prompt=req.message, language="hebrew")
+    reply = llm_service.chat(context, prompt=req.message, language="english")
     return ChatResponse(reply=reply)
 
 

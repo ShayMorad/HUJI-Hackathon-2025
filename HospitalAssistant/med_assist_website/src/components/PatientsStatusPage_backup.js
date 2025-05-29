@@ -328,4 +328,4 @@ function PatientsStatusPage({currentUser}) {
     );
 }
 
-export default PatientsStatusPage;
+export default PatientsStatusPage; 
