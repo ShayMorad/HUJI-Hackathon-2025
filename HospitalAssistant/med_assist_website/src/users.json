@@ -1,0 +1,23 @@
+[
+  {
+    "username": "admin",
+    "password": "admin",
+    "name": "Administrator",
+    "title": "System Admin",
+    "function": "admin"
+  },
+  {
+    "username": "doctor1",
+    "password": "password123",
+    "name": "Dr. Alice Smith",
+    "title": "Cardiologist",
+    "function": "doctor"
+  },
+  {
+    "username": "nurse_john",
+    "password": "securePassword",
+    "name": "John Doe",
+    "title": "Registered Nurse",
+    "function": "nurse"
+  }
+] 
