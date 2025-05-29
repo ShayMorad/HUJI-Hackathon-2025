@@ -1,5 +1,5 @@
 .app-header {
-  background-color: #4A90E2; /* Adjust to match the teal color from the image */
+  background-color: #48bbc5; /* Adjust to match the teal color from the image */
   color: white;
   padding: 10px 20px;
   display: flex;
@@ -62,4 +62,12 @@
 /* Specific style for the logout icon if needed, e.g., if it's not a standard char */
 .logout-icon {
   /* font-weight: bold; */ /* Example */
+}
+
+/* Style for the link wrapping the user icon and greeting */
+.header-left-link {
+  text-decoration: none; /* Remove underline from link */
+  color: inherit; /* Inherit color from parent (app-header, which is white) */
+  display: flex; /* Ensures the link takes up space correctly if needed */
+  align-items: center;
 } 

@@ -28,12 +28,14 @@ function Header({ currentUser, onLogout }) {
 
   return (
     <header className="app-header">
-      <div className="header-left">
-        <span className="user-icon-background">
-          <span className="user-icon-char">👤</span>
-        </span>
-        <span className="greeting-text">{getGreeting()}, {userDisplayName}</span>
-      </div>
+      <Link to="/" className="header-left-link">
+        <div className="header-left">
+          <span className="user-icon-background">
+            <span className="user-icon-char">👤</span>
+          </span>
+          <span className="greeting-text">{getGreeting()}, {userDisplayName}</span>
+        </div>
+      </Link>
       <div className="header-right">
         <Link to="/" className="header-icon-button" aria-label="Home">
           🏠
