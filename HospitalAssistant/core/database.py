@@ -6,7 +6,7 @@ from entities.VitalSign import VitalSign
 from entities.Ward import Ward
 from entities.Patient import demo_patient_stub, Patient
 
-DATA = pathlib.Path("./data/hospital_15_patients.json")
+DATA = pathlib.Path("./data/hospital_data.json")
 
 
 def _default_demo_object() -> Hospital:

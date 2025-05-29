@@ -118,9 +118,22 @@ function PatientsStatusPage({currentUser}) {
             }
         };
 
+        // loadPatients();
+        // // If you want to refresh data periodically, you can set up an interval here
+        // const intervalId = setInterval(loadPatients, 5000);
+        // return () => clearInterval(intervalId);
         loadPatients();
-        // If you want to refresh data periodically, you can set up an interval here
-        const intervalId = setInterval(loadPatients, 5000);
+
+        const intervalId = setInterval(() => {
+            const isInputFocused = document.activeElement.tagName === 'INPUT';
+            const isChatting = !!selectedPatient;
+
+            // Only refresh if not chatting and user isn't typing
+            if (!isChatting && !isInputFocused) {
+                loadPatients();
+            }
+        }, 5000);
+
         return () => clearInterval(intervalId);
 
     }, []); // Empty dependency array, run once on mount
