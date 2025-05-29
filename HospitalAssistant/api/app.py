@@ -1,6 +1,15 @@
 from fastapi import FastAPI, HTTPException
-from core.database import load_hospital, save_hospital
-from core.schemas import HospitalSnapshot, WardSnapshot
+from pydantic import BaseModel
+
+from services.EMRConnector import EMRConnector
+from services.LLMService import LLMService
+from services.ConversationService import ConversationService
+from services.PredictiveModelController import PredictiveModelController
+from services.NotificationService import NotificationService
+from entities.SocialProfile import SocialProfile
+from entities.Patient import Patient
+from entities.Ward import Ward
+from entities.Hospital import Hospital
 
 app = FastAPI(title="MedAssist AI Backend")
 
