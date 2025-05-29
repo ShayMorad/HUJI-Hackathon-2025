@@ -25,11 +25,13 @@
           "preferred_language": "hebrew",
           "status": "stable",
           "risk_score": 0.0,
+          "room": "N/A",
+          "reason": "N/A",
           "vitals": [],
           "assigned_staff": [
-    "Dr. Emily Carter (Cardiologist)",
-    "Dr. Johnathan Lee (Neurologist)"
-  ],
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
           "social_profile": {
             "living_situation": "family",
             "caregiver_available": true,

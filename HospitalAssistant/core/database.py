@@ -6,7 +6,7 @@ from entities.VitalSign import VitalSign
 from entities.Ward import Ward
 from entities.Patient import demo_patient_stub, Patient
 
-DATA = pathlib.Path("./data/demo_hospital.json")
+DATA = pathlib.Path("./data/hospital_15_patients.json")
 
 
 def _default_demo_object() -> Hospital:
@@ -20,7 +20,7 @@ def _default_demo_object() -> Hospital:
 
 def load_hospital() -> Hospital:
     import json
-    with open("data/demo_hospital.json") as f:
+    with open("data/hospital_15_patients.json") as f:
         blob = json.load(f)
 
     # Reconstruct wards from list -> dict

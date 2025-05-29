@@ -5,7 +5,7 @@
   "total_occupied": 15,
   "total_free_beds": 5,
   "utilisation": 0.75,
-  "average_patient_risk": 0.05,
+  "average_patient_risk": 0.0,
   "bottlenecks": [],
   "wards": [
     {
@@ -15,7 +15,7 @@
       "occupancy": 15,
       "load_factor": 0.75,
       "is_overloaded": false,
-      "average_risk": 0.05,
+      "average_risk": 0.0,
       "patients": [
         {
           "patient_id": "p001",
@@ -27,11 +27,11 @@
           "risk_score": 0.0,
           "room": "217A",
           "reason": "Post Surgery",
+          "vitals": [],
           "assigned_staff": [
             "Dr. Emily Carter (Cardiologist)",
             "Dr. Johnathan Lee (Neurologist)"
           ],
-          "vitals": [],
           "social_profile": {
             "living_situation": "family",
             "caregiver_available": true,
@@ -50,11 +50,11 @@
           "risk_score": 0.0,
           "room": "218B",
           "reason": "Infection Treatment",
+          "vitals": [],
           "assigned_staff": [
             "Dr. Emily Carter (Cardiologist)",
             "Dr. Johnathan Lee (Neurologist)"
           ],
-          "vitals": [],
           "social_profile": {
             "living_situation": "family",
             "caregiver_available": true,
@@ -70,14 +70,14 @@
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "stable",
-          "risk_score": 0.15,
+          "risk_score": 0.0,
           "room": "212A",
           "reason": "Neurological Observation",
+          "vitals": [],
           "assigned_staff": [
             "Dr. Emily Carter (Cardiologist)",
             "Dr. Johnathan Lee (Neurologist)"
           ],
-          "vitals": [],
           "social_profile": {
             "living_situation": "family",
             "caregiver_available": true,
@@ -96,11 +96,11 @@
           "risk_score": 0.0,
           "room": "205B",
           "reason": "Post Surgery",
+          "vitals": [],
           "assigned_staff": [
             "Dr. Emily Carter (Cardiologist)",
             "Dr. Johnathan Lee (Neurologist)"
           ],
-          "vitals": [],
           "social_profile": {
             "living_situation": "family",
             "caregiver_available": true,
@@ -119,11 +119,11 @@
           "risk_score": 0.0,
           "room": "200A",
           "reason": "Routine Check-up",
+          "vitals": [],
           "assigned_staff": [
             "Dr. Emily Carter (Cardiologist)",
             "Dr. Johnathan Lee (Neurologist)"
           ],
-          "vitals": [],
           "social_profile": {
             "living_situation": "family",
             "caregiver_available": true,
@@ -142,11 +142,11 @@
           "risk_score": 0.0,
           "room": "205B",
           "reason": "Infection Treatment",
+          "vitals": [],
           "assigned_staff": [
             "Dr. Emily Carter (Cardiologist)",
             "Dr. Johnathan Lee (Neurologist)"
           ],
-          "vitals": [],
           "social_profile": {
             "living_situation": "family",
             "caregiver_available": true,
@@ -162,14 +162,14 @@
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "stable",
-          "risk_score": 0.15,
+          "risk_score": 0.0,
           "room": "203A",
           "reason": "Routine Check-up",
+          "vitals": [],
           "assigned_staff": [
             "Dr. Emily Carter (Cardiologist)",
             "Dr. Johnathan Lee (Neurologist)"
           ],
-          "vitals": [],
           "social_profile": {
             "living_situation": "family",
             "caregiver_available": true,
@@ -185,14 +185,14 @@
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "stable",
-          "risk_score": 0.15,
+          "risk_score": 0.0,
           "room": "205B",
           "reason": "Post Surgery",
+          "vitals": [],
           "assigned_staff": [
             "Dr. Emily Carter (Cardiologist)",
             "Dr. Johnathan Lee (Neurologist)"
           ],
-          "vitals": [],
           "social_profile": {
             "living_situation": "family",
             "caregiver_available": true,
@@ -208,14 +208,14 @@
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "stable",
-          "risk_score": 0.15,
+          "risk_score": 0.0,
           "room": "217A",
           "reason": "Infection Treatment",
+          "vitals": [],
           "assigned_staff": [
             "Dr. Emily Carter (Cardiologist)",
             "Dr. Johnathan Lee (Neurologist)"
           ],
-          "vitals": [],
           "social_profile": {
             "living_situation": "family",
             "caregiver_available": true,
@@ -234,11 +234,11 @@
           "risk_score": 0.0,
           "room": "205B",
           "reason": "Routine Check-up",
+          "vitals": [],
           "assigned_staff": [
             "Dr. Emily Carter (Cardiologist)",
             "Dr. Johnathan Lee (Neurologist)"
           ],
-          "vitals": [],
           "social_profile": {
             "living_situation": "family",
             "caregiver_available": true,
@@ -257,11 +257,11 @@
           "risk_score": 0.0,
           "room": "216A",
           "reason": "Routine Check-up",
+          "vitals": [],
           "assigned_staff": [
             "Dr. Emily Carter (Cardiologist)",
             "Dr. Johnathan Lee (Neurologist)"
           ],
-          "vitals": [],
           "social_profile": {
             "living_situation": "family",
             "caregiver_available": true,
@@ -280,11 +280,11 @@
           "risk_score": 0.0,
           "room": "213B",
           "reason": "Routine Check-up",
+          "vitals": [],
           "assigned_staff": [
             "Dr. Emily Carter (Cardiologist)",
             "Dr. Johnathan Lee (Neurologist)"
           ],
-          "vitals": [],
           "social_profile": {
             "living_situation": "family",
             "caregiver_available": true,
@@ -303,11 +303,11 @@
           "risk_score": 0.0,
           "room": "219A",
           "reason": "Routine Check-up",
+          "vitals": [],
           "assigned_staff": [
             "Dr. Emily Carter (Cardiologist)",
             "Dr. Johnathan Lee (Neurologist)"
           ],
-          "vitals": [],
           "social_profile": {
             "living_situation": "family",
             "caregiver_available": true,
@@ -323,14 +323,14 @@
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "stable",
-          "risk_score": 0.15,
+          "risk_score": 0.0,
           "room": "206B",
           "reason": "Infection Treatment",
+          "vitals": [],
           "assigned_staff": [
             "Dr. Emily Carter (Cardiologist)",
             "Dr. Johnathan Lee (Neurologist)"
           ],
-          "vitals": [],
           "social_profile": {
             "living_situation": "family",
             "caregiver_available": true,
@@ -349,11 +349,11 @@
           "risk_score": 0.0,
           "room": "200A",
           "reason": "Infection Treatment",
+          "vitals": [],
           "assigned_staff": [
             "Dr. Emily Carter (Cardiologist)",
             "Dr. Johnathan Lee (Neurologist)"
           ],
-          "vitals": [],
           "social_profile": {
             "living_situation": "family",
             "caregiver_available": true,

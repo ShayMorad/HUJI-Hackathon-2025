@@ -129,10 +129,10 @@ class Patient:
             "preferred_language": self.preferred_language,
             "status": self.update_status(),
             "risk_score": self.compute_risk_score(),
-            "room": self.room,
-            "reason": self.reason,
+            "room": self.room,  # ✅ include room
+            "reason": self.reason,  # ✅ include reason
+            "assigned_staff": self.assigned_staff,  # ✅ include staff
             "vitals": [v.to_dict() for v in self.vitals],
-            "assigned_staff": self.assigned_staff,
             "social_profile": {
                 **self.social_profile.to_dict(),
                 "support_contacts": self.social_profile.get_support_contacts()
@@ -141,24 +141,22 @@ class Patient:
 
     @staticmethod
     def from_dict(data: dict) -> Patient:
-        """
-        Reconstruct a Patient object from a dictionary (reverse of .to_dict()).
-        """
+        social_dict = data["social_profile"].copy()
+        social_dict.pop("support_contacts", None)  # ← THIS LINE avoids the crash
+
         patient = Patient(
             patient_id=data["patient_id"],
             name=data["name"],
             age=data["age"],
             ward_id=data["ward_id"],
             preferred_language=data["preferred_language"],
-            social_profile=SocialProfile(**data["social_profile"]),
+            room=data.get("room", "N/A"),
+            reason=data.get("reason", "N/A"),
+            social_profile=SocialProfile(**social_dict),
         )
-        patient.assigned_staff = data.get("assigned_staff", [])
-        # Reconstruct vitals
-        vitals_data = data.get("vitals", [])
-        patient.vitals = [VitalSign(**v) for v in vitals_data]
 
-        # Optional fields
-        patient.record = None  # You can hydrate from EMR if needed later
+        patient.vitals = [VitalSign(**v) for v in data.get("vitals", [])]
+        patient.assigned_staff = data.get("assigned_staff", [])
         return patient
 
 # ---------------------------------------------------------------------------
