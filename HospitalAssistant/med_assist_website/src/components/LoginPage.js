@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { authService } from '../services/authService'; // Import the auth service
+import './LoginPage.css'; // Import the new CSS file
 
 function LoginPage({ onLogin }) {
   const [username, setUsername] = useState('');
@@ -24,36 +25,52 @@ function LoginPage({ onLogin }) {
     }
   };
 
+  const handleForgotPasswordClick = (e) => {
+    e.preventDefault(); // Prevent the default anchor tag behavior
+    alert("This feature doesn't work yet");
+  };
+
   return (
-    <div>
-      <h2>Login</h2>
+    <div className="login-container">
+      <div className="logo-container">
+        {/* Update this path if your logo is named differently or in a subfolder of public */}
+        <img src="/Best Logo.png" alt="Logo" /> 
+      </div>
       <form onSubmit={handleLogin}>
-        {error && <p style={{ color: 'red' }}>{error}</p>} 
-        <div>
-          <label htmlFor="username">Username:</label>
+        {error && <p className="error-message">{error}</p>}
+        <div className="input-group">
+          {/* Using a placeholder for icon, can be replaced with actual icon component or SVG */}
+          {/* <span className="icon">&#128100;</span> */}
+          <label htmlFor="username">Username</label>
           <input
             type="text"
             id="username"
+            placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             disabled={isLoading} // Disable input while loading
             required
           />
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
+        <div className="input-group">
+          {/* <span className="icon">&#128274;</span> */}
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
+            placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             disabled={isLoading} // Disable input while loading
             required
           />
         </div>
-        <button type="submit" disabled={isLoading}>
-          {isLoading ? 'Logging in...' : 'Login'}
+        <button type="submit" className="login-button" disabled={isLoading}>
+          {isLoading ? 'Logging in...' : 'Log in'}
         </button>
+        <div className="forgot-password">
+          <a href="#" onClick={handleForgotPasswordClick}>Forgot Password?</a>
+        </div>
       </form>
     </div>
   );
