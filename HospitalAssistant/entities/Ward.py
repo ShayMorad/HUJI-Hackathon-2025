@@ -65,8 +65,28 @@ class Ward:
             "load_factor": round(self.load_factor(), 2),
             "is_overloaded": self.is_overloaded(),
             "average_risk": round(self.average_risk_score(), 2),
-            "patients": [p.patient_id for p in self.patients.values()],
+            "patients": [p.to_dict() for p in self.patients.values()],
         }
+
+    @staticmethod
+    def from_dict(data: dict) -> Ward:
+        """
+        Reconstruct a Ward object from a dictionary.
+        Assumes patients are in a list of dicts under `patients`.
+        """
+        ward = Ward(
+            ward_id=data["ward_id"],
+            name=data["name"],
+            capacity=data["capacity"]
+        )
+
+        # Patients are saved as full dictionaries, so parse each one
+        patients_data = data.get("patients", [])
+        for p_data in patients_data:
+            patient = Patient.from_dict(p_data)
+            ward.patients[patient.patient_id] = patient
+
+        return ward
 
     def __repr__(self):
         return f"<Ward {self.name} {self.occupancy()}/{self.capacity}>"

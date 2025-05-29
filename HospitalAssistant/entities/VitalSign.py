@@ -37,6 +37,7 @@ class VitalSign:
     timestamp: str   # ISO-8601 (stored as string for easy JSON)
     type: str        # 'BP', 'HR', 'SpO2', ...
     value: float
+    unit: str
 
     # ------------------------------------------------------------------
     # Business logic
@@ -102,8 +103,11 @@ class VitalSign:
     # Convenience
     # ------------------------------------------------------------------
     def to_dict(self) -> dict:
-        """Handy for JSON serialisation / logging."""
-        return asdict(self)
+        return {
+            "name": self.type,
+            "value": self.value,
+            "timestamp": self.timestamp
+        }
 
     # Nice repr for debugging
     def __repr__(self) -> str:  # noqa: D401
