@@ -14,15 +14,15 @@ from typing import List, Dict, Any
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-from services.EMRConnector import EMRConnector
-from services.LLMService import LLMService
-from services.ConversationService import ConversationService
-from services.PredictiveModelController import PredictiveModelController
-from services.NotificationService import NotificationService
-from entities.SocialProfile import SocialProfile
-from entities.Patient import Patient
-from entities.Ward import Ward
-from entities.Hospital import Hospital
+from HospitalAssistant.services import EMRConnector
+from HospitalAssistant.services import LLMService
+from HospitalAssistant.services import ConversationService
+from HospitalAssistant.services import PredictiveModelController
+from HospitalAssistant.services import NotificationService
+from HospitalAssistant.entities import SocialProfile
+from HospitalAssistant.entities import Patient
+from HospitalAssistant.entities import Ward
+from HospitalAssistant.entities import Hospital
 
 app = FastAPI(title="Hospital AI Agent API")
 
