@@ -13,7 +13,7 @@ export const medicalStaffPool = [
 
 export const getRandomStaff = (numStaff = 2) => {
   const shuffled = [...medicalStaffPool].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, Math.floor(Math.random() * numStaff) + 1); 
+  return shuffled.slice(0, Math.floor(Math.random() * numStaff) + 1);
 };
 
 const initialPatientsData = [
@@ -65,7 +65,6 @@ const initialPatientsData = [
     status: 'pending',
     assignedStaff: getRandomStaff(2)
   },
-  // Start of 52 new patients (with staff)
   {
     id: 700000001,
     room: '101 A',
@@ -486,7 +485,7 @@ const initialPatientsData = [
 
 export const processedInitialPatientsData = initialPatientsData.map(patient => ({
     ...patient,
-    assignedStaff: patient.assignedStaff || getRandomStaff(Math.floor(Math.random() * 2) + 1) 
-})); 
+    assignedStaff: patient.assignedStaff || getRandomStaff(Math.floor(Math.random() * 2) + 1)
+}));
 
 export const statusTypes = ['urgent', 'ready_to_discharge', 'pending']; 
