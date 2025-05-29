@@ -96,8 +96,8 @@ function PatientsStatusPage({ currentUser }) {
 
     loadPatients();
     // If you want to refresh data periodically, you can set up an interval here
-    // const intervalId = setInterval(loadPatients, 60000); 
-    // return () => clearInterval(intervalId);
+    const intervalId = setInterval(loadPatients, 5000);
+    return () => clearInterval(intervalId);
 
   }, []); // Empty dependency array, run once on mount
 

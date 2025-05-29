@@ -86,7 +86,7 @@ export const sendChatMessagePost = async (loggedInUser, selectedPatient, message
     timestamp: new Date().toISOString(),
   };
 
-  const requestUrl = `${API_BASE_URL}/chat`; // Assuming your chat endpoint is /chat for POST requests
+  const requestUrl = `${API_BASE_URL}/chat_plain`; // Assuming your chat endpoint is /chat for POST requests
 
   try {
     const response = await fetch(requestUrl, {

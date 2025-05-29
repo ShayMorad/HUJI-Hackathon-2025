@@ -1,4 +1,5 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 from core.database import (
@@ -13,9 +14,12 @@ from core.schemas import (
     WardSnapshot,
     PatientDetail,
     PatientCreate,
-    VitalSignSchema, ChatResponse, ChatRequest,
+    VitalSignSchema, ChatResponse, ChatRequest, PromptOnly,
 )
 from entities.VitalSign import VitalSign
+from services.LLMService import LLMService  # Adjust path as needed
+
+llm_service = LLMService()  # You can pass a model_name if needed
 app = FastAPI(title="MedAssist AI Backend")
 
 # Enable CORS for frontend integration
@@ -94,12 +98,48 @@ def remove_patient(pid: str):
         raise HTTPException(404)
     return {"status": "discharged"}
 
+@app.post("/chat_plain")
+async def chat_plain(request: Request):
+    try:
+        prompt = await request.body()
+        prompt = prompt.decode("utf-8").strip()
+
+        # Optionally log or validate prompt
+        if not prompt:
+            raise ValueError("Empty prompt received")
+
+        # Call your Gemini LLM
+        response_text = llm_service.chat(context={}, prompt=prompt, language="hebrew")
+        return JSONResponse(content={"reply": response_text})
+
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+@app.post("/chat_simple", response_model=ChatResponse)
+async def chat_simple(payload: PromptOnly):
+    try:
+        gemini_reply = llm_service.chat({}, prompt=payload.message, language="hebrew")
+        return ChatResponse(reply=gemini_reply)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.post("/chat", response_model=ChatResponse)
 async def handle_chat(request: ChatRequest):
-    # Example: Replace this with your Gemini API call
-    gemini_reply = await send_to_gemini(request.message)
+    try:
+        patient = hospital.find_patient(request.patientId)
+        context = {
+            "patient_history": f"{patient.name}, age {patient.age}",
+            "current_condition": patient.status,
+            "vital_signs": str(patient.vitals)
+        }
 
-    return ChatResponse(reply=gemini_reply)
+        # Call Gemini
+        gemini_reply = llm_service.chat(context, prompt=request.message, language="hebrew")
+
+        return ChatResponse(reply=gemini_reply)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 
 
 # ---------- Persist on shutdown ----------

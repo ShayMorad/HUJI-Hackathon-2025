@@ -27,7 +27,7 @@ class LLMService:
         "gemini-2.5-pro-preview-05-06": "Most powerful for complex medical reasoning"
     }
 
-    def __init__(self, model_name: str = "gemini-1.5-pro"):
+    def __init__(self, model_name: str = "gemini-1.5-flash"):
         """Initialize the LLM service with Gemini.
 
         Args:
@@ -43,7 +43,7 @@ class LLMService:
         try:
             # Initialize credentials from the service account file
             credentials = service_account.Credentials.from_service_account_file(
-                'gemini/hackathon-team-46_gen-lang-client-0325865525_iam_gserviceaccount_com_1747758552.json'
+                r'C:\Users\shaym\Desktop\ComputerScience\Hackathon\Project\HUJI-Hackathon-2025\Gemini\hackathon-team-46_gen-lang-client-0325865525_iam_gserviceaccount_com_1747758552.json'
             )
             genai.configure(credentials=credentials)
 
@@ -113,19 +113,30 @@ class LLMService:
         formatted_context = self._format_medical_context(context)
 
         try:
-            # Add context to chat history if it's new
+            print("💬 Sending prompt to Gemini:")
+            print(f">>> Prompt: {prompt}")
+            print(f">>> Context: {formatted_context}")
+
+            # Send context to Gemini first (optional)
             if formatted_context:
                 self._chat_session.send_message(
-                    f"Medical Context:\\n{formatted_context}\\n\\nPlease consider this context for the following conversation."
+                    f"Medical Context:\n{formatted_context}\n\nPlease consider this context for the following conversation."
                 )
 
             # Send the actual prompt
-            response = self._chat_session.send_message(
-                f"User ({language}): {prompt}"
-            )
+            response = self._chat_session.send_message(f"User ({language}): {prompt}")
+
+            # Print and check Gemini response
+            print("📨 Gemini raw response:", response)
+
+            if not response or not hasattr(response, "text") or not response.text:
+                raise ValueError("Empty or malformed response from Gemini.")
+
             return response.text
+
         except Exception as e:
-            raise Exception(f"Error in chat: {e}")
+            print("❌ Gemini Error:", repr(e))  # Print actual exception
+            raise Exception("Received, but couldn't process AI response this time.")
 
     def load_model(self, model_name: str):
         """Load a different Gemini model."""

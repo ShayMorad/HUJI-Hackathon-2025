@@ -27,6 +27,10 @@ class ChatRequest(BaseModel):
     message: str
     timestamp: datetime
 
+class PromptOnly(BaseModel):
+    message: str  # Accepts JSON like: { "message": "Ask about meds" }
+
+
 class ChatResponse(BaseModel):
     reply: str
 
