@@ -1,0 +1,203 @@
+.patients-status-page-container {
+  display: flex;
+  height: calc(100vh - 60px); /* Full height minus header height, adjust 60px if header height changes */
+  width: 100%;
+}
+
+.patients-list-sidebar {
+  flex: 0 0 30%; /* Don't grow, don't shrink, base width 30% */
+  min-width: 250px; /* Minimum width before it gets too cramped */
+  max-width: 400px; /* Optional max width */
+  padding: 20px;
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden; /* Prevent sidebar itself from scrolling, table will scroll */
+}
+
+.patients-list-sidebar h2 {
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.patients-table-scrollable {
+  flex-grow: 1; /* Allows this div to take up available space */
+  overflow-y: auto; /* Makes only the table body scrollable */
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+.patients-table-scrollable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.patients-table-scrollable th,
+.patients-table-scrollable td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  font-size: 0.9em;
+}
+
+.patients-table-scrollable th {
+  background-color: #f8f9fa;
+  position: sticky;
+  top: 0; /* Sticks the header to the top of the scrollable container */
+  z-index: 10;
+}
+
+/* Status colors */
+.status-urgent {
+  background-color: #ffebee; /* Light Red */
+  color: #c62828; /* Darker Red text for contrast */
+}
+
+.status-ready {
+  background-color: #e8f5e9; /* Light Green */
+  color: #2e7d32; /* Darker Green text */
+}
+
+.status-pending {
+  background-color: #fffde7; /* Light Yellow */
+  color: #f57f17; /* Darker Yellow/Orange text */
+}
+
+/* Hover effect for rows */
+.patients-table-scrollable tbody tr:hover {
+  background-color: #f1f1f1; /* Or a slightly darker shade of its status color */
+}
+
+.main-content-area.chat-area {
+  flex: 1 1 45%; /* Grow, shrink, base width 45% */
+  min-width: 300px; /* Minimum width for chat */
+  padding: 20px;
+  display: flex; /* Added to make chat components work within this area */
+  flex-direction: column; /* Added for chat components */
+}
+
+.main-content-area h1,
+.main-content-area h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+/* Styles for loading, error, and info messages */
+.loading-message-patients,
+.error-message-patients,
+.info-message-patients {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px); /* Adjust if header height is different */
+  font-size: 1.2em;
+  color: #555;
+}
+
+.error-message-patients {
+  color: red;
+}
+
+.selected-patient-row {
+  background-color: #deefff !important; /* A light blue to indicate selection */
+}
+
+.chat-messages-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.chat-message {
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 15px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.chat-message p {
+  margin: 0;
+  font-size: 0.95em;
+}
+
+.chat-message.user {
+  background-color: #007bff;
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 5px;
+}
+
+.chat-message.bot {
+  background-color: #e9ecef;
+  color: #333;
+  margin-right: auto;
+  border-bottom-left-radius: 5px;
+}
+
+.chat-message.system {
+  background-color: #f0f0f0;
+  color: #555;
+  font-style: italic;
+  text-align: center;
+  font-size: 0.85em;
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.chat-input-area {
+  display: flex;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.chat-input-area input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 1em;
+}
+
+.chat-input-area button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s ease;
+}
+
+.chat-input-area button:hover {
+  background-color: #0056b3;
+}
+
+.actions-panel-area {
+  flex: 0 0 25%; /* Don't grow, don't shrink, base width 25% */
+  min-width: 180px; /* Minimum width for actions */
+  padding: 20px;
+  border-left: 1px solid #ccc;
+  overflow-y: auto; /* If actions list becomes long */
+}
+
+.actions-panel-area h3 {
+  margin-top: 0;
+  text-align: center;
+  color: #333;
+}
+
+/* Ensure other styles for main-content-area not specific to chat still work if chat is not active */
+.main-content-area {
+  flex: 1 1 45%; /* Default flex for when it's not the chat area specifically */
+  padding: 20px;
+  overflow-y: auto;
+} 
