@@ -1,0 +1,3017 @@
+[
+  {
+    "resourceType": "Patient",
+    "id": "P0001",
+    "identifier": [
+      {
+        "system": "urn:ietf:rfc:4122",
+        "value": "edb9da59-d1ea-4029-a895-a54dbaee8218"
+      }
+    ],
+    "name": [
+      {
+        "family": "Smith",
+        "given": [
+          "John"
+        ]
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1995-02-05"
+  },
+  {
+    "resourceType": "Encounter",
+    "id": "E0001",
+    "status": "finished",
+    "class": {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "code": "AMB"
+    },
+    "subject": {
+      "reference": "Patient/P0001"
+    },
+    "period": {
+      "start": "2024-11-30T00:00:00+03:00",
+      "end": "2024-12-06T00:00:00+03:00"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsT0001",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8310-5",
+          "display": "Body temperature"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0001"
+    },
+    "effectiveDateTime": "2024-11-30T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 36.7,
+      "unit": "\u00b0C"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsH0001",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0001"
+    },
+    "effectiveDateTime": "2024-11-30T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 72,
+      "unit": "beats/minute"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsBP0001",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "55284-4",
+          "display": "Blood pressure systolic & diastolic"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0001"
+    },
+    "effectiveDateTime": "2024-11-30T00:00:00+03:00",
+    "component": [
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 138,
+          "unit": "mmHg"
+        }
+      },
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 80,
+          "unit": "mmHg"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Condition",
+    "id": "C0001",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        }
+      ]
+    },
+    "code": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "E11",
+          "display": "Type 2 diabetes mellitus"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0001"
+    },
+    "recordedDate": "2024-11-30"
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "M0001",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "6279",
+          "display": "Lisinopril"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0001"
+    },
+    "authoredOn": "2024-11-30"
+  },
+  {
+    "resourceType": "Patient",
+    "id": "P0002",
+    "identifier": [
+      {
+        "system": "urn:ietf:rfc:4122",
+        "value": "76bd9d81-1671-4e88-ab36-e92f729eb40f"
+      }
+    ],
+    "name": [
+      {
+        "family": "Johnson",
+        "given": [
+          "Jane"
+        ]
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1977-04-11"
+  },
+  {
+    "resourceType": "Encounter",
+    "id": "E0002",
+    "status": "finished",
+    "class": {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "code": "IMP"
+    },
+    "subject": {
+      "reference": "Patient/P0002"
+    },
+    "period": {
+      "start": "2025-01-27T00:00:00+03:00",
+      "end": "2025-02-03T00:00:00+03:00"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsT0002",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8310-5",
+          "display": "Body temperature"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0002"
+    },
+    "effectiveDateTime": "2025-01-27T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 37.5,
+      "unit": "\u00b0C"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsH0002",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0002"
+    },
+    "effectiveDateTime": "2025-01-27T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 76,
+      "unit": "beats/minute"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsBP0002",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "55284-4",
+          "display": "Blood pressure systolic & diastolic"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0002"
+    },
+    "effectiveDateTime": "2025-01-27T00:00:00+03:00",
+    "component": [
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 119,
+          "unit": "mmHg"
+        }
+      },
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 84,
+          "unit": "mmHg"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Condition",
+    "id": "C0002",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        }
+      ]
+    },
+    "code": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "N39.0",
+          "display": "Urinary tract infection"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0002"
+    },
+    "recordedDate": "2025-01-27"
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "M0002",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "5984",
+          "display": "Lisinopril"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0002"
+    },
+    "authoredOn": "2025-01-27"
+  },
+  {
+    "resourceType": "Patient",
+    "id": "P0003",
+    "identifier": [
+      {
+        "system": "urn:ietf:rfc:4122",
+        "value": "843a7e0e-ec1e-46a3-9116-3a57632f458b"
+      }
+    ],
+    "name": [
+      {
+        "family": "Williams",
+        "given": [
+          "Alice"
+        ]
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1944-07-31"
+  },
+  {
+    "resourceType": "Encounter",
+    "id": "E0003",
+    "status": "finished",
+    "class": {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "code": "IMP"
+    },
+    "subject": {
+      "reference": "Patient/P0003"
+    },
+    "period": {
+      "start": "2024-02-28T00:00:00+03:00",
+      "end": "2024-03-03T00:00:00+03:00"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsT0003",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8310-5",
+          "display": "Body temperature"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0003"
+    },
+    "effectiveDateTime": "2024-02-28T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 36.5,
+      "unit": "\u00b0C"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsH0003",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0003"
+    },
+    "effectiveDateTime": "2024-02-28T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 77,
+      "unit": "beats/minute"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsBP0003",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "55284-4",
+          "display": "Blood pressure systolic & diastolic"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0003"
+    },
+    "effectiveDateTime": "2024-02-28T00:00:00+03:00",
+    "component": [
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 131,
+          "unit": "mmHg"
+        }
+      },
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 70,
+          "unit": "mmHg"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Condition",
+    "id": "C0003",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        }
+      ]
+    },
+    "code": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "N39.0",
+          "display": "Urinary tract infection"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0003"
+    },
+    "recordedDate": "2024-02-28"
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "M0003",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "9218",
+          "display": "Metformin"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0003"
+    },
+    "authoredOn": "2024-02-28"
+  },
+  {
+    "resourceType": "Patient",
+    "id": "P0004",
+    "identifier": [
+      {
+        "system": "urn:ietf:rfc:4122",
+        "value": "d4471b7b-45e1-4e7e-8dc7-67a575d8c614"
+      }
+    ],
+    "name": [
+      {
+        "family": "Brown",
+        "given": [
+          "Bob"
+        ]
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1999-03-06"
+  },
+  {
+    "resourceType": "Encounter",
+    "id": "E0004",
+    "status": "finished",
+    "class": {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "code": "AMB"
+    },
+    "subject": {
+      "reference": "Patient/P0004"
+    },
+    "period": {
+      "start": "2024-06-25T00:00:00+03:00",
+      "end": "2024-06-29T00:00:00+03:00"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsT0004",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8310-5",
+          "display": "Body temperature"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0004"
+    },
+    "effectiveDateTime": "2024-06-25T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 36.8,
+      "unit": "\u00b0C"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsH0004",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0004"
+    },
+    "effectiveDateTime": "2024-06-25T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 62,
+      "unit": "beats/minute"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsBP0004",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "55284-4",
+          "display": "Blood pressure systolic & diastolic"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0004"
+    },
+    "effectiveDateTime": "2024-06-25T00:00:00+03:00",
+    "component": [
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 140,
+          "unit": "mmHg"
+        }
+      },
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 73,
+          "unit": "mmHg"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Condition",
+    "id": "C0004",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        }
+      ]
+    },
+    "code": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "M54.5",
+          "display": "Low back pain"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0004"
+    },
+    "recordedDate": "2024-06-25"
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "M0004",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "9719",
+          "display": "Ibuprofen"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0004"
+    },
+    "authoredOn": "2024-06-25"
+  },
+  {
+    "resourceType": "Patient",
+    "id": "P0005",
+    "identifier": [
+      {
+        "system": "urn:ietf:rfc:4122",
+        "value": "e21d557d-de74-41d3-baea-36f4c37ea138"
+      }
+    ],
+    "name": [
+      {
+        "family": "Jones",
+        "given": [
+          "Carol"
+        ]
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1962-07-14"
+  },
+  {
+    "resourceType": "Encounter",
+    "id": "E0005",
+    "status": "finished",
+    "class": {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "code": "EMER"
+    },
+    "subject": {
+      "reference": "Patient/P0005"
+    },
+    "period": {
+      "start": "2024-11-28T00:00:00+03:00",
+      "end": "2024-12-05T00:00:00+03:00"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsT0005",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8310-5",
+          "display": "Body temperature"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0005"
+    },
+    "effectiveDateTime": "2024-11-28T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 36.8,
+      "unit": "\u00b0C"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsH0005",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0005"
+    },
+    "effectiveDateTime": "2024-11-28T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 73,
+      "unit": "beats/minute"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsBP0005",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "55284-4",
+          "display": "Blood pressure systolic & diastolic"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0005"
+    },
+    "effectiveDateTime": "2024-11-28T00:00:00+03:00",
+    "component": [
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 125,
+          "unit": "mmHg"
+        }
+      },
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 80,
+          "unit": "mmHg"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Condition",
+    "id": "C0005",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        }
+      ]
+    },
+    "code": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "J06.9",
+          "display": "Acute upper respiratory infection"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0005"
+    },
+    "recordedDate": "2024-11-28"
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "M0005",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "2901",
+          "display": "Ibuprofen"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0005"
+    },
+    "authoredOn": "2024-11-28"
+  },
+  {
+    "resourceType": "Patient",
+    "id": "P0006",
+    "identifier": [
+      {
+        "system": "urn:ietf:rfc:4122",
+        "value": "7d22a771-36ff-4b7e-a5d9-eb84d6c33ae3"
+      }
+    ],
+    "name": [
+      {
+        "family": "Miller",
+        "given": [
+          "David"
+        ]
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1956-11-16"
+  },
+  {
+    "resourceType": "Encounter",
+    "id": "E0006",
+    "status": "finished",
+    "class": {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "code": "AMB"
+    },
+    "subject": {
+      "reference": "Patient/P0006"
+    },
+    "period": {
+      "start": "2024-02-21T00:00:00+03:00",
+      "end": "2024-02-22T00:00:00+03:00"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsT0006",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8310-5",
+          "display": "Body temperature"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0006"
+    },
+    "effectiveDateTime": "2024-02-21T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 37.4,
+      "unit": "\u00b0C"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsH0006",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0006"
+    },
+    "effectiveDateTime": "2024-02-21T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 70,
+      "unit": "beats/minute"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsBP0006",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "55284-4",
+          "display": "Blood pressure systolic & diastolic"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0006"
+    },
+    "effectiveDateTime": "2024-02-21T00:00:00+03:00",
+    "component": [
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 113,
+          "unit": "mmHg"
+        }
+      },
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 88,
+          "unit": "mmHg"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Condition",
+    "id": "C0006",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        }
+      ]
+    },
+    "code": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "J06.9",
+          "display": "Acute upper respiratory infection"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0006"
+    },
+    "recordedDate": "2024-02-21"
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "M0006",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "3378",
+          "display": "Lisinopril"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0006"
+    },
+    "authoredOn": "2024-02-21"
+  },
+  {
+    "resourceType": "Patient",
+    "id": "P0007",
+    "identifier": [
+      {
+        "system": "urn:ietf:rfc:4122",
+        "value": "e3cda384-95b9-4270-8b7e-8bea0ce9d5d3"
+      }
+    ],
+    "name": [
+      {
+        "family": "Davis",
+        "given": [
+          "Eve"
+        ]
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1996-11-08"
+  },
+  {
+    "resourceType": "Encounter",
+    "id": "E0007",
+    "status": "finished",
+    "class": {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "code": "EMER"
+    },
+    "subject": {
+      "reference": "Patient/P0007"
+    },
+    "period": {
+      "start": "2024-03-21T00:00:00+03:00",
+      "end": "2024-03-26T00:00:00+03:00"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsT0007",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8310-5",
+          "display": "Body temperature"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0007"
+    },
+    "effectiveDateTime": "2024-03-21T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 37.3,
+      "unit": "\u00b0C"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsH0007",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0007"
+    },
+    "effectiveDateTime": "2024-03-21T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 65,
+      "unit": "beats/minute"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsBP0007",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "55284-4",
+          "display": "Blood pressure systolic & diastolic"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0007"
+    },
+    "effectiveDateTime": "2024-03-21T00:00:00+03:00",
+    "component": [
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 123,
+          "unit": "mmHg"
+        }
+      },
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 88,
+          "unit": "mmHg"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Condition",
+    "id": "C0007",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        }
+      ]
+    },
+    "code": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "N39.0",
+          "display": "Urinary tract infection"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0007"
+    },
+    "recordedDate": "2024-03-21"
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "M0007",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "2572",
+          "display": "Amoxicillin"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0007"
+    },
+    "authoredOn": "2024-03-21"
+  },
+  {
+    "resourceType": "Patient",
+    "id": "P0008",
+    "identifier": [
+      {
+        "system": "urn:ietf:rfc:4122",
+        "value": "ccfb62c5-303d-4d3f-a550-6f5912083492"
+      }
+    ],
+    "name": [
+      {
+        "family": "Garcia",
+        "given": [
+          "Frank"
+        ]
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1958-09-15"
+  },
+  {
+    "resourceType": "Encounter",
+    "id": "E0008",
+    "status": "finished",
+    "class": {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "code": "EMER"
+    },
+    "subject": {
+      "reference": "Patient/P0008"
+    },
+    "period": {
+      "start": "2024-12-10T00:00:00+03:00",
+      "end": "2024-12-14T00:00:00+03:00"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsT0008",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8310-5",
+          "display": "Body temperature"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0008"
+    },
+    "effectiveDateTime": "2024-12-10T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 37.5,
+      "unit": "\u00b0C"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsH0008",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0008"
+    },
+    "effectiveDateTime": "2024-12-10T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 62,
+      "unit": "beats/minute"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsBP0008",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "55284-4",
+          "display": "Blood pressure systolic & diastolic"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0008"
+    },
+    "effectiveDateTime": "2024-12-10T00:00:00+03:00",
+    "component": [
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 112,
+          "unit": "mmHg"
+        }
+      },
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 85,
+          "unit": "mmHg"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Condition",
+    "id": "C0008",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        }
+      ]
+    },
+    "code": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "N39.0",
+          "display": "Urinary tract infection"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0008"
+    },
+    "recordedDate": "2024-12-10"
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "M0008",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "9896",
+          "display": "Albuterol"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0008"
+    },
+    "authoredOn": "2024-12-10"
+  },
+  {
+    "resourceType": "Patient",
+    "id": "P0009",
+    "identifier": [
+      {
+        "system": "urn:ietf:rfc:4122",
+        "value": "da90abc1-0077-4326-aa13-39e145d8bfbd"
+      }
+    ],
+    "name": [
+      {
+        "family": "Rodriguez",
+        "given": [
+          "Grace"
+        ]
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1940-12-08"
+  },
+  {
+    "resourceType": "Encounter",
+    "id": "E0009",
+    "status": "finished",
+    "class": {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "code": "IMP"
+    },
+    "subject": {
+      "reference": "Patient/P0009"
+    },
+    "period": {
+      "start": "2024-10-24T00:00:00+03:00",
+      "end": "2024-10-25T00:00:00+03:00"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsT0009",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8310-5",
+          "display": "Body temperature"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0009"
+    },
+    "effectiveDateTime": "2024-10-24T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 36.9,
+      "unit": "\u00b0C"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsH0009",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0009"
+    },
+    "effectiveDateTime": "2024-10-24T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 75,
+      "unit": "beats/minute"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsBP0009",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "55284-4",
+          "display": "Blood pressure systolic & diastolic"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0009"
+    },
+    "effectiveDateTime": "2024-10-24T00:00:00+03:00",
+    "component": [
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 126,
+          "unit": "mmHg"
+        }
+      },
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 81,
+          "unit": "mmHg"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Condition",
+    "id": "C0009",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        }
+      ]
+    },
+    "code": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "N39.0",
+          "display": "Urinary tract infection"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0009"
+    },
+    "recordedDate": "2024-10-24"
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "M0009",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "4044",
+          "display": "Lisinopril"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0009"
+    },
+    "authoredOn": "2024-10-24"
+  },
+  {
+    "resourceType": "Patient",
+    "id": "P0010",
+    "identifier": [
+      {
+        "system": "urn:ietf:rfc:4122",
+        "value": "8f776304-345b-42cb-9a6b-5386515f1abb"
+      }
+    ],
+    "name": [
+      {
+        "family": "Wilson",
+        "given": [
+          "Hank"
+        ]
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1963-03-19"
+  },
+  {
+    "resourceType": "Encounter",
+    "id": "E0010",
+    "status": "finished",
+    "class": {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "code": "IMP"
+    },
+    "subject": {
+      "reference": "Patient/P0010"
+    },
+    "period": {
+      "start": "2024-02-01T00:00:00+03:00",
+      "end": "2024-02-02T00:00:00+03:00"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsT0010",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8310-5",
+          "display": "Body temperature"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0010"
+    },
+    "effectiveDateTime": "2024-02-01T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 37.3,
+      "unit": "\u00b0C"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsH0010",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0010"
+    },
+    "effectiveDateTime": "2024-02-01T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 92,
+      "unit": "beats/minute"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsBP0010",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "55284-4",
+          "display": "Blood pressure systolic & diastolic"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0010"
+    },
+    "effectiveDateTime": "2024-02-01T00:00:00+03:00",
+    "component": [
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 113,
+          "unit": "mmHg"
+        }
+      },
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 75,
+          "unit": "mmHg"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Condition",
+    "id": "C0010",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        }
+      ]
+    },
+    "code": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "I10",
+          "display": "Essential (primary) hypertension"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0010"
+    },
+    "recordedDate": "2024-02-01"
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "M0010",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "9250",
+          "display": "Metformin"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0010"
+    },
+    "authoredOn": "2024-02-01"
+  },
+  {
+    "resourceType": "Patient",
+    "id": "P0011",
+    "identifier": [
+      {
+        "system": "urn:ietf:rfc:4122",
+        "value": "757bb77f-31cc-4f8e-bc2e-ca30781881af"
+      }
+    ],
+    "name": [
+      {
+        "family": "Martinez",
+        "given": [
+          "Ivy"
+        ]
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1980-08-15"
+  },
+  {
+    "resourceType": "Encounter",
+    "id": "E0011",
+    "status": "finished",
+    "class": {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "code": "AMB"
+    },
+    "subject": {
+      "reference": "Patient/P0011"
+    },
+    "period": {
+      "start": "2024-02-24T00:00:00+03:00",
+      "end": "2024-02-26T00:00:00+03:00"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsT0011",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8310-5",
+          "display": "Body temperature"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0011"
+    },
+    "effectiveDateTime": "2024-02-24T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 36.3,
+      "unit": "\u00b0C"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsH0011",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0011"
+    },
+    "effectiveDateTime": "2024-02-24T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 86,
+      "unit": "beats/minute"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsBP0011",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "55284-4",
+          "display": "Blood pressure systolic & diastolic"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0011"
+    },
+    "effectiveDateTime": "2024-02-24T00:00:00+03:00",
+    "component": [
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 139,
+          "unit": "mmHg"
+        }
+      },
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 80,
+          "unit": "mmHg"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Condition",
+    "id": "C0011",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        }
+      ]
+    },
+    "code": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "M54.5",
+          "display": "Low back pain"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0011"
+    },
+    "recordedDate": "2024-02-24"
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "M0011",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "4795",
+          "display": "Atorvastatin"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0011"
+    },
+    "authoredOn": "2024-02-24"
+  },
+  {
+    "resourceType": "Patient",
+    "id": "P0012",
+    "identifier": [
+      {
+        "system": "urn:ietf:rfc:4122",
+        "value": "9a3e74c1-cefd-4927-9379-fa3352e568d4"
+      }
+    ],
+    "name": [
+      {
+        "family": "Anderson",
+        "given": [
+          "Jack"
+        ]
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1969-04-23"
+  },
+  {
+    "resourceType": "Encounter",
+    "id": "E0012",
+    "status": "finished",
+    "class": {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "code": "AMB"
+    },
+    "subject": {
+      "reference": "Patient/P0012"
+    },
+    "period": {
+      "start": "2024-06-09T00:00:00+03:00",
+      "end": "2024-06-11T00:00:00+03:00"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsT0012",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8310-5",
+          "display": "Body temperature"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0012"
+    },
+    "effectiveDateTime": "2024-06-09T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 37.9,
+      "unit": "\u00b0C"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsH0012",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0012"
+    },
+    "effectiveDateTime": "2024-06-09T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 99,
+      "unit": "beats/minute"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsBP0012",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "55284-4",
+          "display": "Blood pressure systolic & diastolic"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0012"
+    },
+    "effectiveDateTime": "2024-06-09T00:00:00+03:00",
+    "component": [
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 120,
+          "unit": "mmHg"
+        }
+      },
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 79,
+          "unit": "mmHg"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Condition",
+    "id": "C0012",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        }
+      ]
+    },
+    "code": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "J06.9",
+          "display": "Acute upper respiratory infection"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0012"
+    },
+    "recordedDate": "2024-06-09"
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "M0012",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "9658",
+          "display": "Lisinopril"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0012"
+    },
+    "authoredOn": "2024-06-09"
+  },
+  {
+    "resourceType": "Patient",
+    "id": "P0013",
+    "identifier": [
+      {
+        "system": "urn:ietf:rfc:4122",
+        "value": "a96cc129-2bbd-440a-95c4-b89d0e4ea889"
+      }
+    ],
+    "name": [
+      {
+        "family": "Taylor",
+        "given": [
+          "Kara"
+        ]
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1987-03-17"
+  },
+  {
+    "resourceType": "Encounter",
+    "id": "E0013",
+    "status": "finished",
+    "class": {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "code": "AMB"
+    },
+    "subject": {
+      "reference": "Patient/P0013"
+    },
+    "period": {
+      "start": "2025-01-16T00:00:00+03:00",
+      "end": "2025-01-22T00:00:00+03:00"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsT0013",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8310-5",
+          "display": "Body temperature"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0013"
+    },
+    "effectiveDateTime": "2025-01-16T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 36.4,
+      "unit": "\u00b0C"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsH0013",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0013"
+    },
+    "effectiveDateTime": "2025-01-16T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 62,
+      "unit": "beats/minute"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsBP0013",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "55284-4",
+          "display": "Blood pressure systolic & diastolic"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0013"
+    },
+    "effectiveDateTime": "2025-01-16T00:00:00+03:00",
+    "component": [
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 135,
+          "unit": "mmHg"
+        }
+      },
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 82,
+          "unit": "mmHg"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Condition",
+    "id": "C0013",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        }
+      ]
+    },
+    "code": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "I10",
+          "display": "Essential (primary) hypertension"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0013"
+    },
+    "recordedDate": "2025-01-16"
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "M0013",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "5904",
+          "display": "Lisinopril"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0013"
+    },
+    "authoredOn": "2025-01-16"
+  },
+  {
+    "resourceType": "Patient",
+    "id": "P0014",
+    "identifier": [
+      {
+        "system": "urn:ietf:rfc:4122",
+        "value": "7f70f4a9-40b8-4fb2-b1e1-7f15ff288f4b"
+      }
+    ],
+    "name": [
+      {
+        "family": "Thomas",
+        "given": [
+          "Leo"
+        ]
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1955-01-14"
+  },
+  {
+    "resourceType": "Encounter",
+    "id": "E0014",
+    "status": "finished",
+    "class": {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "code": "AMB"
+    },
+    "subject": {
+      "reference": "Patient/P0014"
+    },
+    "period": {
+      "start": "2024-08-01T00:00:00+03:00",
+      "end": "2024-08-08T00:00:00+03:00"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsT0014",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8310-5",
+          "display": "Body temperature"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0014"
+    },
+    "effectiveDateTime": "2024-08-01T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 36.3,
+      "unit": "\u00b0C"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsH0014",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0014"
+    },
+    "effectiveDateTime": "2024-08-01T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 84,
+      "unit": "beats/minute"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsBP0014",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "55284-4",
+          "display": "Blood pressure systolic & diastolic"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0014"
+    },
+    "effectiveDateTime": "2024-08-01T00:00:00+03:00",
+    "component": [
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 116,
+          "unit": "mmHg"
+        }
+      },
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 77,
+          "unit": "mmHg"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Condition",
+    "id": "C0014",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        }
+      ]
+    },
+    "code": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "J06.9",
+          "display": "Acute upper respiratory infection"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0014"
+    },
+    "recordedDate": "2024-08-01"
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "M0014",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "3895",
+          "display": "Ibuprofen"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0014"
+    },
+    "authoredOn": "2024-08-01"
+  },
+  {
+    "resourceType": "Patient",
+    "id": "P0015",
+    "identifier": [
+      {
+        "system": "urn:ietf:rfc:4122",
+        "value": "6c1315ea-399c-48be-92f4-d279fe0a6f2f"
+      }
+    ],
+    "name": [
+      {
+        "family": "Hernandez",
+        "given": [
+          "Mona"
+        ]
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1960-03-20"
+  },
+  {
+    "resourceType": "Encounter",
+    "id": "E0015",
+    "status": "finished",
+    "class": {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "code": "IMP"
+    },
+    "subject": {
+      "reference": "Patient/P0015"
+    },
+    "period": {
+      "start": "2024-03-18T00:00:00+03:00",
+      "end": "2024-03-22T00:00:00+03:00"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsT0015",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8310-5",
+          "display": "Body temperature"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0015"
+    },
+    "effectiveDateTime": "2024-03-18T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 38.0,
+      "unit": "\u00b0C"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsH0015",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0015"
+    },
+    "effectiveDateTime": "2024-03-18T00:00:00+03:00",
+    "valueQuantity": {
+      "value": 75,
+      "unit": "beats/minute"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "ObsBP0015",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "code": "55284-4",
+          "display": "Blood pressure systolic & diastolic"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0015"
+    },
+    "effectiveDateTime": "2024-03-18T00:00:00+03:00",
+    "component": [
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 132,
+          "unit": "mmHg"
+        }
+      },
+      {
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic blood pressure"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 81,
+          "unit": "mmHg"
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Condition",
+    "id": "C0015",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active"
+        }
+      ]
+    },
+    "code": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "M54.5",
+          "display": "Low back pain"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0015"
+    },
+    "recordedDate": "2024-03-18"
+  },
+  {
+    "resourceType": "MedicationRequest",
+    "id": "M0015",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "7115",
+          "display": "Albuterol"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/P0015"
+    },
+    "authoredOn": "2024-03-18"
+  }
+]
