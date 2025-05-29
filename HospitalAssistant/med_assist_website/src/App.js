@@ -40,25 +40,37 @@ function App() {
 
   // Apply body styles when the App component mounts
   useEffect(() => {
+    // Common body styles
     document.body.style.backgroundImage = `url(${process.env.PUBLIC_URL}/global/hospital_background.jpg)`;
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundPosition = 'center';
-    document.body.style.height = '100vh'; // Full viewport height for background
+    document.body.style.height = '100vh';
     document.body.style.margin = '0';
-    // Remove flex centering from body, as pages will handle their own layout
-    document.body.style.display = ''; 
-    document.body.style.justifyContent = '';
-    document.body.style.alignItems = '';
 
-    // Cleanup function to remove styles when the component unmounts
+    if (!isLoggedIn) {
+      // Centering styles for login page
+      document.body.style.display = 'flex';
+      document.body.style.justifyContent = 'center';
+      document.body.style.alignItems = 'center';
+    } else {
+      // Reset display for pages with header (allowing them to flow normally)
+      document.body.style.display = ''; // Or 'block' if needed, default is usually fine
+      document.body.style.justifyContent = '';
+      document.body.style.alignItems = '';
+    }
+
+    // Cleanup function
     return () => {
       document.body.style.backgroundImage = '';
       document.body.style.backgroundSize = '';
       document.body.style.backgroundPosition = '';
       document.body.style.height = '';
       document.body.style.margin = '';
+      document.body.style.display = '';
+      document.body.style.justifyContent = '';
+      document.body.style.alignItems = '';
     };
-  }, []); // Empty dependency array means this effect runs once on mount and cleanup on unmount
+  }, [isLoggedIn]); // Re-run this effect if isLoggedIn changes
 
   return (
     <Router>
