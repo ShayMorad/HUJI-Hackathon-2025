@@ -38,8 +38,6 @@ function LoginPage({ onLogin }) {
       <form onSubmit={handleLogin}>
         {error && <p className="error-message">{error}</p>}
         <div className="input-group">
-          {/* Using a placeholder for icon, can be replaced with actual icon component or SVG */}
-          {/* <span className="icon">&#128100;</span> */}
           <label htmlFor="username">Username</label>
           <input
             type="text"
@@ -52,7 +50,6 @@ function LoginPage({ onLogin }) {
           />
         </div>
         <div className="input-group">
-          {/* <span className="icon">&#128274;</span> */}
           <label htmlFor="password">Password</label>
           <input
             type="password"

@@ -20,14 +20,13 @@ function Header({ currentUser, onLogout }) {
     return "Good Evening";
   };
 
-  // Prefer name, then title, then a generic 'User'
   const userDisplayName = currentUser?.name || currentUser?.title || 'User';
 
   const handleLogoutClick = () => {
     if (onLogout) {
       onLogout();
     }
-    navigate('/login'); // Ensure redirection to login page after logout
+    navigate('/login');
   };
 
   const iconPath = `${process.env.PUBLIC_URL}/home_page/`;
@@ -36,9 +35,7 @@ function Header({ currentUser, onLogout }) {
     <header className="app-header">
       <Link to="/" className="header-left-link">
         <div className="header-left">
-          {/* Placeholder for user image - replace if actual image is available */}
           <span className="user-icon-background">
-            {/* <img src={currentUser?.profileImageUrl || `${iconPath}default-user.png`} alt="User" className="user-profile-img" /> */}
             <span className="user-icon-char">👤</span>
           </span>
           <span className="greeting-text">{getGreeting()}, {userDisplayName}</span>

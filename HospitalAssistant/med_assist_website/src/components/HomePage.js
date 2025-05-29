@@ -45,9 +45,6 @@ function HomePage({ currentUser }) {
     // };
   }, []); // Empty dependency array means this effect runs once on mount
 
-  // Determine user's role for conditional rendering or display
-  const userRole = currentUser?.function || 'user'; // Default to 'user' if function is not defined
-
   const heroStyle = {
     backgroundImage: `url(${heroBackgroundImage})`
   };
