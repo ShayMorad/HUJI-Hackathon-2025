@@ -9,8 +9,8 @@ Manages patient‐facing chat:
 """
 
 from typing import List, Dict, Any
-from services.LLMService import LLMService
-from entities.Patient import Patient
+import LLMService
+from HospitalAssistant.entities import Patient
 
 
 class ConversationService:

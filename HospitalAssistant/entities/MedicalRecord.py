@@ -10,7 +10,7 @@ Provides:
 """
 
 from typing import List, Dict, Any
-from services.LLMService import LLMService
+from HospitalAssistant.services import LLMService
 
 
 class MedicalRecord:

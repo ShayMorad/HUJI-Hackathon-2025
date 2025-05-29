@@ -11,9 +11,9 @@ Provides:
 """
 
 from typing import List
-from entities.VitalSign import VitalSign
-from entities.MedicalRecord import MedicalRecord
-from entities.SocialProfile import SocialProfile
+import VitalSign
+import MedicalRecord
+import SocialProfile
 
 
 class Patient:
