@@ -70,12 +70,57 @@
   background-color: #f1f1f1; /* Or a slightly darker shade of its status color */
 }
 
-.main-content-area.chat-area {
-  flex: 1 1 45%; /* Grow, shrink, base width 45% */
-  min-width: 300px; /* Minimum width for chat */
+.main-content-area {
+  flex: 1 1 45%; /* Prend la majorité de l'espace central */
+  min-width: 300px;
   padding: 20px;
-  display: flex; /* Added to make chat components work within this area */
-  flex-direction: column; /* Added for chat components */
+  display: flex;
+  flex-direction: column; /* Organise middle-top-content et chat-module-container verticalement */
+  overflow: hidden; /* Empêche le débordement de ce conteneur global */
+}
+
+.middle-top-content {
+  flex-grow: 1; /* Prend tout l'espace disponible en hauteur */
+  overflow-y: auto; /* Permet le défilement si le contenu est grand */
+  padding-bottom: 15px; /* Espace avant la zone de chat */
+  /* min-height: 200px; Optional: ensure it doesn't get too small */
+}
+
+.chat-module-container {
+  flex-shrink: 0; /* Empêche cette zone de rétrécir */
+  flex-basis: 45%; /* Augmenté, le module de chat tente de prendre 45% de la hauteur de .main-content-area */
+  /* max-height: 50%; Remove if using flex-basis or ensure it makes sense together */
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #ddd; /* Ajoute une séparation visuelle */
+  padding-top: 10px; /* Espace au-dessus du titre du chat */
+}
+
+.chat-module-container h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.chat-messages-container {
+  flex-grow: 1; /* Le conteneur des messages prend l'espace dispo dans le module de chat */
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  min-height: 200px; /* Augmenté de 150px à 200px */
+}
+
+/* Styles pour le placeholder quand aucun patient n'est sélectionné */
+.placeholder-content-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  color: #777;
 }
 
 .main-content-area h1,
@@ -102,16 +147,6 @@
 
 .selected-patient-row {
   background-color: #deefff !important; /* A light blue to indicate selection */
-}
-
-.chat-messages-container {
-  flex-grow: 1;
-  overflow-y: auto;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  background-color: #f9f9f9;
 }
 
 .chat-message {
@@ -193,11 +228,4 @@
   margin-top: 0;
   text-align: center;
   color: #333;
-}
-
-/* Ensure other styles for main-content-area not specific to chat still work if chat is not active */
-.main-content-area {
-  flex: 1 1 45%; /* Default flex for when it's not the chat area specifically */
-  padding: 20px;
-  overflow-y: auto;
 } 

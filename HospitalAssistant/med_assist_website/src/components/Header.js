@@ -9,6 +9,10 @@ function Header({ currentUser, onLogout }) {
     alert("This feature doesn't work yet");
   };
 
+  const handleLanguageClick = () => {
+    alert("Language selection feature is not implemented yet.");
+  };
+
   const getGreeting = () => {
     const hour = new Date().getHours();
     if (hour < 12) return "Good Morning";
@@ -26,25 +30,32 @@ function Header({ currentUser, onLogout }) {
     navigate('/login'); // Ensure redirection to login page after logout
   };
 
+  const iconPath = `${process.env.PUBLIC_URL}/home_page/`;
+
   return (
     <header className="app-header">
       <Link to="/" className="header-left-link">
         <div className="header-left">
+          {/* Placeholder for user image - replace if actual image is available */}
           <span className="user-icon-background">
+            {/* <img src={currentUser?.profileImageUrl || `${iconPath}default-user.png`} alt="User" className="user-profile-img" /> */}
             <span className="user-icon-char">👤</span>
           </span>
           <span className="greeting-text">{getGreeting()}, {userDisplayName}</span>
         </div>
       </Link>
       <div className="header-right">
-        <Link to="/" className="header-icon-button" aria-label="Home">
-          🏠
+        <button onClick={handleLanguageClick} className="header-lang-button" aria-label="Select Language">
+          EN
+        </button>
+        <Link to="/" className="header-icon-link" aria-label="Home">
+          <img src={`${iconPath}icons8-home-50.png`} alt="Home" className="header-icon-img" />
         </Link>
         <button onClick={handleSettingsClick} className="header-icon-button" aria-label="Settings">
-          ⚙️
+          <img src={`${iconPath}icons8-gear-50.png`} alt="Settings" className="header-icon-img" />
         </button>
-        <button onClick={handleLogoutClick} className="header-icon-button logout-icon" aria-label="Logout">
-          [→]
+        <button onClick={handleLogoutClick} className="header-icon-button" aria-label="Logout">
+          <img src={`${iconPath}icons8-logout-50.png`} alt="Logout" className="header-icon-img logout-img-icon" />
         </button>
       </div>
     </header>

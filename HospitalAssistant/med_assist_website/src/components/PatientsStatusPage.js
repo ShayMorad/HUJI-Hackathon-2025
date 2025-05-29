@@ -125,7 +125,7 @@ function PatientsStatusPage({ currentUser }) {
   const handlePatientSelect = (patient) => {
     setSelectedPatient(patient);
     setChatMessages([
-      { id: Date.now(), text: `Chat started with ${patient.name} (Room: ${patient.room}).`, sender: 'system' }
+      { id: Date.now(), text: `Chat with AI assistant about ${patient.name} (Room: ${patient.room}).`, sender: 'system' }
     ]);
     setCurrentMessage("Please summarize the patient's chart.");
   };
@@ -211,39 +211,45 @@ function PatientsStatusPage({ currentUser }) {
           </table>
         </div>
       </div>
-      <div className="main-content-area chat-area">
+      <div className="main-content-area">
         {selectedPatient ? (
           <>
-            <h3>Chat with {selectedPatient.name} (Room: {selectedPatient.room})</h3>
-            <div className="chat-messages-container">
-              {chatMessages.map(msg => (
-                <div key={msg.id} className={`chat-message ${msg.sender}`}>
-                  <p>{msg.text}</p>
-                </div>
-              ))}
-              <div ref={chatMessagesEndRef} />
+            <div className="middle-top-content">
+                <h4>Patient Information Area (Future Content)</h4>
+                <p>Details about {selectedPatient.name} could go here.</p>
             </div>
-            <div className="chat-input-area">
-              <input 
-                type="text" 
-                value={currentMessage}
-                onChange={(e) => setCurrentMessage(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && !isSending && handleSendMessage()} // Prevent send on Enter if sending
-                placeholder="Type your message..."
-                disabled={isSending} // Disable input while sending
-              />
-              <button onClick={handleSendMessage} disabled={isSending}>
-                {isSending ? 'Sending...' : 'Send'}
-              </button>
+
+            <div className="chat-module-container">
+                <h3>Chat with an AI assistant about {selectedPatient.name} (Room: {selectedPatient.room})</h3>
+                <div className="chat-messages-container">
+                    {chatMessages.map(msg => (
+                        <div key={msg.id} className={`chat-message ${msg.sender}`}>
+                        <p>{msg.text}</p>
+                        </div>
+                    ))}
+                    <div ref={chatMessagesEndRef} />
+                </div>
+                <div className="chat-input-area">
+                    <input 
+                        type="text" 
+                        value={currentMessage}
+                        onChange={(e) => setCurrentMessage(e.target.value)}
+                        onKeyPress={(e) => e.key === 'Enter' && !isSending && handleSendMessage()}
+                        placeholder="Type your message..."
+                        disabled={isSending}
+                    />
+                    <button onClick={handleSendMessage} disabled={isSending}>
+                        {isSending ? 'Sending...' : 'Send'}
+                    </button>
+                </div>
             </div>
           </>
         ) : (
-          <>
-            <h1>Patient Details</h1>
+          <div className="placeholder-content-centered">
+            <h1>Patient Details & Chat</h1>
             <p>Select a patient from the list to start a chat or see details.</p>
-          </>
+          </div>
         )}
-        <p style={{marginTop: '20px'}}><em>Patient list updates every 1 minute (simulated).</em></p>
       </div>
 
       <div className="actions-panel-area">
