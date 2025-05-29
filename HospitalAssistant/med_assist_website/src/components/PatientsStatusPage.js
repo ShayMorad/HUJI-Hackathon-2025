@@ -1,25 +1,25 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './PatientsStatusPage.css'; // CSS for this page
-// Removed import { fetchPatients } from '../api/patientApi';
+import { sendChatMessageGet } from '../api/patientApi'; // Import the new API function
 
-// Sample patient data - kept locally for now
+// Sample patient data - kept locally for now, with 9-digit IDs
 const initialPatientsData = [
   {
-    id: 1,
+    id: 123456789,
     room: '204 A',
     name: 'Alice Wonderland',
     reason: 'Routine Check-up Follow-up',
     status: 'pending', // yellow
   },
   {
-    id: 2,
+    id: 234567890,
     room: '301 B',
     name: 'Bob The Builder',
     reason: 'Post-Surgery Observation',
     status: 'ready_to_discharge', // green
   },
   {
-    id: 3,
+    id: 345678901,
     room: '105 C',
     name: 'Charlie Brown',
     reason: 'Critical Cardiac Condition',
@@ -27,21 +27,21 @@ const initialPatientsData = [
   },
   // Add more patients as needed for scrolling example
   {
-    id: 4,
+    id: 456789012,
     room: '208 A',
     name: 'Diana Prince',
     reason: 'Minor Fracture',
     status: 'pending', // yellow
   },
   {
-    id: 5,
+    id: 567890123,
     room: '310 B',
     name: 'Edward Scissorhands',
     reason: 'Consultation',
     status: 'ready_to_discharge', // green
   },
   {
-    id: 6,
+    id: 678901234,
     room: '404 D',
     name: 'Fiona Gallagher',
     reason: 'Flu Symptoms',
@@ -58,11 +58,12 @@ const statusMap = {
   pending: { order: 3, className: 'status-pending' },
 };
 
-function PatientsStatusPage() {
+function PatientsStatusPage({ currentUser }) {
   const [patients, setPatients] = useState([]);
   const [selectedPatient, setSelectedPatient] = useState(null);
   const [chatMessages, setChatMessages] = useState([]);
   const [currentMessage, setCurrentMessage] = useState('');
+  const [isSending, setIsSending] = useState(false); // For send button disabling
   const chatMessagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -123,34 +124,58 @@ function PatientsStatusPage() {
 
   const handlePatientSelect = (patient) => {
     setSelectedPatient(patient);
-    setChatMessages([]);
-    setCurrentMessage('');
-    setTimeout(() => {
-      setChatMessages([
-        { id: Date.now(), text: `chat with AI assistant about ${patient.name} (Room: ${patient.room}).`, sender: 'system' }
-      ]);
-    }, 300);
+    setChatMessages([
+      { id: Date.now(), text: `Chat started with ${patient.name} (Room: ${patient.room}).`, sender: 'system' }
+    ]);
+    setCurrentMessage("Please summarize the patient's chart.");
   };
 
-  const handleSendMessage = () => {
-    if (currentMessage.trim() === '' || !selectedPatient) return;
+  const handleSendMessage = async () => {
+    if (currentMessage.trim() === '' || !selectedPatient || !currentUser || isSending) return;
 
-    const newMessage = {
+    const userMessage = {
       id: Date.now(),
       text: currentMessage,
       sender: 'user',
     };
-    setChatMessages(prevMessages => [...prevMessages, newMessage]);
+    setChatMessages(prevMessages => [...prevMessages, userMessage]);
+    const messageToSend = currentMessage;
     setCurrentMessage('');
+    setIsSending(true);
 
-    setTimeout(() => {
-      const botResponse = {
+    try {
+      // Actual API call (simulated for now)
+      const response = await sendChatMessageGet(currentUser, selectedPatient, messageToSend);
+      console.log("Simulated API response:", response);
+      
+      // Add the bot's reply from the simulated API response
+      if (response && response.echo && response.echo.botReply) {
+        const botMessage = {
+          id: Date.now() + 1, // Ensure unique ID
+          text: response.echo.botReply,
+          sender: 'bot',
+        };
+        setChatMessages(prevMessages => [...prevMessages, botMessage]);
+      } else {
+        // Fallback if botReply is not in the expected format
+        const fallbackBotMessage = {
+            id: Date.now() +1,
+            text: "Received, but couldn't process AI response this time (simulated).",
+            sender: 'bot'
+        };
+        setChatMessages(prevMessages => [...prevMessages, fallbackBotMessage]);
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      const errorMessage = {
         id: Date.now() + 1,
-        text: `Backend received: "${newMessage.text}". (Simulated for ${selectedPatient.name})`,
-        sender: 'bot',
+        text: `Error: ${error.message || 'Could not send message.'} (Simulated)`, 
+        sender: 'system',
       };
-      setChatMessages(prevMessages => [...prevMessages, botResponse]);
-    }, 1000 + Math.random() * 1000);
+      setChatMessages(prevMessages => [...prevMessages, errorMessage]);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   if (patients.length === 0 && !selectedPatient) {
@@ -189,7 +214,7 @@ function PatientsStatusPage() {
       <div className="main-content-area chat-area">
         {selectedPatient ? (
           <>
-            <h3>Chat with AI assistant about {selectedPatient.name} (Room: {selectedPatient.room})</h3>
+            <h3>Chat with {selectedPatient.name} (Room: {selectedPatient.room})</h3>
             <div className="chat-messages-container">
               {chatMessages.map(msg => (
                 <div key={msg.id} className={`chat-message ${msg.sender}`}>
@@ -203,10 +228,13 @@ function PatientsStatusPage() {
                 type="text" 
                 value={currentMessage}
                 onChange={(e) => setCurrentMessage(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+                onKeyPress={(e) => e.key === 'Enter' && !isSending && handleSendMessage()} // Prevent send on Enter if sending
                 placeholder="Type your message..."
+                disabled={isSending} // Disable input while sending
               />
-              <button onClick={handleSendMessage}>Send</button>
+              <button onClick={handleSendMessage} disabled={isSending}>
+                {isSending ? 'Sending...' : 'Send'}
+              </button>
             </div>
           </>
         ) : (

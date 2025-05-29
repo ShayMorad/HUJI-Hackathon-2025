@@ -88,7 +88,7 @@ function App() {
           />
           <Route 
             path="/patients-status" 
-            element={isLoggedIn ? <PatientsStatusPage /> : <Navigate to="/login" />} 
+            element={isLoggedIn ? <PatientsStatusPage currentUser={currentUser} /> : <Navigate to="/login" />} 
           />
           {/* Add a route for SettingsPage when it's created */}
           {/* <Route path="/settings" element={isLoggedIn ? <SettingsPage /> : <Navigate to="/login" />} /> */}
