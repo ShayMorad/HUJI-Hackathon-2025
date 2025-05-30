@@ -250,10 +250,10 @@ function PatientsStatusPage({currentUser}) {
 
                             {selectedPatient.assignedStaff && selectedPatient.assignedStaff.length > 0 ? (
                                 <div className="assigned-staff-details">
-                                    <strong>Assigned Staff:</strong>
+                                    <strong style={{fontSize: '2em', paddingLeft: '70px'}}>Assigned Staff:</strong>
                                     <ul>
                                         {selectedPatient.assignedStaff.map(staff => (
-                                            <li key={staff.name}>{staff.name} ({staff.role})</li>
+                                            <ol style={{fontSize: '1.8em', textDecoration: 'underline'}} key={staff.name}>{staff.name} ({staff.role})</ol>
                                         ))}
                                     </ul>
                                 </div>
@@ -264,12 +264,12 @@ function PatientsStatusPage({currentUser}) {
                         </div>
 
                         <div className="chat-module-container">
-                            <h3>Chat with an AI assistant
+                            <h3 style={{fontSize: '1.8em'}}>Chat with an AI assistant
                                 about {selectedPatient.name} (Room: {selectedPatient.room})</h3>
                             <div className="chat-messages-container">
                                 {chatMessages.map(msg => (
                                     <div key={msg.id} className={`chat-message ${msg.sender}`}>
-                                        <p>{msg.text}</p>
+                                        <p style={{fontSize: '1.2em'}}>{msg.text}</p>
                                     </div>
                                 ))}
                                 <div ref={chatMessagesEndRef}/>
@@ -298,7 +298,7 @@ function PatientsStatusPage({currentUser}) {
             </div>
 
             <div className="actions-panel-area">
-                <h3> Further actions </h3>
+                <h3 style={{fontSize: '1.8em'}}> Further actions </h3>
                 <div className="action-buttons-container">
                     <button className="action-button" onClick={() => handleActionButtonClick('Medical Record')}>
                         <img src={`${process.env.PUBLIC_URL}/patient_status_page/medical_record_icone.jpg`}

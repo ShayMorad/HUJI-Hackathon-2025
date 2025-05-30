@@ -2,6 +2,13 @@
   display: flex;
   height: calc(100vh - 60px); /* Full height minus header height, adjust 60px if header height changes */
   width: 100%;
+  color: #333;
+  background-image: url('../assets/images/background.jpg');
+
+  background-repeat: no-repeat; /* Empêche l'image de se répéter */
+  background-position: center center; /* Centre l'image */
+  background-size: cover; /* Option la plus courante pour couvrir l'élément */
+
 }
 
 .patients-list-sidebar {
@@ -52,17 +59,20 @@
 /* Status colors */
 .status-urgent {
   background-color: #ffebee; /* Light Red */
-  color: #c62828; /* Darker Red text for contrast */
+  color: #000000; /* Darker Red text for contrast */
+  font-size: 1.2em;
 }
 
 .status-ready {
   background-color: #e8f5e9; /* Light Green */
-  color: #2e7d32; /* Darker Green text */
+  color: #000000; /* Darker Green text */
+  font-size: 1.2em;
 }
 
 .status-pending {
   background-color: #fffde7; /* Light Yellow */
-  color: #f57f17; /* Darker Yellow/Orange text */
+  color: #000000; /* Darker Yellow/Orange text */
+  font-size: 1.2em;
 }
 
 /* Hover effect for rows */
@@ -88,7 +98,7 @@
 
 .chat-module-container {
   flex-shrink: 0; /* Empêche cette zone de rétrécir */
-  flex-basis: 45%; /* Augmenté, le module de chat tente de prendre 45% de la hauteur de .main-content-area */
+  flex-basis: 60%; /* Augmenté, le module de chat tente de prendre 45% de la hauteur de .main-content-area */
   /* max-height: 50%; Remove if using flex-basis or ensure it makes sense together */
   display: flex;
   flex-direction: column;
