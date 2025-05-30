@@ -62,12 +62,15 @@ class Patient:
     # Derived helpers
     # ------------------------------------------------------------------------
     def update_status(self) -> str:
-        """
-        Return 'stable' if every vital sign lies within the normal range,
-        otherwise 'unstable'.
-        """
         abnormal = [v for v in self.vitals if not v.is_within_normal_range()]
-        return "unstable" if abnormal else "stable"
+        risk = self.compute_risk_score()
+
+        if len(abnormal)>=3:
+            return "urgent"
+        elif risk < 0.04:
+            return "ready_for_discharge"
+        else:
+            return "pending"
 
     # ------------------------------------------------------------------------
     # Data-loading helpers
@@ -155,7 +158,15 @@ class Patient:
             social_profile=SocialProfile(**social_dict),
         )
 
-        patient.vitals = [VitalSign(**v) for v in data.get("vitals", [])]
+        patient.vitals = [
+            VitalSign(
+                timestamp=v["timestamp"],
+                type=v["name"],
+                value=v["value"],
+                unit=v.get("unit", "")  # fallback if old file has no "unit"
+            )
+            for v in data.get("vitals", [])
+        ]
         patient.assigned_staff = data.get("assigned_staff", [])
         return patient
 

@@ -10,7 +10,8 @@ Provides:
   - load_model()
   - health_check()
 """
-
+import logging
+logger = logging.getLogger("uvicorn.error")
 import google.generativeai as genai
 from google.oauth2 import service_account
 from typing import Dict, Any, List
@@ -27,7 +28,7 @@ class LLMService:
         "gemini-2.5-pro-preview-05-06": "Most powerful for complex medical reasoning"
     }
 
-    def __init__(self, model_name: str = "gemini-1.5-pro"):
+    def __init__(self, model_name: str = "gemini-1.5-flash"):
         """Initialize the LLM service with Gemini.
 
         Args:
@@ -43,7 +44,7 @@ class LLMService:
         try:
             # Initialize credentials from the service account file
             credentials = service_account.Credentials.from_service_account_file(
-                'gemini/hackathon-team-46_gen-lang-client-0325865525_iam_gserviceaccount_com_1747758552.json'
+                r'C:\Users\shaym\Desktop\ComputerScience\Hackathon\Project\HUJI-Hackathon-2025\Gemini\hackathon-team-46_gen-lang-client-0325865525_iam_gserviceaccount_com_1747758552.json'
             )
             genai.configure(credentials=credentials)
 
@@ -108,24 +109,56 @@ class LLMService:
         except Exception as e:
             raise Exception(f"Error in translation: {e}")
 
+    import logging
+    logger = logging.getLogger("uvicorn.error")
+
     def chat(self, context: Dict[str, Any], prompt: str, language: str) -> str:
-        """Engage in medical conversation with context awareness."""
+        """Engage in medical conversation with context awareness and better error visibility."""
         formatted_context = self._format_medical_context(context)
 
         try:
-            # Add context to chat history if it's new
+            # ------------------------------------------------------------------
+            # 1)  Log what we’re about to send
+            # ------------------------------------------------------------------
+            logger.info("🩺 Gemini prompt: %s", prompt)
+            logger.debug("Context sent: %s", formatted_context)
+
+            # ------------------------------------------------------------------
+            # 2)  Send context once per session (if any)
+            # ------------------------------------------------------------------
             if formatted_context:
                 self._chat_session.send_message(
-                    f"Medical Context:\\n{formatted_context}\\n\\nPlease consider this context for the following conversation."
+                    f"Medical Context:\n{formatted_context}\n\n"
+                    "Please consider this context for the conversation."
                 )
 
-            # Send the actual prompt
-            response = self._chat_session.send_message(
-                f"User ({language}): {prompt}"
-            )
-            return response.text
+            # ------------------------------------------------------------------
+            # 3)  Send user prompt
+            # ------------------------------------------------------------------
+            raw = self._chat_session.send_message(f"User ({language}): {prompt}")
+            logger.debug("Gemini raw response: %r", raw)
+
+            # ------------------------------------------------------------------
+            # 4)  Extract text robustly
+            # ------------------------------------------------------------------
+            if hasattr(raw, "text") and raw.text:
+                return raw.text
+
+            # Gemini 1.5+ sometimes returns candidates
+            if getattr(raw, "candidates", None):
+                try:
+                    return raw.candidates[0].content.parts[0].text
+                except Exception:
+                    pass  # fall through to error below
+
+            raise ValueError("Gemini returned empty or unknown format")
+
         except Exception as e:
-            raise Exception(f"Error in chat: {e}")
+            # ------------------------------------------------------------------
+            # 5)  Log full traceback and re-raise **real** error
+            # ------------------------------------------------------------------
+            logger.exception("Gemini chat failed")
+            raise  # let FastAPI propagate real message/traceback
 
     def load_model(self, model_name: str):
         """Load a different Gemini model."""
@@ -150,6 +183,14 @@ class LLMService:
         # Format different types of medical context
         if 'patient_history' in context:
             formatted_parts.append(f"Patient History:\n{context['patient_history']}")
+
+        # New: include current hospitalizing reason
+        if 'current_hospitalizing_reason' in context:
+            formatted_parts.append(f"Reason for Hospitalization:\n{context['current_hospitalizing_reason']}")
+
+        # New: include clinical status
+        if 'status' in context:
+            formatted_parts.append(f"Clinical Status:\n{context['status']}")
 
         if 'current_condition' in context:
             formatted_parts.append(f"Current Condition:\n{context['current_condition']}")

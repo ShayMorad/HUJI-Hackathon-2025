@@ -1,0 +1,2938 @@
+{
+  "hospital_id": "H-001",
+  "name": "City General",
+  "total_capacity": 50,
+  "total_occupied": 31,
+  "total_free_beds": 19,
+  "utilisation": 0.62,
+  "average_patient_risk": 0.03,
+  "bottlenecks": [],
+  "wards": [
+    {
+      "ward_id": "A1",
+      "name": "Internal Med A",
+      "capacity": 50,
+      "occupancy": 31,
+      "load_factor": 0.62,
+      "is_overloaded": false,
+      "average_risk": 0.03,
+      "patients": [
+        {
+          "patient_id": "p100",
+          "name": "Dana Rahmani",
+          "age": 76,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.15,
+          "room": "218A",
+          "reason": "Post Surgery",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 80.8,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.889211"
+            },
+            {
+              "name": "HR",
+              "value": 79.9,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.889211"
+            },
+            {
+              "name": "HR",
+              "value": 67.5,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.889211"
+            },
+            {
+              "name": "BP",
+              "value": 91.4,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.889211"
+            },
+            {
+              "name": "BP",
+              "value": 87.9,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.889211"
+            },
+            {
+              "name": "BP",
+              "value": 87.5,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.889211"
+            },
+            {
+              "name": "Temp",
+              "value": 38.5,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.889211"
+            },
+            {
+              "name": "Temp",
+              "value": 31.3,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.889211"
+            },
+            {
+              "name": "Temp",
+              "value": 35.9,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.889211"
+            },
+            {
+              "name": "SpO2",
+              "value": 90.1,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.889211"
+            },
+            {
+              "name": "SpO2",
+              "value": 102.2,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.889211"
+            },
+            {
+              "name": "SpO2",
+              "value": 96.5,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.889211"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "profile_100",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p101",
+          "name": "Hila Rahmani",
+          "age": 70,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "207A",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 80.5,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.889070"
+            },
+            {
+              "name": "HR",
+              "value": 96.3,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.889070"
+            },
+            {
+              "name": "HR",
+              "value": 69.2,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.889070"
+            },
+            {
+              "name": "BP",
+              "value": 96.3,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.889070"
+            },
+            {
+              "name": "BP",
+              "value": 83.9,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.889070"
+            },
+            {
+              "name": "BP",
+              "value": 103.0,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.889070"
+            },
+            {
+              "name": "Temp",
+              "value": 35.9,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.889070"
+            },
+            {
+              "name": "Temp",
+              "value": 37.8,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.889070"
+            },
+            {
+              "name": "Temp",
+              "value": 31.3,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.889070"
+            },
+            {
+              "name": "SpO2",
+              "value": 95.8,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.889070"
+            },
+            {
+              "name": "SpO2",
+              "value": 94.8,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.889070"
+            },
+            {
+              "name": "SpO2",
+              "value": 92.4,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.889070"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "profile_101",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p102",
+          "name": "Noa Azoulay",
+          "age": 44,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "217A",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 94.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.889142"
+            },
+            {
+              "name": "HR",
+              "value": 82.1,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.889142"
+            },
+            {
+              "name": "HR",
+              "value": 77.7,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.889142"
+            },
+            {
+              "name": "BP",
+              "value": 93.4,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.889142"
+            },
+            {
+              "name": "BP",
+              "value": 94.2,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.889142"
+            },
+            {
+              "name": "BP",
+              "value": 114.0,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.889142"
+            },
+            {
+              "name": "Temp",
+              "value": 38.9,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.889142"
+            },
+            {
+              "name": "Temp",
+              "value": 42.9,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.889142"
+            },
+            {
+              "name": "Temp",
+              "value": 38.7,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.889142"
+            },
+            {
+              "name": "SpO2",
+              "value": 101.9,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.889142"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.3,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.889142"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.0,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.889142"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_102",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p103",
+          "name": "Ofir Biton",
+          "age": 57,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "202B",
+          "reason": "Neurological Observation",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 95.8,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.889211"
+            },
+            {
+              "name": "HR",
+              "value": 79.9,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.889211"
+            },
+            {
+              "name": "HR",
+              "value": 67.5,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.889211"
+            },
+            {
+              "name": "BP",
+              "value": 91.4,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.889211"
+            },
+            {
+              "name": "BP",
+              "value": 87.9,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.889211"
+            },
+            {
+              "name": "BP",
+              "value": 87.5,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.889211"
+            },
+            {
+              "name": "Temp",
+              "value": 38.5,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.889211"
+            },
+            {
+              "name": "Temp",
+              "value": 31.3,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.889211"
+            },
+            {
+              "name": "Temp",
+              "value": 35.9,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.889211"
+            },
+            {
+              "name": "SpO2",
+              "value": 90.1,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.889211"
+            },
+            {
+              "name": "SpO2",
+              "value": 102.2,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.889211"
+            },
+            {
+              "name": "SpO2",
+              "value": 96.5,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.889211"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_103",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p104",
+          "name": "Ofir Shalom",
+          "age": 66,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "212A",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 67.8,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.889286"
+            },
+            {
+              "name": "HR",
+              "value": 82.3,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.889286"
+            },
+            {
+              "name": "HR",
+              "value": 92.1,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.889286"
+            },
+            {
+              "name": "BP",
+              "value": 99.4,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.889286"
+            },
+            {
+              "name": "BP",
+              "value": 109.7,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.889286"
+            },
+            {
+              "name": "BP",
+              "value": 110.8,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.889286"
+            },
+            {
+              "name": "Temp",
+              "value": 43.8,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.889286"
+            },
+            {
+              "name": "Temp",
+              "value": 41.9,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.889286"
+            },
+            {
+              "name": "Temp",
+              "value": 38.4,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.889286"
+            },
+            {
+              "name": "SpO2",
+              "value": 93.7,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.889286"
+            },
+            {
+              "name": "SpO2",
+              "value": 99.6,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.889286"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.3,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.889286"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_104",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p105",
+          "name": "Bar Zilberman",
+          "age": 48,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "213B",
+          "reason": "Neurological Observation",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 91.8,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.889411"
+            },
+            {
+              "name": "HR",
+              "value": 85.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.889411"
+            },
+            {
+              "name": "HR",
+              "value": 81.4,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.889411"
+            },
+            {
+              "name": "BP",
+              "value": 105.4,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.889411"
+            },
+            {
+              "name": "BP",
+              "value": 109.1,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.889411"
+            },
+            {
+              "name": "BP",
+              "value": 106.7,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.889411"
+            },
+            {
+              "name": "Temp",
+              "value": 42.9,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.889411"
+            },
+            {
+              "name": "Temp",
+              "value": 32.7,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.889411"
+            },
+            {
+              "name": "Temp",
+              "value": 35.3,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.889411"
+            },
+            {
+              "name": "SpO2",
+              "value": 102.7,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.889411"
+            },
+            {
+              "name": "SpO2",
+              "value": 93.0,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.889411"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.6,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.889411"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_105",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p106",
+          "name": "Hila Levi",
+          "age": 23,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "202A",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 68.3,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.889548"
+            },
+            {
+              "name": "HR",
+              "value": 94.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.889548"
+            },
+            {
+              "name": "HR",
+              "value": 86.4,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.889548"
+            },
+            {
+              "name": "BP",
+              "value": 111.5,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.889548"
+            },
+            {
+              "name": "BP",
+              "value": 100.0,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.889548"
+            },
+            {
+              "name": "BP",
+              "value": 104.8,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.889548"
+            },
+            {
+              "name": "Temp",
+              "value": 32.2,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.889548"
+            },
+            {
+              "name": "Temp",
+              "value": 40.7,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.889548"
+            },
+            {
+              "name": "Temp",
+              "value": 40.5,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.889548"
+            },
+            {
+              "name": "SpO2",
+              "value": 101.3,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.889548"
+            },
+            {
+              "name": "SpO2",
+              "value": 101.2,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.889548"
+            },
+            {
+              "name": "SpO2",
+              "value": 102.6,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.889548"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "profile_106",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p107",
+          "name": "Tomer Levi",
+          "age": 52,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "211B",
+          "reason": "Neurological Observation",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 73.5,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.889661"
+            },
+            {
+              "name": "HR",
+              "value": 84.5,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.889661"
+            },
+            {
+              "name": "HR",
+              "value": 86.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.889661"
+            },
+            {
+              "name": "BP",
+              "value": 100.1,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.889661"
+            },
+            {
+              "name": "BP",
+              "value": 105.9,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.889661"
+            },
+            {
+              "name": "BP",
+              "value": 101.0,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.889661"
+            },
+            {
+              "name": "Temp",
+              "value": 30.5,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.889661"
+            },
+            {
+              "name": "Temp",
+              "value": 32.8,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.889661"
+            },
+            {
+              "name": "Temp",
+              "value": 37.5,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.889661"
+            },
+            {
+              "name": "SpO2",
+              "value": 95.6,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.889661"
+            },
+            {
+              "name": "SpO2",
+              "value": 101.8,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.889661"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.9,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.889661"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "profile_107",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p108",
+          "name": "Hila Zilberman",
+          "age": 32,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "201B",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 76.1,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.889750"
+            },
+            {
+              "name": "HR",
+              "value": 83.2,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.889750"
+            },
+            {
+              "name": "HR",
+              "value": 91.2,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.889750"
+            },
+            {
+              "name": "BP",
+              "value": 109.7,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.889750"
+            },
+            {
+              "name": "BP",
+              "value": 85.1,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.889750"
+            },
+            {
+              "name": "BP",
+              "value": 118.5,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.889750"
+            },
+            {
+              "name": "Temp",
+              "value": 30.9,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.889750"
+            },
+            {
+              "name": "Temp",
+              "value": 32.9,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.889750"
+            },
+            {
+              "name": "Temp",
+              "value": 41.9,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.889750"
+            },
+            {
+              "name": "SpO2",
+              "value": 103.3,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.889750"
+            },
+            {
+              "name": "SpO2",
+              "value": 90.3,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.889750"
+            },
+            {
+              "name": "SpO2",
+              "value": 95.5,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.889750"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "profile_108",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p109",
+          "name": "Bar Rahmani",
+          "age": 20,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.1,
+          "room": "208B",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 79.6,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.890044"
+            },
+            {
+              "name": "HR",
+              "value": 83.8,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.890044"
+            },
+            {
+              "name": "HR",
+              "value": 102.8,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.890044"
+            },
+            {
+              "name": "BP",
+              "value": 78.4,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.890044"
+            },
+            {
+              "name": "BP",
+              "value": 82.8,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.890044"
+            },
+            {
+              "name": "BP",
+              "value": 87.9,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.890044"
+            },
+            {
+              "name": "Temp",
+              "value": 41.4,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.890044"
+            },
+            {
+              "name": "Temp",
+              "value": 33.8,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.890044"
+            },
+            {
+              "name": "Temp",
+              "value": 41.0,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.890044"
+            },
+            {
+              "name": "SpO2",
+              "value": 104.7,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.890044"
+            },
+            {
+              "name": "SpO2",
+              "value": 99.9,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.890044"
+            },
+            {
+              "name": "SpO2",
+              "value": 99.9,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.890044"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "profile_109",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p110",
+          "name": "Bar Mizrahi",
+          "age": 69,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "216A",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 60.2,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.890116"
+            },
+            {
+              "name": "HR",
+              "value": 90.8,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.890116"
+            },
+            {
+              "name": "HR",
+              "value": 92.9,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.890116"
+            },
+            {
+              "name": "BP",
+              "value": 104.6,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.890116"
+            },
+            {
+              "name": "BP",
+              "value": 108.1,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.890116"
+            },
+            {
+              "name": "BP",
+              "value": 118.4,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.890116"
+            },
+            {
+              "name": "Temp",
+              "value": 31.5,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.890116"
+            },
+            {
+              "name": "Temp",
+              "value": 33.6,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.890116"
+            },
+            {
+              "name": "Temp",
+              "value": 30.8,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.890116"
+            },
+            {
+              "name": "SpO2",
+              "value": 102.0,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.890116"
+            },
+            {
+              "name": "SpO2",
+              "value": 99.1,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.890116"
+            },
+            {
+              "name": "SpO2",
+              "value": 99.5,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.890116"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_110",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p111",
+          "name": "Tal Ben-David",
+          "age": 51,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "201B",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 76.9,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.890186"
+            },
+            {
+              "name": "HR",
+              "value": 82.7,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.890186"
+            },
+            {
+              "name": "HR",
+              "value": 80.7,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.890186"
+            },
+            {
+              "name": "BP",
+              "value": 97.5,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.890186"
+            },
+            {
+              "name": "BP",
+              "value": 104.3,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.890186"
+            },
+            {
+              "name": "BP",
+              "value": 118.6,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.890186"
+            },
+            {
+              "name": "Temp",
+              "value": 41.4,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.890186"
+            },
+            {
+              "name": "Temp",
+              "value": 42.3,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.890186"
+            },
+            {
+              "name": "Temp",
+              "value": 31.0,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.890186"
+            },
+            {
+              "name": "SpO2",
+              "value": 91.0,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.890186"
+            },
+            {
+              "name": "SpO2",
+              "value": 90.3,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.890186"
+            },
+            {
+              "name": "SpO2",
+              "value": 103.8,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.890186"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_111",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p112",
+          "name": "Lior Ben-David",
+          "age": 86,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.15,
+          "room": "216B",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 86.6,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.890257"
+            },
+            {
+              "name": "HR",
+              "value": 87.3,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.890257"
+            },
+            {
+              "name": "HR",
+              "value": 82.6,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.890257"
+            },
+            {
+              "name": "BP",
+              "value": 115.7,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.890257"
+            },
+            {
+              "name": "BP",
+              "value": 112.1,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.890257"
+            },
+            {
+              "name": "BP",
+              "value": 115.3,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.890257"
+            },
+            {
+              "name": "Temp",
+              "value": 40.1,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.890257"
+            },
+            {
+              "name": "Temp",
+              "value": 37.4,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.890257"
+            },
+            {
+              "name": "Temp",
+              "value": 30.2,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.890257"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.8,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.890257"
+            },
+            {
+              "name": "SpO2",
+              "value": 104.3,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.890257"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.1,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.890257"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "profile_112",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p113",
+          "name": "Lior Rahmani",
+          "age": 28,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "207B",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 71.2,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.890333"
+            },
+            {
+              "name": "HR",
+              "value": 78.5,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.890333"
+            },
+            {
+              "name": "HR",
+              "value": 78.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.890333"
+            },
+            {
+              "name": "BP",
+              "value": 122.6,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.890333"
+            },
+            {
+              "name": "BP",
+              "value": 86.8,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.890333"
+            },
+            {
+              "name": "BP",
+              "value": 101.5,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.890333"
+            },
+            {
+              "name": "Temp",
+              "value": 35.5,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.890333"
+            },
+            {
+              "name": "Temp",
+              "value": 31.7,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.890333"
+            },
+            {
+              "name": "Temp",
+              "value": 42.6,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.890333"
+            },
+            {
+              "name": "SpO2",
+              "value": 104.3,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.890333"
+            },
+            {
+              "name": "SpO2",
+              "value": 104.5,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.890333"
+            },
+            {
+              "name": "SpO2",
+              "value": 91.1,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.890333"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "profile_113",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p114",
+          "name": "Hila Azoulay",
+          "age": 62,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "220B",
+          "reason": "Neurological Observation",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 89.9,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.890403"
+            },
+            {
+              "name": "HR",
+              "value": 87.8,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.890403"
+            },
+            {
+              "name": "HR",
+              "value": 95.7,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.890403"
+            },
+            {
+              "name": "BP",
+              "value": 107.8,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.890403"
+            },
+            {
+              "name": "BP",
+              "value": 124.0,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.890403"
+            },
+            {
+              "name": "BP",
+              "value": 121.6,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.890403"
+            },
+            {
+              "name": "Temp",
+              "value": 33.5,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.890403"
+            },
+            {
+              "name": "Temp",
+              "value": 40.3,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.890403"
+            },
+            {
+              "name": "Temp",
+              "value": 36.5,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.890403"
+            },
+            {
+              "name": "SpO2",
+              "value": 91.4,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.890403"
+            },
+            {
+              "name": "SpO2",
+              "value": 94.1,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.890403"
+            },
+            {
+              "name": "SpO2",
+              "value": 102.8,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.890403"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_114",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p115",
+          "name": "Roni Cohen",
+          "age": 53,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "211B",
+          "reason": "Neurological Observation",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 70.5,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.890499"
+            },
+            {
+              "name": "HR",
+              "value": 76.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.890499"
+            },
+            {
+              "name": "HR",
+              "value": 90.9,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.890499"
+            },
+            {
+              "name": "BP",
+              "value": 109.6,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.890499"
+            },
+            {
+              "name": "BP",
+              "value": 99.8,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.890499"
+            },
+            {
+              "name": "BP",
+              "value": 85.7,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.890499"
+            },
+            {
+              "name": "Temp",
+              "value": 36.7,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.890499"
+            },
+            {
+              "name": "Temp",
+              "value": 36.7,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.890499"
+            },
+            {
+              "name": "Temp",
+              "value": 33.8,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.890499"
+            },
+            {
+              "name": "SpO2",
+              "value": 99.1,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.890499"
+            },
+            {
+              "name": "SpO2",
+              "value": 96.9,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.890499"
+            },
+            {
+              "name": "SpO2",
+              "value": 99.9,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.890499"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "profile_115",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p116",
+          "name": "Tal Shalom",
+          "age": 47,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "212A",
+          "reason": "Post Surgery",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 72.4,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.890572"
+            },
+            {
+              "name": "HR",
+              "value": 65.9,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.890572"
+            },
+            {
+              "name": "HR",
+              "value": 83.5,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.890572"
+            },
+            {
+              "name": "BP",
+              "value": 96.1,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.890572"
+            },
+            {
+              "name": "BP",
+              "value": 99.5,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.890572"
+            },
+            {
+              "name": "BP",
+              "value": 112.0,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.890572"
+            },
+            {
+              "name": "Temp",
+              "value": 38.0,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.890572"
+            },
+            {
+              "name": "Temp",
+              "value": 41.9,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.890572"
+            },
+            {
+              "name": "Temp",
+              "value": 38.8,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.890572"
+            },
+            {
+              "name": "SpO2",
+              "value": 100.8,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.890572"
+            },
+            {
+              "name": "SpO2",
+              "value": 101.9,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.890572"
+            },
+            {
+              "name": "SpO2",
+              "value": 92.5,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.890572"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_116",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p117",
+          "name": "Ofir Levi",
+          "age": 82,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.25,
+          "room": "200B",
+          "reason": "Neurological Observation",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 95.8,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.890638"
+            },
+            {
+              "name": "HR",
+              "value": 91.3,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.890638"
+            },
+            {
+              "name": "HR",
+              "value": 57.2,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.890638"
+            },
+            {
+              "name": "BP",
+              "value": 104.7,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.890638"
+            },
+            {
+              "name": "BP",
+              "value": 85.6,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.890638"
+            },
+            {
+              "name": "BP",
+              "value": 96.0,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.890638"
+            },
+            {
+              "name": "Temp",
+              "value": 42.0,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.890638"
+            },
+            {
+              "name": "Temp",
+              "value": 32.2,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.890638"
+            },
+            {
+              "name": "Temp",
+              "value": 32.3,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.890638"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.0,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.890638"
+            },
+            {
+              "name": "SpO2",
+              "value": 96.6,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.890638"
+            },
+            {
+              "name": "SpO2",
+              "value": 103.0,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.890638"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_117",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p118",
+          "name": "Shira Azoulay",
+          "age": 75,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "215A",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 70.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.890699"
+            },
+            {
+              "name": "HR",
+              "value": 70.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.890699"
+            },
+            {
+              "name": "HR",
+              "value": 68.6,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.890699"
+            },
+            {
+              "name": "BP",
+              "value": 93.3,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.890699"
+            },
+            {
+              "name": "BP",
+              "value": 116.0,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.890699"
+            },
+            {
+              "name": "BP",
+              "value": 76.5,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.890699"
+            },
+            {
+              "name": "Temp",
+              "value": 32.1,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.890699"
+            },
+            {
+              "name": "Temp",
+              "value": 40.7,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.890699"
+            },
+            {
+              "name": "Temp",
+              "value": 40.3,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.890699"
+            },
+            {
+              "name": "SpO2",
+              "value": 94.6,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.890699"
+            },
+            {
+              "name": "SpO2",
+              "value": 103.2,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.890699"
+            },
+            {
+              "name": "SpO2",
+              "value": 99.0,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.890699"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "profile_118",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p119",
+          "name": "Shira Biton",
+          "age": 25,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "202B",
+          "reason": "Neurological Observation",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 94.3,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.890759"
+            },
+            {
+              "name": "HR",
+              "value": 65.8,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.890759"
+            },
+            {
+              "name": "HR",
+              "value": 65.4,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.890759"
+            },
+            {
+              "name": "BP",
+              "value": 86.4,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.890759"
+            },
+            {
+              "name": "BP",
+              "value": 102.2,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.890759"
+            },
+            {
+              "name": "BP",
+              "value": 102.8,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.890759"
+            },
+            {
+              "name": "Temp",
+              "value": 38.9,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.890759"
+            },
+            {
+              "name": "Temp",
+              "value": 38.2,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.890759"
+            },
+            {
+              "name": "Temp",
+              "value": 31.8,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.890759"
+            },
+            {
+              "name": "SpO2",
+              "value": 94.2,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.890759"
+            },
+            {
+              "name": "SpO2",
+              "value": 91.4,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.890759"
+            },
+            {
+              "name": "SpO2",
+              "value": 99.3,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.890759"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_119",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p120",
+          "name": "Yarden Peretz",
+          "age": 31,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "220B",
+          "reason": "Post Surgery",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 69.6,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.890841"
+            },
+            {
+              "name": "HR",
+              "value": 66.5,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.890841"
+            },
+            {
+              "name": "HR",
+              "value": 83.6,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.890841"
+            },
+            {
+              "name": "BP",
+              "value": 123.3,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.890841"
+            },
+            {
+              "name": "BP",
+              "value": 91.9,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.890841"
+            },
+            {
+              "name": "BP",
+              "value": 103.5,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.890841"
+            },
+            {
+              "name": "Temp",
+              "value": 38.1,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.890841"
+            },
+            {
+              "name": "Temp",
+              "value": 36.0,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.890841"
+            },
+            {
+              "name": "Temp",
+              "value": 31.5,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.890841"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.2,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.890841"
+            },
+            {
+              "name": "SpO2",
+              "value": 99.7,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.890841"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.6,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.890841"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "profile_120",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p121",
+          "name": "Ofir Biton",
+          "age": 29,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.1,
+          "room": "211A",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 57.8,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.890906"
+            },
+            {
+              "name": "HR",
+              "value": 66.8,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.890906"
+            },
+            {
+              "name": "HR",
+              "value": 84.8,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.890906"
+            },
+            {
+              "name": "BP",
+              "value": 92.1,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.890906"
+            },
+            {
+              "name": "BP",
+              "value": 87.6,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.890906"
+            },
+            {
+              "name": "BP",
+              "value": 94.2,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.890906"
+            },
+            {
+              "name": "Temp",
+              "value": 35.8,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.890906"
+            },
+            {
+              "name": "Temp",
+              "value": 31.7,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.890906"
+            },
+            {
+              "name": "Temp",
+              "value": 42.7,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.890906"
+            },
+            {
+              "name": "SpO2",
+              "value": 94.1,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.890906"
+            },
+            {
+              "name": "SpO2",
+              "value": 104.6,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.890906"
+            },
+            {
+              "name": "SpO2",
+              "value": 103.6,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.890906"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_121",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p122",
+          "name": "Tomer Ben-David",
+          "age": 57,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "215B",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 85.2,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.890983"
+            },
+            {
+              "name": "HR",
+              "value": 77.4,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.890983"
+            },
+            {
+              "name": "HR",
+              "value": 71.9,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.890983"
+            },
+            {
+              "name": "BP",
+              "value": 105.8,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.890983"
+            },
+            {
+              "name": "BP",
+              "value": 88.5,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.890983"
+            },
+            {
+              "name": "BP",
+              "value": 78.4,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.890983"
+            },
+            {
+              "name": "Temp",
+              "value": 33.9,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.890983"
+            },
+            {
+              "name": "Temp",
+              "value": 33.6,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.890983"
+            },
+            {
+              "name": "Temp",
+              "value": 32.1,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.890983"
+            },
+            {
+              "name": "SpO2",
+              "value": 99.2,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.890983"
+            },
+            {
+              "name": "SpO2",
+              "value": 95.5,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.890983"
+            },
+            {
+              "name": "SpO2",
+              "value": 102.2,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.890983"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "profile_122",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p123",
+          "name": "Shira Peretz",
+          "age": 21,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "201B",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 62.1,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.891070"
+            },
+            {
+              "name": "HR",
+              "value": 97.4,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.891070"
+            },
+            {
+              "name": "HR",
+              "value": 86.5,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.891070"
+            },
+            {
+              "name": "BP",
+              "value": 82.4,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.891070"
+            },
+            {
+              "name": "BP",
+              "value": 95.5,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.891070"
+            },
+            {
+              "name": "BP",
+              "value": 119.9,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.891070"
+            },
+            {
+              "name": "Temp",
+              "value": 40.7,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.891070"
+            },
+            {
+              "name": "Temp",
+              "value": 38.0,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.891070"
+            },
+            {
+              "name": "Temp",
+              "value": 35.2,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.891070"
+            },
+            {
+              "name": "SpO2",
+              "value": 96.4,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.891070"
+            },
+            {
+              "name": "SpO2",
+              "value": 100.3,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.891070"
+            },
+            {
+              "name": "SpO2",
+              "value": 100.1,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.891070"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "profile_123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p124",
+          "name": "Dana Shalom",
+          "age": 35,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "209B",
+          "reason": "Post Surgery",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 74.5,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.891149"
+            },
+            {
+              "name": "HR",
+              "value": 94.8,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.891149"
+            },
+            {
+              "name": "HR",
+              "value": 94.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.891149"
+            },
+            {
+              "name": "BP",
+              "value": 76.1,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.891149"
+            },
+            {
+              "name": "BP",
+              "value": 94.2,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.891149"
+            },
+            {
+              "name": "BP",
+              "value": 91.1,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.891149"
+            },
+            {
+              "name": "Temp",
+              "value": 37.8,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.891149"
+            },
+            {
+              "name": "Temp",
+              "value": 31.4,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.891149"
+            },
+            {
+              "name": "Temp",
+              "value": 36.2,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.891149"
+            },
+            {
+              "name": "SpO2",
+              "value": 92.1,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.891149"
+            },
+            {
+              "name": "SpO2",
+              "value": 101.0,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.891149"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.4,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.891149"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "profile_124",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p125",
+          "name": "Maya Ben-David",
+          "age": 64,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.1,
+          "room": "200A",
+          "reason": "Post Surgery",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 70.3,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.891210"
+            },
+            {
+              "name": "HR",
+              "value": 65.8,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.891210"
+            },
+            {
+              "name": "HR",
+              "value": 102.1,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.891210"
+            },
+            {
+              "name": "BP",
+              "value": 98.8,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.891210"
+            },
+            {
+              "name": "BP",
+              "value": 86.9,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.891210"
+            },
+            {
+              "name": "BP",
+              "value": 115.8,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.891210"
+            },
+            {
+              "name": "Temp",
+              "value": 41.0,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.891210"
+            },
+            {
+              "name": "Temp",
+              "value": 31.8,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.891210"
+            },
+            {
+              "name": "Temp",
+              "value": 36.7,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.891210"
+            },
+            {
+              "name": "SpO2",
+              "value": 101.9,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.891210"
+            },
+            {
+              "name": "SpO2",
+              "value": 102.5,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.891210"
+            },
+            {
+              "name": "SpO2",
+              "value": 98.6,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.891210"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "profile_125",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p126",
+          "name": "Maya Shalom",
+          "age": 39,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "201B",
+          "reason": "Post Surgery",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 81.9,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.891269"
+            },
+            {
+              "name": "HR",
+              "value": 87.4,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.891269"
+            },
+            {
+              "name": "HR",
+              "value": 88.3,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.891269"
+            },
+            {
+              "name": "BP",
+              "value": 104.4,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.891269"
+            },
+            {
+              "name": "BP",
+              "value": 87.0,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.891269"
+            },
+            {
+              "name": "BP",
+              "value": 88.6,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.891269"
+            },
+            {
+              "name": "Temp",
+              "value": 42.2,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.891269"
+            },
+            {
+              "name": "Temp",
+              "value": 31.9,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.891269"
+            },
+            {
+              "name": "Temp",
+              "value": 36.6,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.891269"
+            },
+            {
+              "name": "SpO2",
+              "value": 93.0,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.891269"
+            },
+            {
+              "name": "SpO2",
+              "value": 104.0,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.891269"
+            },
+            {
+              "name": "SpO2",
+              "value": 98.2,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.891269"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "Haifa",
+            "profile_id": "profile_126",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p127",
+          "name": "Roni Rahmani",
+          "age": 50,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "209B",
+          "reason": "Routine Check-up",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 91.7,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.891330"
+            },
+            {
+              "name": "HR",
+              "value": 74.9,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.891330"
+            },
+            {
+              "name": "HR",
+              "value": 76.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.891330"
+            },
+            {
+              "name": "BP",
+              "value": 101.9,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.891330"
+            },
+            {
+              "name": "BP",
+              "value": 111.8,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.891330"
+            },
+            {
+              "name": "BP",
+              "value": 93.6,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.891330"
+            },
+            {
+              "name": "Temp",
+              "value": 32.2,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.891330"
+            },
+            {
+              "name": "Temp",
+              "value": 31.6,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.891330"
+            },
+            {
+              "name": "Temp",
+              "value": 37.7,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.891330"
+            },
+            {
+              "name": "SpO2",
+              "value": 104.1,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.891330"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.8,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.891330"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.0,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.891330"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_127",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p128",
+          "name": "Bar Levi",
+          "age": 38,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "209B",
+          "reason": "Neurological Observation",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 81.2,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.891402"
+            },
+            {
+              "name": "HR",
+              "value": 95.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.891402"
+            },
+            {
+              "name": "HR",
+              "value": 96.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.891402"
+            },
+            {
+              "name": "BP",
+              "value": 111.5,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.891402"
+            },
+            {
+              "name": "BP",
+              "value": 85.7,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.891402"
+            },
+            {
+              "name": "BP",
+              "value": 77.9,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.891402"
+            },
+            {
+              "name": "Temp",
+              "value": 30.6,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.891402"
+            },
+            {
+              "name": "Temp",
+              "value": 36.7,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.891402"
+            },
+            {
+              "name": "Temp",
+              "value": 43.0,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.891402"
+            },
+            {
+              "name": "SpO2",
+              "value": 93.7,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.891402"
+            },
+            {
+              "name": "SpO2",
+              "value": 95.5,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.891402"
+            },
+            {
+              "name": "SpO2",
+              "value": 104.3,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.891402"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_128",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p129",
+          "name": "Shira Mizrahi",
+          "age": 43,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.0,
+          "room": "201A",
+          "reason": "Infection Treatment",
+          "assigned_staff": [
+            "Dr. Emily Carter (Cardiologist)",
+            "Dr. Johnathan Lee (Neurologist)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 93.5,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T22:44:41.891464"
+            },
+            {
+              "name": "HR",
+              "value": 92.7,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T21:44:41.891464"
+            },
+            {
+              "name": "HR",
+              "value": 64.2,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T20:44:41.891464"
+            },
+            {
+              "name": "BP",
+              "value": 86.0,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T22:44:41.891464"
+            },
+            {
+              "name": "BP",
+              "value": 114.7,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T21:44:41.891464"
+            },
+            {
+              "name": "BP",
+              "value": 106.1,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T20:44:41.891464"
+            },
+            {
+              "name": "Temp",
+              "value": 38.2,
+              "unit": "C",
+              "timestamp": "2025-05-29T22:44:41.891464"
+            },
+            {
+              "name": "Temp",
+              "value": 32.7,
+              "unit": "C",
+              "timestamp": "2025-05-29T21:44:41.891464"
+            },
+            {
+              "name": "Temp",
+              "value": 42.7,
+              "unit": "C",
+              "timestamp": "2025-05-29T20:44:41.891464"
+            },
+            {
+              "name": "SpO2",
+              "value": 92.8,
+              "unit": "%",
+              "timestamp": "2025-05-29T22:44:41.891464"
+            },
+            {
+              "name": "SpO2",
+              "value": 102.1,
+              "unit": "%",
+              "timestamp": "2025-05-29T21:44:41.891464"
+            },
+            {
+              "name": "SpO2",
+              "value": 95.6,
+              "unit": "%",
+              "timestamp": "2025-05-29T20:44:41.891464"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_129",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p999",
+          "name": "Test Patient",
+          "age": 55,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "ready_for_discharge",
+          "risk_score": 0.1,
+          "room": "209B",
+          "reason": "Test Admission",
+          "assigned_staff": [
+            "Dr. Alex Morgan (Surgeon)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 90.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-30T12:00:00"
+            },
+            {
+              "name": "Temperature",
+              "value": 37.5,
+              "unit": "C",
+              "timestamp": "2025-05-30T12:00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "alone",
+            "caregiver_available": false,
+            "home_address": "123 Main St",
+            "profile_id": "p999",
+            "support_contacts": []
+          }
+        }
+      ]
+    }
+  ]
+}

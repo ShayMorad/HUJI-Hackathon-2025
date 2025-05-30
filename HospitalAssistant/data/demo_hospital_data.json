@@ -1,0 +1,1103 @@
+{
+  "hospital_id": "H-001",
+  "name": "City General",
+  "total_capacity": 50,
+  "total_occupied": 30,
+  "total_free_beds": 20,
+  "utilisation": 0.6,
+  "average_patient_risk": 0.14,
+  "bottlenecks": [],
+  "wards": [
+    {
+      "ward_id": "A1",
+      "name": "Internal Med A",
+      "capacity": 50,
+      "occupancy": 30,
+      "load_factor": 0.6,
+      "is_overloaded": false,
+      "average_risk": 0.14,
+      "patients": [
+        {
+          "patient_id": "p100",
+          "name": "Patient 1",
+          "age": 58,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.1,
+          "room": "200A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 90,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331686"
+            },
+            {
+              "name": "SpO2",
+              "value": 94,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331686"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #0",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p101",
+          "name": "Patient 2",
+          "age": 87,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "ready_for_discharge",
+          "risk_score": 0.15,
+          "room": "201A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 72,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331702"
+            },
+            {
+              "name": "SpO2",
+              "value": 98,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331702"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #1",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p102",
+          "name": "Patient 3",
+          "age": 57,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "ready_for_discharge",
+          "risk_score": 0.0,
+          "room": "202A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 72,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331709"
+            },
+            {
+              "name": "SpO2",
+              "value": 98,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331709"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #2",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p103",
+          "name": "Patient 4",
+          "age": 59,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.1,
+          "room": "203A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 90,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331718"
+            },
+            {
+              "name": "SpO2",
+              "value": 94,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331718"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #3",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p104",
+          "name": "Patient 5",
+          "age": 53,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "ready_for_discharge",
+          "risk_score": 0.0,
+          "room": "204A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 72,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331724"
+            },
+            {
+              "name": "SpO2",
+              "value": 98,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331724"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #4",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p105",
+          "name": "Patient 6",
+          "age": 75,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.2,
+          "room": "205A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 120,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331731"
+            },
+            {
+              "name": "SpO2",
+              "value": 85,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331731"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #5",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p106",
+          "name": "Patient 7",
+          "age": 66,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.1,
+          "room": "206A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 90,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331737"
+            },
+            {
+              "name": "SpO2",
+              "value": 94,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331737"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #6",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p107",
+          "name": "Patient 8",
+          "age": 71,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.1,
+          "room": "207A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 90,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331753"
+            },
+            {
+              "name": "SpO2",
+              "value": 94,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331753"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #7",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p108",
+          "name": "Patient 9",
+          "age": 76,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "ready_for_discharge",
+          "risk_score": 0.15,
+          "room": "208A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 72,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331761"
+            },
+            {
+              "name": "SpO2",
+              "value": 98,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331761"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #8",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p109",
+          "name": "Patient 10",
+          "age": 83,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.25,
+          "room": "209A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 90,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331768"
+            },
+            {
+              "name": "SpO2",
+              "value": 94,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331768"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #9",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p110",
+          "name": "Patient 11",
+          "age": 65,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.2,
+          "room": "210A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 120,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331886"
+            },
+            {
+              "name": "SpO2",
+              "value": 85,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331886"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #10",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p111",
+          "name": "Patient 12",
+          "age": 85,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.25,
+          "room": "211A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 90,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331896"
+            },
+            {
+              "name": "SpO2",
+              "value": 94,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331896"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #11",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p112",
+          "name": "Patient 13",
+          "age": 61,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.2,
+          "room": "212A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 120,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331905"
+            },
+            {
+              "name": "SpO2",
+              "value": 85,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331905"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #12",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p113",
+          "name": "Patient 14",
+          "age": 55,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.2,
+          "room": "213A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 120,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331918"
+            },
+            {
+              "name": "SpO2",
+              "value": 85,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331918"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #13",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p114",
+          "name": "Patient 15",
+          "age": 57,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "ready_for_discharge",
+          "risk_score": 0.0,
+          "room": "214A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 72,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331924"
+            },
+            {
+              "name": "SpO2",
+              "value": 98,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331924"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #14",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p115",
+          "name": "Patient 16",
+          "age": 73,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.1,
+          "room": "215A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 90,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331929"
+            },
+            {
+              "name": "SpO2",
+              "value": 94,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331929"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #15",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p116",
+          "name": "Patient 17",
+          "age": 87,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "ready_for_discharge",
+          "risk_score": 0.15,
+          "room": "216A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 72,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331935"
+            },
+            {
+              "name": "SpO2",
+              "value": 98,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331935"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #16",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p117",
+          "name": "Patient 18",
+          "age": 68,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "ready_for_discharge",
+          "risk_score": 0.0,
+          "room": "217A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 72,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331941"
+            },
+            {
+              "name": "SpO2",
+              "value": 98,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331941"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #17",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p118",
+          "name": "Patient 19",
+          "age": 86,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.35,
+          "room": "218A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 120,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331946"
+            },
+            {
+              "name": "SpO2",
+              "value": 85,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331946"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #18",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p119",
+          "name": "Patient 20",
+          "age": 63,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.2,
+          "room": "219A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 120,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331952"
+            },
+            {
+              "name": "SpO2",
+              "value": 85,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331952"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #19",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p120",
+          "name": "Patient 21",
+          "age": 65,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.2,
+          "room": "220A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 120,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331958"
+            },
+            {
+              "name": "SpO2",
+              "value": 85,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331958"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #20",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p121",
+          "name": "Patient 22",
+          "age": 50,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "ready_for_discharge",
+          "risk_score": 0.0,
+          "room": "221A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 72,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331963"
+            },
+            {
+              "name": "SpO2",
+              "value": 98,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331963"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #21",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p122",
+          "name": "Patient 23",
+          "age": 90,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.35,
+          "room": "222A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 120,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331968"
+            },
+            {
+              "name": "SpO2",
+              "value": 85,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331968"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #22",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p123",
+          "name": "Patient 24",
+          "age": 52,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.1,
+          "room": "223A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 90,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331974"
+            },
+            {
+              "name": "SpO2",
+              "value": 94,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331974"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #23",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p124",
+          "name": "Patient 25",
+          "age": 58,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.1,
+          "room": "224A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 90,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331979"
+            },
+            {
+              "name": "SpO2",
+              "value": 94,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331979"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #24",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p125",
+          "name": "Patient 26",
+          "age": 53,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.1,
+          "room": "225A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 90,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331985"
+            },
+            {
+              "name": "SpO2",
+              "value": 94,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331985"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #25",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p126",
+          "name": "Patient 27",
+          "age": 85,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.35,
+          "room": "226A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 120,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331990"
+            },
+            {
+              "name": "SpO2",
+              "value": 85,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331990"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #26",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p127",
+          "name": "Patient 28",
+          "age": 67,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "urgent",
+          "risk_score": 0.1,
+          "room": "227A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 90,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.331996"
+            },
+            {
+              "name": "SpO2",
+              "value": 94,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.331996"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #27",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p128",
+          "name": "Patient 29",
+          "age": 76,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "ready_for_discharge",
+          "risk_score": 0.15,
+          "room": "228A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 72,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.332004"
+            },
+            {
+              "name": "SpO2",
+              "value": 98,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.332004"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #28",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "p129",
+          "name": "Patient 30",
+          "age": 73,
+          "ward_id": "A1",
+          "preferred_language": "english",
+          "status": "ready_for_discharge",
+          "risk_score": 0.0,
+          "room": "229A",
+          "reason": "Condition X",
+          "assigned_staff": [
+            "Dr. Smith (Cardiologist)",
+            "Nurse Alice (General)"
+          ],
+          "vitals": [
+            {
+              "name": "HR",
+              "value": 72,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:43:43.332012"
+            },
+            {
+              "name": "SpO2",
+              "value": 98,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:43:43.332012"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": true,
+            "home_address": "123 Street #29",
+            "profile_id": null,
+            "support_contacts": []
+          }
+        }
+      ]
+    }
+  ]
+}

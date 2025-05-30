@@ -1,6 +1,6 @@
 // This file will contain functions to interact with the backend patient API.
 
-const API_BASE_URL = 'http://localhost:8000'; // IMPORTANT: Replace YOUR_BACKEND_PORT with your actual backend port
+const API_BASE_URL = 'http://localhost:8003'; // IMPORTANT: Replace YOUR_BACKEND_PORT with your actual backend port
 
 export const fetchPatients = async () => {
   try {
@@ -30,10 +30,10 @@ export const fetchPatients = async () => {
                   mappedStatus = 'pending'; // Or another appropriate status like 'ready_to_discharge'
                   break;
                 // Add cases for other statuses your API might return
-                case 'critical':
+                case 'urgent':
                   mappedStatus = 'urgent';
                   break;
-                case 'ready for discharge':
+                case 'ready_for_discharge':
                 mappedStatus = 'ready_to_discharge';
                 break;
                 default:

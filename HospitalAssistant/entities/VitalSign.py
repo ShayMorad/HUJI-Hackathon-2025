@@ -20,6 +20,7 @@ from typing import List, Tuple
 _NORMAL_RANGES: dict[str, Tuple[float, float]] = {
     "BP": (80, 120),   # systolic
     "HR": (60, 100),
+    "Temp":(35,39),
     "SpO2": (95, 100),
 }
 
@@ -106,8 +107,18 @@ class VitalSign:
         return {
             "name": self.type,
             "value": self.value,
+            "unit": self.unit,  # ← NEW
             "timestamp": self.timestamp
         }
+
+    @classmethod
+    def from_schema(cls, schema: "VitalSignSchema"):
+        return cls(
+            timestamp=schema.timestamp,
+            type=schema.name,
+            value=schema.value,
+            unit=schema.unit,
+        )
 
     # Nice repr for debugging
     def __repr__(self) -> str:  # noqa: D401

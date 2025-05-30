@@ -160,6 +160,7 @@
 .chat-message p {
   margin: 0;
   font-size: 0.95em;
+  text-align: left;
 }
 
 .chat-message.user {

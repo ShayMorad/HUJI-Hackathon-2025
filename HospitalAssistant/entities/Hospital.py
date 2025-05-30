@@ -92,7 +92,7 @@ class Hospital:
             "total_free_beds": self.total_capacity() - self.total_occupancy(),
             "utilisation": round(self.bed_utilisation(), 2),
             "average_patient_risk": round(self.average_patient_risk(), 2),
-            "bottlenecks": [w.to_dict() for w in self.get_bottlenecks()],
+            "bottlenecks": self.get_bottlenecks(),
             "wards": wards_data,
         }
 

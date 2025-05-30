@@ -4,8 +4,9 @@ from datetime import datetime
 
 
 class VitalSignSchema(BaseModel):
-    name: str
+    name: str       # maps to VitalSign.type
     value: float
+    unit: str       # you were missing this
     timestamp: str
 
 
@@ -27,6 +28,10 @@ class ChatRequest(BaseModel):
     message: str
     timestamp: datetime
 
+class PromptOnly(BaseModel):
+    message: str  # Accepts JSON like: { "message": "Ask about meds" }
+
+
 class ChatResponse(BaseModel):
     reply: str
 
@@ -38,12 +43,18 @@ class PatientCreate(BaseModel):
     preferred_language: str
     social_profile: SocialProfileCreate
     vitals: List[VitalSignSchema] = []
+    room: str                     # ✅ Add this
+    reason: str                   # ✅ Add this
+    assigned_staff: List[str]    # ✅ Add this
 
 
 class PatientDetail(PatientCreate):
     status: str
     risk_score: Optional[float] = None
-    social_profile: SocialProfileSchema  # upgraded version
+    social_profile: SocialProfileSchema
+    room: str
+    reason: str
+    assigned_staff: List[str]
 
 
 class WardSnapshot(BaseModel):
