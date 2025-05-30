@@ -1,7 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react';
-import './PatientsStatusPage.css'; // CSS for this page
-import {sendChatMessagePost, fetchPatients} from '../api/patientApi'; // Updated import
-// import { processedInitialPatientsData, statusTypes, getRandomStaff } from '../data/patientData'; // Commented out for now
+import './PatientsStatusPage.css'; // <-- Assurez-vous que cette ligne est bien présente et pointe vers le bon fichier CSS
+import {sendChatMessagePost, fetchPatients, fetchPatientById} from '../api/patientApi';
 
 // Helper to map status to a sort order and color class
 const statusMap = {
@@ -10,20 +9,190 @@ const statusMap = {
     pending: {order: 3, className: 'status-pending'},
 };
 
+// Composant PatientMedicalSummary refactorisé
+function PatientMedicalSummary({ patientInfo, isLoading, error }) {
+    if (isLoading) {
+        return <div className="medical-summary-info">Loading patient overview...</div>;
+    }
+
+    if (error) {
+        return <div className="medical-summary-error">Error loading patient overview: {error}</div>;
+    }
+
+    if (!patientInfo) {
+        return <div className="medical-summary-info">No patient overview available.</div>;
+    }
+
+    const {
+        age = 'N/A',
+        preferred_language: preferredLanguage = 'N/A',
+        risk_score: riskScore = 'N/A',
+        social_profile: socialProfile = {},
+        allergies = [],
+        medications = [],
+        conditions = []
+    } = patientInfo;
+
+    const {
+        living_situation: livingSituation = 'N/A',
+        caregiver_available: caregiverAvailable,
+        home_address: homeAddress = 'N/A',
+        support_contacts: supportContacts = []
+    } = socialProfile;
+
+    return (
+        <div className="medical-summary-container">
+            <h3>Patient Overview</h3>
+
+            <div className="summary-section">
+                <div className="summary-line">
+                    <span className="summary-label">Age: </span>
+                    <span className="summary-value">{age}</span>
+                </div>
+                <div className="summary-line">
+                    <span className="summary-label">Preferred Language: </span>
+                    <span className="summary-value">{preferredLanguage}</span>
+                </div>
+                <div className="summary-line">
+                    <span className="summary-label">Risk Score: </span>
+                    <span className="summary-value">{typeof riskScore === 'number' ? riskScore.toFixed(2) : riskScore}</span>
+                </div>
+            </div>
+
+            <h4>Social Profile:</h4>
+            <div className="summary-section">
+                <div className="summary-line">
+                    <span className="summary-label">Living Situation: </span>
+                    <span className="summary-value">{livingSituation}</span>
+                </div>
+                <div className="summary-line">
+                    <span className="summary-label">Caregiver Available: </span>
+                    <span className="summary-value">{caregiverAvailable === true ? 'Yes' : caregiverAvailable === false ? 'No' : 'N/A'}</span>
+                </div>
+                <div className="summary-line">
+                    <span className="summary-label">Home Address: </span>
+                    <span className="summary-value">{homeAddress}</span>
+                </div>
+                {supportContacts.length > 0 ? (
+                    <>
+                        <div className="summary-line">
+                            <span className="summary-label">Support Contacts: </span>
+                        </div>
+                        <ul className="summary-list">
+                            {supportContacts.map((contact, index) => (
+                                <li key={index} className="summary-list-item">{contact.name} ({contact.relationship}): {contact.phone}</li>
+                            ))}
+                        </ul>
+                    </>
+                ) : (
+                    <div className="summary-line">
+                        <span className="summary-label">Support Contacts: </span>
+                        <span className="summary-value">No contacts listed.</span>
+                    </div>
+                )}
+            </div>
+
+            {/* Placeholder sections for medical data */}
+            <h4>Allergies:</h4>
+            <div className="summary-section">
+                {allergies.length > 0 ? (
+                    <ul className="summary-list">
+                        {allergies.map((allergy, index) => (
+                            <li key={index} className="summary-list-item">{allergy}</li>
+                        ))}
+                    </ul>
+                ) : (
+                    <div className="summary-line">
+                        <span className="summary-value">No known allergies.</span>
+                    </div>
+                )}
+            </div>
+
+            <h4>Current Medications:</h4>
+            <div className="summary-section">
+                {medications.length > 0 ? (
+                    <ul className="summary-list">
+                        {medications.map((med, index) => (
+                            <li key={index} className="summary-list-item">{med}</li>
+                        ))}
+                    </ul>
+                ) : (
+                    <div className="summary-line">
+                        <span className="summary-value">No current medications.</span>
+                    </div>
+                )}
+            </div>
+
+            <h4>Medical Conditions:</h4>
+            <div className="summary-section">
+                {conditions.length > 0 ? (
+                    <ul className="summary-list">
+                        {conditions.map((condition, index) => (
+                            <li key={index} className="summary-list-item">{condition}</li>
+                        ))}
+                    </ul>
+                ) : (
+                    <div className="summary-line">
+                        <span className="summary-value">No medical conditions listed.</span>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+}
+
+// Le reste du composant PatientsStatusPage
 function PatientsStatusPage({currentUser}) {
     const [patients, setPatients] = useState([]);
     const [selectedPatient, setSelectedPatient] = useState(null);
     const [chatMessages, setChatMessages] = useState([]);
     const [currentMessage, setCurrentMessage] = useState('');
-    const [isSending, setIsSending] = useState(false); // For send button disabling
+    const [isSending, setIsSending] = useState(false);
     const chatMessagesEndRef = useRef(null);
-    const [isLoadingPatients, setIsLoadingPatients] = useState(true); // For loading indicator
-    const [errorLoadingPatients, setErrorLoadingPatients] = useState(null); // For error messages
-    const [showVitals, setShowVitals] = useState(false); // Added for vitals display
-    const [selectedPatientVitals, setSelectedPatientVitals] = useState(null); // Added for vitals data
+    const [isLoadingPatients, setIsLoadingPatients] = useState(true);
+    const [errorLoadingPatients, setErrorLoadingPatients] = useState(null); // <-- CORRECTION ICI
+    const [showVitals, setShowVitals] = useState(false);
+    const [selectedPatientVitals, setSelectedPatientVitals] = useState(null);
+
+    const [showMedicalRecordSummary, setShowMedicalRecordSummary] = useState(false);
+    const [patientMedicalData, setPatientMedicalData] = useState(null);
+    const [isLoadingMedicalData, setIsLoadingMedicalData] = useState(false);
+    const [errorMedicalData, setErrorMedicalData] = useState(null);
+
+    useEffect(() => {
+        const getMedicalData = async () => {
+            if (showMedicalRecordSummary && selectedPatient) {
+                setIsLoadingMedicalData(true);
+                setErrorMedicalData(null);
+                setPatientMedicalData(null);
+                try {
+                    const data = await fetchPatientById(selectedPatient.id);
+                    setPatientMedicalData(data);
+                } catch (error) {
+                    setErrorMedicalData(error.message || "Failed to load medical record.");
+                } finally {
+                    setIsLoadingMedicalData(false);
+                }
+            } else if (!showMedicalRecordSummary) {
+                setPatientMedicalData(null);
+                setErrorMedicalData(null);
+                setIsLoadingMedicalData(false);
+            }
+        };
+
+        getMedicalData();
+    }, [showMedicalRecordSummary, selectedPatient]);
 
     const handleActionButtonClick = (buttonName) => {
-        if (buttonName === 'Vitals') {
+        if (buttonName === 'Medical Record') {
+            if (!selectedPatient) {
+                alert("Please select a patient first to view their medical record.");
+                return;
+            }
+            setShowMedicalRecordSummary(prev => !prev);
+            setShowVitals(false);
+        }
+        else if (buttonName === 'Vitals') {
             if (!selectedPatient) {
                 alert("Please select a patient first to view their vitals.");
                 return;
@@ -31,16 +200,15 @@ function PatientsStatusPage({currentUser}) {
             setShowVitals(prevShowVitals => {
                 const newShowVitals = !prevShowVitals;
                 if (newShowVitals) {
-                    // Mock data for now, replace with actual API call later
                     setSelectedPatientVitals({
                         BP: {value: '120/80', unit: 'mmHg', trend: 'stable'},
                         HR: {value: '75', unit: 'bpm', trend: 'up'},
                         SpO2: {value: '98', unit: '%', trend: 'stable'},
-                        // Add more vitals if needed, or make it dynamic from API
                     });
                 } else {
-                    setSelectedPatientVitals(null); // Clear vitals when hiding
+                    setSelectedPatientVitals(null);
                 }
+                setShowMedicalRecordSummary(false);
                 return newShowVitals;
             });
         } else {
@@ -54,47 +222,6 @@ function PatientsStatusPage({currentUser}) {
 
     useEffect(scrollToBottom, [chatMessages]);
 
-    // Commenting out simulateUpdateAndSortPatients as we will load from API
-    /*
-    const simulateUpdateAndSortPatients = () => {
-      console.log("Simulating patient data update...");
-      let updatedPatientsSource = JSON.parse(JSON.stringify(processedInitialPatientsData));
-
-      if (Math.random() < 0.1 && updatedPatientsSource.length > 1 && selectedPatient) {
-        const patientToRemoveIndex = updatedPatientsSource.findIndex(p => p.id === selectedPatient.id);
-        if (patientToRemoveIndex !== -1) {
-          console.log(`Simulating removal of selected patient: ${updatedPatientsSource[patientToRemoveIndex].name}`);
-          updatedPatientsSource.splice(patientToRemoveIndex, 1);
-        } else {
-          const randomIdxToDrop = Math.floor(Math.random() * updatedPatientsSource.length);
-          console.log(`Simulating removal of random patient: ${updatedPatientsSource[randomIdxToDrop].name}`);
-          updatedPatientsSource.splice(randomIdxToDrop, 1);
-        }
-      } else {
-        if (updatedPatientsSource.length > 0) {
-          const randomIndex = Math.floor(Math.random() * updatedPatientsSource.length);
-          const randomStatusIndex = Math.floor(Math.random() * statusTypes.length);
-          updatedPatientsSource[randomIndex].status = statusTypes[randomStatusIndex];
-        }
-      }
-
-      const sortedPatients = updatedPatientsSource.sort((a, b) => {
-        return statusMap[a.status].order - statusMap[b.status].order;
-      });
-      setPatients(sortedPatients);
-
-      if (selectedPatient) {
-        const stillExists = sortedPatients.find(p => p.id === selectedPatient.id);
-        if (!stillExists) {
-          console.log(`Selected patient ${selectedPatient.name} no longer in list. Closing chat.`);
-          setSelectedPatient(null);
-          setChatMessages([]);
-          setCurrentMessage('');
-        }
-      }
-    };
-    */
-
     useEffect(() => {
         document.title = "MedAssist AI - Patients Status";
 
@@ -103,9 +230,8 @@ function PatientsStatusPage({currentUser}) {
                 setErrorLoadingPatients(null);
                 setIsLoadingPatients(true);
                 const fetchedPatients = await fetchPatients();
-                // Sort patients by status order defined in statusMap
                 const sortedFetchedPatients = fetchedPatients.sort((a, b) => {
-                    const orderA = statusMap[a.status] ? statusMap[a.status].order : 99; // Fallback for unknown statuses
+                    const orderA = statusMap[a.status] ? statusMap[a.status].order : 99;
                     const orderB = statusMap[b.status] ? statusMap[b.status].order : 99;
                     return orderA - orderB;
                 });
@@ -118,17 +244,12 @@ function PatientsStatusPage({currentUser}) {
             }
         };
 
-        // loadPatients();
-        // // If you want to refresh data periodically, you can set up an interval here
-        // const intervalId = setInterval(loadPatients, 5000);
-        // return () => clearInterval(intervalId);
         loadPatients();
 
         const intervalId = setInterval(() => {
             const isInputFocused = document.activeElement.tagName === 'INPUT';
             const isChatting = !!selectedPatient;
 
-            // Only refresh if not chatting and user isn't typing
             if (!isChatting && !isInputFocused) {
                 loadPatients();
             }
@@ -136,10 +257,12 @@ function PatientsStatusPage({currentUser}) {
 
         return () => clearInterval(intervalId);
 
-    }, []); // Empty dependency array, run once on mount
+    }, []);
 
     const handlePatientSelect = (patient) => {
         setSelectedPatient(patient);
+        setShowMedicalRecordSummary(false);
+        setShowVitals(false);
         setChatMessages([
             {
                 id: Date.now(),
@@ -166,13 +289,6 @@ function PatientsStatusPage({currentUser}) {
         try {
             const response = await sendChatMessagePost(currentUser, selectedPatient, messageToSend);
             console.log("API response:", response);
-
-            // if (response && response.echo && response.echo.botReply) {
-            //   const botMessage = {
-            //     id: Date.now() + 1,
-            //     text: response.echo.botReply,
-            //     sender: 'bot',
-            //   };
 
             if (response && response.reply) {
                 const botMessage = {
@@ -217,7 +333,7 @@ function PatientsStatusPage({currentUser}) {
     return (
         <div className="patients-status-page-container">
             <div className="patients-list-sidebar">
-                <h2>Patient Overview</h2>
+                <h2 style={{backgroundColor: '#f0f0f0', color: '#003b5e'}}>Patient Overview</h2>
                 <div className="patients-table-scrollable">
                     <table>
                         <thead>
@@ -247,10 +363,9 @@ function PatientsStatusPage({currentUser}) {
                 {selectedPatient ? (
                     <>
                         <div className="middle-top-content">
-
                             {selectedPatient.assignedStaff && selectedPatient.assignedStaff.length > 0 ? (
                                 <div className="assigned-staff-details">
-                                    <strong style={{fontSize: '2em', paddingLeft: '70px'}}>Assigned Staff:</strong>
+                                    <strong style={{fontSize: '2em', paddingLeft: '70px', color: '#003b5e'}}>Assigned Staff:</strong>
                                     <ul>
                                         {selectedPatient.assignedStaff.map(staff => (
                                             <ol style={{fontSize: '1.8em', textDecoration: 'underline'}} key={staff.name}>{staff.name} ({staff.role})</ol>
@@ -264,7 +379,7 @@ function PatientsStatusPage({currentUser}) {
                         </div>
 
                         <div className="chat-module-container">
-                            <h3 style={{fontSize: '1.8em'}}>Chat with an AI assistant
+                            <h3 style={{fontSize: '1.8em', backgroundColor: '#f0f0f0', color: '#003b5e'}}>Chat with an AI assistant
                                 about {selectedPatient.name} (Room: {selectedPatient.room})</h3>
                             <div className="chat-messages-container">
                                 {chatMessages.map(msg => (
@@ -298,19 +413,26 @@ function PatientsStatusPage({currentUser}) {
             </div>
 
             <div className="actions-panel-area">
-                <h3 style={{fontSize: '1.8em'}}> Further actions </h3>
+                <h3 style={{fontSize: '1.8em', backgroundColor: '#f0f0f0', color: '#003b5e'}}> Further actions </h3>
                 <div className="action-buttons-container">
                     <button className="action-button" onClick={() => handleActionButtonClick('Medical Record')}>
                         <img src={`${process.env.PUBLIC_URL}/patient_status_page/medical_record_icone.jpg`}
                              alt="Medical Record"/>
                         <span>Medical Record</span>
                     </button>
+                    {showMedicalRecordSummary && selectedPatient && (
+                        <PatientMedicalSummary
+                            patientInfo={patientMedicalData}
+                            isLoading={isLoadingMedicalData}
+                            error={errorMedicalData}
+                        />
+                    )}
+
                     <button className="action-button" onClick={() => handleActionButtonClick('Vitals')}>
                         <img src={`${process.env.PUBLIC_URL}/patient_status_page/vitals_icone.jpg`} alt="Vitals"/>
                         <span>Vitals</span>
                     </button>
                 </div>
-                {/* Vitals display section */}
                 {showVitals && selectedPatient && selectedPatientVitals && (
                     <div className="vitals-display-container">
                         <h4>Vitals for {selectedPatient.name}</h4>
