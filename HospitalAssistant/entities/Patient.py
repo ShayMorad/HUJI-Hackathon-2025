@@ -65,9 +65,9 @@ class Patient:
         abnormal = [v for v in self.vitals if not v.is_within_normal_range()]
         risk = self.compute_risk_score()
 
-        if abnormal:
+        if len(abnormal)>=3:
             return "urgent"
-        elif risk < 0.15:
+        elif risk < 0.04:
             return "ready_for_discharge"
         else:
             return "pending"

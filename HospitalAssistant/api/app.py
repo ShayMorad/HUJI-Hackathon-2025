@@ -150,7 +150,8 @@ async def handle_chat(req: ChatRequest):
     status = patient.update_status()
     context = {
         "patient_history": f"{patient.name}, age {patient.age}",
-        "current_condition": status,
+        "current_hospitalizing_reason": f"{patient.reason}",
+        "status": status,
         "vital_signs": str(patient.vitals),
     }
 

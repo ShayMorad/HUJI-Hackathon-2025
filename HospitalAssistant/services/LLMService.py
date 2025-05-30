@@ -184,6 +184,14 @@ class LLMService:
         if 'patient_history' in context:
             formatted_parts.append(f"Patient History:\n{context['patient_history']}")
 
+        # New: include current hospitalizing reason
+        if 'current_hospitalizing_reason' in context:
+            formatted_parts.append(f"Reason for Hospitalization:\n{context['current_hospitalizing_reason']}")
+
+        # New: include clinical status
+        if 'status' in context:
+            formatted_parts.append(f"Clinical Status:\n{context['status']}")
+
         if 'current_condition' in context:
             formatted_parts.append(f"Current Condition:\n{context['current_condition']}")
 
