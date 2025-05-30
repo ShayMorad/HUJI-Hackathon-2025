@@ -28,7 +28,7 @@ class LLMService:
         "gemini-2.5-pro-preview-05-06": "Most powerful for complex medical reasoning"
     }
 
-    def __init__(self, model_name: str = "gemini-1.5-flash"):
+    def __init__(self, model_name: str = "gemini-2.5-flash-preview-05-20"):
         """Initialize the LLM service with Gemini.
 
         Args:
@@ -44,7 +44,7 @@ class LLMService:
         try:
             # Initialize credentials from the service account file
             credentials = service_account.Credentials.from_service_account_file(
-                r'C:\Users\samue\Desktop\Codage\HUJI-Hackathon-2025\Gemini\hackathon-team-46_gen-lang-client-0325865525_iam_gserviceaccount_com_1747758552.json'
+                r'C:\Users\shaym\Desktop\ComputerScience\Hackathon\Project\HUJI-Hackathon-2025\Gemini\hackathon-team-46_gen-lang-client-0325865525_iam_gserviceaccount_com_1747758552.json'
             )
             genai.configure(credentials=credentials)
 

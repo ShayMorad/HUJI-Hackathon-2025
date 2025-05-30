@@ -1,6 +1,6 @@
 // This file will contain functions to interact with the backend patient API.
 
-const API_BASE_URL = 'http://localhost:8000'; // IMPORTANT: Replace YOUR_BACKEND_PORT with your actual backend port
+const API_BASE_URL = 'http://localhost:8003'; // IMPORTANT: Replace YOUR_BACKEND_PORT with your actual backend port
 
 export const fetchPatients = async () => {
   try {

@@ -25,7 +25,7 @@
           "preferred_language": "hebrew",
           "status": "pending",
           "risk_score": 0.15,
-          "room": "200A",
+          "room": "200B",
           "reason": "High BP",
           "assigned_staff": [
             "Dr. Sarah Cohen (Cardiologist)",
@@ -111,7 +111,7 @@
           "preferred_language": "hebrew",
           "status": "ready_for_discharge",
           "risk_score": 0.0,
-          "room": "202A",
+          "room": "202B",
           "reason": "Chest Pain",
           "assigned_staff": [
             "Dr. Ronen (Surgeon)",
@@ -154,7 +154,7 @@
           "preferred_language": "hebrew",
           "status": "pending",
           "risk_score": 0.2,
-          "room": "203A",
+          "room": "203C",
           "reason": "Headache",
           "assigned_staff": [
             "Dr. Levi (Surgeon)",
@@ -197,7 +197,7 @@
           "preferred_language": "hebrew",
           "status": "ready_for_discharge",
           "risk_score": 0.0,
-          "room": "204A",
+          "room": "204C",
           "reason": "Back Pain",
           "assigned_staff": [
             "Dr. Ronen (Surgeon)",
@@ -283,7 +283,7 @@
           "preferred_language": "hebrew",
           "status": "pending",
           "risk_score": 0.1,
-          "room": "206A",
+          "room": "206D",
           "reason": "Headache",
           "assigned_staff": [
             "Dr. Levi (Surgeon)",
@@ -326,7 +326,7 @@
           "preferred_language": "hebrew",
           "status": "ready_for_discharge",
           "risk_score": 0.0,
-          "room": "207A",
+          "room": "207B",
           "reason": "Asthma",
           "assigned_staff": [
             "Dr. Ronen (Surgeon)",
@@ -369,7 +369,7 @@
           "preferred_language": "hebrew",
           "status": "ready_for_discharge",
           "risk_score": 0.0,
-          "room": "208A",
+          "room": "208B",
           "reason": "Routine Check",
           "assigned_staff": [
             "Dr. Tali Ben-David (Radiologist)",
@@ -412,7 +412,7 @@
           "preferred_language": "hebrew",
           "status": "ready_for_discharge",
           "risk_score": 0.0,
-          "room": "209A",
+          "room": "209C",
           "reason": "Headache",
           "assigned_staff": [
             "Dr. Ronen (Surgeon)",
@@ -455,7 +455,7 @@
           "preferred_language": "hebrew",
           "status": "ready_for_discharge",
           "risk_score": 0.0,
-          "room": "210A",
+          "room": "210B",
           "reason": "Headache",
           "assigned_staff": [
             "Dr. Levi (Cardiologist)",
@@ -541,7 +541,7 @@
           "preferred_language": "hebrew",
           "status": "pending",
           "risk_score": 0.1,
-          "room": "212A",
+          "room": "212C",
           "reason": "Asthma",
           "assigned_staff": [
             "Dr. Miriam Aaron (Oncologist)",
@@ -627,7 +627,7 @@
           "preferred_language": "hebrew",
           "status": "pending",
           "risk_score": 0.1,
-          "room": "214A",
+          "room": "214C",
           "reason": "Routine Check",
           "assigned_staff": [
             "Dr. Tali Ben-David (Radiologist)",
@@ -713,7 +713,7 @@
           "preferred_language": "hebrew",
           "status": "pending",
           "risk_score": 0.15,
-          "room": "216A",
+          "room": "216D",
           "reason": "Back Pain",
           "assigned_staff": [
             "Dr. Tali Ben-David (Radiologist)",
@@ -799,7 +799,7 @@
           "preferred_language": "hebrew",
           "status": "pending",
           "risk_score": 0.1,
-          "room": "218A",
+          "room": "218D",
           "reason": "Surgery Recovery",
           "assigned_staff": [
             "Dr. Tali Ben-David (Radiologist)",
@@ -885,7 +885,7 @@
           "preferred_language": "hebrew",
           "status": "urgent",
           "risk_score": 0.30000000000000004,
-          "room": "220A",
+          "room": "220D",
           "reason": "Back Pain",
           "assigned_staff": [
             "Dr. Leah Greenberg (Endocrinologist)",
@@ -971,7 +971,7 @@
           "preferred_language": "hebrew",
           "status": "urgent",
           "risk_score": 0.45000000000000007,
-          "room": "222A",
+          "room": "222C",
           "reason": "Asthma",
           "assigned_staff": [
             "Dr. Ronen (Surgeon)",
@@ -1057,7 +1057,7 @@
           "preferred_language": "hebrew",
           "status": "urgent",
           "risk_score": 0.45000000000000007,
-          "room": "224A",
+          "room": "224D",
           "reason": "Headache",
           "assigned_staff": [
             "Dr. Leah Greenberg (Endocrinologist)",
@@ -1143,7 +1143,7 @@
           "preferred_language": "hebrew",
           "status": "ready_for_discharge",
           "risk_score": 0.0,
-          "room": "226A",
+          "room": "226C",
           "reason": "High BP",
           "assigned_staff": [
             "Dr. Ronen (Surgeon)",
@@ -1186,7 +1186,7 @@
           "preferred_language": "hebrew",
           "status": "ready_for_discharge",
           "risk_score": 0.0,
-          "room": "227A",
+          "room": "227B",
           "reason": "Asthma",
           "assigned_staff": [
             "Dr. Levi (Surgeon)",
@@ -1272,7 +1272,7 @@
           "preferred_language": "hebrew",
           "status": "ready_for_discharge",
           "risk_score": 0.0,
-          "room": "229A",
+          "room": "229B",
           "reason": "Diabetes",
           "assigned_staff": [
             "Dr. Tali Ben-David (Radiologist)",
