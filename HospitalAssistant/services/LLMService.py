@@ -44,7 +44,7 @@ class LLMService:
         try:
             # Initialize credentials from the service account file
             credentials = service_account.Credentials.from_service_account_file(
-                r'C:\Users\shaym\Desktop\ComputerScience\Hackathon\Project\HUJI-Hackathon-2025\Gemini\hackathon-team-46_gen-lang-client-0325865525_iam_gserviceaccount_com_1747758552.json'
+                r'C:\Users\samue\Desktop\Codage\HUJI-Hackathon-2025\Gemini\hackathon-team-46_gen-lang-client-0325865525_iam_gserviceaccount_com_1747758552.json'
             )
             genai.configure(credentials=credentials)
 

@@ -1,18 +1,23 @@
+/* Styles de base pour l'agencement principal - À VÉRIFIER QUE RIEN D'AUTRE NE CONFLIT */
 .patients-status-page-container {
   display: flex;
-  height: calc(100vh - 60px); /* Full height minus header height, adjust 60px if header height changes */
+  height: calc(100vh - 60px);
   width: 100%;
+  color: #333;
+  background-image: url('../assets/images/background.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
+/* Ajustement de la barre latérale gauche */
 .patients-list-sidebar {
-  flex: 0 0 30%; /* Don't grow, don't shrink, base width 30% */
-  min-width: 250px; /* Minimum width before it gets too cramped */
-  max-width: 400px; /* Optional max width */
+  flex: 0 0 280px; /* **Augmenté légèrement pour la liste des patients** */
   padding: 20px;
   border-right: 1px solid #ccc;
   display: flex;
   flex-direction: column;
-  overflow-y: hidden; /* Prevent sidebar itself from scrolling, table will scroll */
+  overflow-y: hidden;
 }
 
 .patients-list-sidebar h2 {
@@ -52,17 +57,20 @@
 /* Status colors */
 .status-urgent {
   background-color: #ffebee; /* Light Red */
-  color: #c62828; /* Darker Red text for contrast */
+  color: #000000; /* Darker Red text for contrast */
+  font-size: 1.2em;
 }
 
 .status-ready {
   background-color: #e8f5e9; /* Light Green */
-  color: #2e7d32; /* Darker Green text */
+  color: #000000; /* Darker Green text */
+  font-size: 1.2em;
 }
 
 .status-pending {
   background-color: #fffde7; /* Light Yellow */
-  color: #f57f17; /* Darker Yellow/Orange text */
+  color: #000000; /* Darker Yellow/Orange text */
+  font-size: 1.2em;
 }
 
 /* Hover effect for rows */
@@ -70,30 +78,33 @@
   background-color: #f1f1f1; /* Or a slightly darker shade of its status color */
 }
 
+/* Ajustement de la zone de contenu principale (chat) */
 .main-content-area {
-  flex: 1 1 45%; /* Prend la majorité de l'espace central */
-  min-width: 300px;
+  flex: 1; /* Prend l'espace restant disponible */
+  min-width: 500px; /* **Augmenté pour donner plus de place au chat** */
   padding: 20px;
   display: flex;
-  flex-direction: column; /* Organise middle-top-content et chat-module-container verticalement */
-  overflow: hidden; /* Empêche le débordement de ce conteneur global */
+  flex-direction: column;
+  overflow: hidden;
 }
 
+/* Assurez-vous que le .middle-top-content ne prend pas tout l'espace et laisse de la place au chat */
 .middle-top-content {
-  flex-grow: 1; /* Prend tout l'espace disponible en hauteur */
-  overflow-y: auto; /* Permet le défilement si le contenu est grand */
-  padding-bottom: 15px; /* Espace avant la zone de chat */
-  /* min-height: 200px; Optional: ensure it doesn't get too small */
+  flex-grow: 1; /* Prend l'espace restant AU-DESSUS du chat */
+  overflow-y: auto;
+  padding-bottom: 15px;
 }
 
+/* Nouvelle version améliorée pour .chat-module-container */
 .chat-module-container {
   flex-shrink: 0; /* Empêche cette zone de rétrécir */
-  flex-basis: 45%; /* Augmenté, le module de chat tente de prendre 45% de la hauteur de .main-content-area */
-  /* max-height: 50%; Remove if using flex-basis or ensure it makes sense together */
+  flex-basis: auto; /* La hauteur du module de chat s'adapte à son contenu */
   display: flex;
   flex-direction: column;
-  border-top: 1px solid #ddd; /* Ajoute une séparation visuelle */
-  padding-top: 10px; /* Espace au-dessus du titre du chat */
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  /* Optionnel: Si vous voulez une hauteur minimale pour le module entier */
+  min-height: 300px; /* Par exemple, une hauteur minimale */
 }
 
 .chat-module-container h3 {
@@ -101,15 +112,23 @@
   margin-bottom: 10px;
 }
 
+/* C'est ici que la magie opère pour la hauteur du chat */
 .chat-messages-container {
   flex-grow: 1; /* Le conteneur des messages prend l'espace dispo dans le module de chat */
-  overflow-y: auto;
+  overflow-y: auto; /* Rend le contenu défilable */
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
   margin-bottom: 10px;
   background-color: #f9f9f9;
-  min-height: 200px; /* Augmenté de 150px à 200px */
+  /* min-height: 200px; <-- Vous pouvez le retirer ou l'ajuster si vous mettez un max-height absolu */
+
+  /* **Nouveau : Limite la hauteur maximale du conteneur de messages** */
+  /* Calcul basé sur la hauteur du viewport (vh) - 50vh = 50% de la hauteur de l'écran */
+  /* Vous pouvez ajuster le 50vh et les pixels soustraits */
+  max-height: calc(50vh - 150px); /* Environ la moitié de l'écran, moins la hauteur des éléments fixes (titre, input, marges) */
+  /* Alternativement, une valeur fixe si vous préférez */
+  /* max-height: 400px; */ /* Par exemple */
 }
 
 /* Styles pour le placeholder quand aucun patient n'est sélectionné */
@@ -121,6 +140,16 @@
   height: 100%;
   text-align: center;
   color: #777;
+}
+
+/* Assurez-vous que le .main-content-area permet la flexibilité verticale */
+.main-content-area {
+  flex: 1;
+  min-width: 500px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Important pour que les enfants se positionnent verticalement */
+  overflow: hidden; /* Gère le débordement si les enfants sont trop grands */
 }
 
 .main-content-area h1,
@@ -217,15 +246,21 @@
   background-color: #0056b3;
 }
 
+/* ---------------------------------------------------- */
+/* Styles pour le panneau d'actions (actions-panel-area) */
+/* ---------------------------------------------------- */
+/* Ajustement du panneau d'actions (droite) */
+/* Nouvelle version améliorée pour .actions-panel-area */
 .actions-panel-area {
-  flex: 0 0 25%; /* Don't grow, don't shrink, base width 25% */
-  min-width: 180px; /* Minimum width for actions */
+  flex: 0 0 auto; /* Permet au panneau de s'adapter à son contenu */
+  min-width: 350px; /* Largeur minimale pour que ce soit lisible */
+  max-width: 450px; /* Largeur maximale pour éviter qu'il ne soit trop grand */
   padding: 20px;
   border-left: 1px solid #ccc;
-  overflow-y: auto; /* If actions list becomes long */
+  overflow-y: auto; /* Important pour le défilement du résumé si long */
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centrer les boutons si la largeur est limitée */
+  align-items: center; /* Pour centrer le contenu comme les boutons d'action */
 }
 
 .actions-panel-area h3 {
@@ -271,4 +306,96 @@
 .action-button span {
   font-size: 0.9em;
   color: #333;
+}
+
+/* ---------------------------------------------------- */
+/* Styles pour le résumé médical (PatientMedicalSummary) */
+/* ---------------------------------------------------- */
+
+/* Styles pour le conteneur du résumé médical (PatientMedicalSummary) */
+.medical-summary-container {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  width: 100%; /* S'étend à 100% de la largeur disponible dans son parent */
+  box-sizing: border-box; /* Inclut padding et border dans la largeur */
+  text-align: left;
+  /* Ajoutez ces lignes pour permettre au contenu de dicter la hauteur */
+  height: auto; /* La hauteur s'ajuste au contenu */
+  min-height: 200px; /* Une hauteur minimale pour qu'il ne soit pas trop petit si peu de données */
+}
+
+.medical-summary-container h3 {
+  color: #007bff;
+  margin-top: 0;
+  margin-bottom: 15px; /* Réduit l'espace en bas */
+  text-align: center;
+  font-size: 2.2rem; /* **Titre plus grand** */
+  line-height: 1.2;
+}
+
+/* Ajoutez ces règles si vous voulez un soulignement sous les titres des sections (H4) */
+/* Adaptez la taille de la police si vous la trouvez trop grande ou trop petite */
+.medical-summary-container p,
+.medical-summary-container li {
+    font-size: 1.15rem; /* Ajustez au besoin */
+}
+
+.summary-section {
+  margin-bottom: 15px; /* Espace entre les sections de résumé */
+}
+
+
+/* Style pour les labels (Age, Preferred Language, etc.) */
+.summary-label {
+  flex-shrink: 0; /* Empêche le label de rétrécir */
+  padding-right: 15px; /* Espace entre le label et la valeur */
+  font-weight: bold; /* Texte en gras pour les labels */
+  text-align: left; /* Aligne le label à gauche */
+  color: #444; /* Légèrement plus foncé pour les labels */
+}
+
+/* Style pour les valeurs des données */
+.summary-value {
+  flex-grow: 1; /* Permet à la valeur de prendre l'espace restant */
+  text-align: right; /* Aligne la valeur à droite */
+  overflow: hidden; /* Cache le texte qui dépasse */
+  text-overflow: ellipsis; /* **Ajoute "..." à la fin du texte coupé si la valeur est trop longue** */
+  color: #666; /* Couleur de texte pour les valeurs */
+}
+
+/* Styles pour les listes (Allergies, Medications, Support Contacts) */
+.medical-summary-container .summary-list {
+  list-style-type: disc;
+  margin-left: 20px; /* Indentation des puces */
+  padding-left: 0;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 1.15rem; /* Police plus grande pour les éléments de liste */
+}
+
+.medical-summary-container .summary-list-item {
+  margin-bottom: 2px; /* Espacement entre les éléments de liste */
+  color: #555;
+  line-height: 1.4;
+  overflow: hidden; /* Gère le débordement des éléments de liste */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Styles for loading and error messages */
+.medical-summary-info,
+.medical-summary-error {
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+  font-size: 1.4rem; /* Police plus grande */
+  font-style: italic;
+}
+.medical-summary-error {
+  color: #d9534f;
+  font-weight: bold;
 }

@@ -1,6 +1,6 @@
 // This file will contain functions to interact with the backend patient API.
 
-const API_BASE_URL = 'http://localhost:8003'; // IMPORTANT: Replace YOUR_BACKEND_PORT with your actual backend port
+const API_BASE_URL = 'http://localhost:8000'; // IMPORTANT: Replace YOUR_BACKEND_PORT with your actual backend port
 
 export const fetchPatients = async () => {
   try {
@@ -62,19 +62,19 @@ export const fetchPatients = async () => {
   }
 };
 
-// export const fetchPatientById = async (patientId) => {
-//   try {
-//     const response = await fetch(`${API_BASE_URL}/patients/${patientId}`); // Assuming your endpoint is /patients/:id
-//     if (!response.ok) {
-//       throw new Error(`HTTP error! status: ${response.status} - ${response.statusText}`);
-//     }
-//     const data = await response.json();
-//     return data;
-//   } catch (error) {
-//     console.error(`Failed to fetch patient ${patientId}:`, error);
-//     throw error;
-//   }
-// };
+export const fetchPatientById = async (patientId) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/patients/${patientId}`); // Assuming your endpoint is /patients/:id
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status} - ${response.statusText}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(`Failed to fetch patient ${patientId}:`, error);
+    throw error;
+  }
+};
 
 export const sendChatMessagePost = async (loggedInUser, selectedPatient, message) => {
   const payload = {
