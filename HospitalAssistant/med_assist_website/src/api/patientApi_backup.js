@@ -25,20 +25,20 @@ export const fetchPatients = async () => {
 
                         let mappedStatus = 'pending'; // Default status
                         if (patient.status) {
-                          switch (patient.status.toLowerCase()) {
-                            case 'stable':
-                              mappedStatus = 'pending'; // Or another appropriate status like 'ready_to_discharge'
-                              break;
-                            // Add cases for other statuses your API might return
-                            case 'critical':
-                              mappedStatus = 'urgent';
-                              break;
-                            case 'ready for discharge':
-                            mappedStatus = 'ready_to_discharge';
-                            break;
-                            default:
-                              mappedStatus = 'pending';
-                          }
+                            switch (patient.status.toLowerCase()) {
+                                case 'stable':
+                                    mappedStatus = 'pending'; // Or another appropriate status like 'ready_to_discharge'
+                                    break;
+                                // Add cases for other statuses your API might return
+                                case 'critical':
+                                    mappedStatus = 'urgent';
+                                    break;
+                                case 'ready for discharge':
+                                    mappedStatus = 'ready_to_discharge';
+                                    break;
+                                default:
+                                    mappedStatus = 'pending';
+                            }
                         }
                         // map any back-end status string → one of your three UI keys
                         // const BACKEND_STATUS_TO_UI = {

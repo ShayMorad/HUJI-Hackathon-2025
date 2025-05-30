@@ -18,9 +18,9 @@ from typing import List, Tuple
 # Helpers
 # ------------------------------------------------------------
 _NORMAL_RANGES: dict[str, Tuple[float, float]] = {
-    "BP": (80, 120),   # systolic
+    "BP": (80, 120),  # systolic
     "HR": (60, 100),
-    "Temp":(35,39),
+    "Temp": (35, 39),
     "SpO2": (95, 100),
 }
 
@@ -35,8 +35,8 @@ def _parse_iso(ts: str) -> datetime:
 # ------------------------------------------------------------
 @dataclass
 class VitalSign:
-    timestamp: str   # ISO-8601 (stored as string for easy JSON)
-    type: str        # 'BP', 'HR', 'SpO2', ...
+    timestamp: str  # ISO-8601 (stored as string for easy JSON)
+    type: str  # 'BP', 'HR', 'SpO2', ...
     value: float
     unit: str
 
@@ -97,7 +97,7 @@ class VitalSign:
 
         if ss_xx == 0:
             return 0.0
-        slope = ss_xy / ss_xx      # units: value change per minute
+        slope = ss_xy / ss_xx  # units: value change per minute
         return slope
 
     # ------------------------------------------------------------------

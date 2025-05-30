@@ -22,7 +22,7 @@ def test_risk_score_abnormal_vitals():
         p.vitals[0].__class__(
             timestamp="2025-05-29T09:00:00Z",
             type="HR",
-            value=140,   # outside 60–100
+            value=140,  # outside 60–100
         )
     )
     score = p.compute_risk_score()

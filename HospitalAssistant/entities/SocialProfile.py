@@ -14,6 +14,7 @@ from __future__ import annotations
 from dataclasses import dataclass, asdict
 from typing import List, Optional
 
+
 # ---------------------------------------------------------------------------
 # Mock social-services connector (demo stub)
 # ---------------------------------------------------------------------------
@@ -34,10 +35,10 @@ class SocialServicesAPI:
 # ---------------------------------------------------------------------------
 @dataclass
 class SocialProfile:
-    living_situation: str            # 'alone', 'family', 'institution'
+    living_situation: str  # 'alone', 'family', 'institution'
     caregiver_available: bool
     home_address: str
-    profile_id: Optional[str] = None     # used by SocialServicesAPI stub
+    profile_id: Optional[str] = None  # used by SocialServicesAPI stub
 
     # ----------------------------------------------------------------------
     # Business logic

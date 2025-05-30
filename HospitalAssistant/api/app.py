@@ -61,6 +61,7 @@ def predict_discharge(ward_id: str, pid: str):
     ready = patient.compute_risk_score() < 0.3
     return {"ready": ready, "confidence": round(1 - patient.compute_risk_score(), 2)}
 
+
 # ---------- Patient-level ----------
 @app.get("/patients/{pid}", response_model=PatientDetail)
 def get_patient(pid: str):
@@ -99,12 +100,13 @@ def add_patient(patient_data: PatientCreate):
     save_hospital(hospital)
     return {"status": "added"}
 
+
 # ---------- Patient vitals ----------
 @app.put("/patients/{pid}/vitals")
 def update_vitals(pid: str, vitals: List[VitalSignSchema]):
     vs = [VitalSign.from_schema(v) for v in vitals]
     update_patient_vitals(hospital, pid, vs)
-    save_hospital(hospital)           # persist immediately
+    save_hospital(hospital)  # persist immediately
     return {"status": "updated"}
 
 
@@ -118,7 +120,7 @@ def remove_patient(pid: str):
 # ---------- Extremely simple raw prompt endpoint ----------
 @app.post("/chat_plain", response_model=ChatResponse)
 async def chat_plain(request: Request):
-    data = await request.json()                   # parse JSON
+    data = await request.json()  # parse JSON
     prompt = data.get("message", "").strip()
     if not prompt:
         raise HTTPException(400, "Empty prompt")
@@ -132,6 +134,7 @@ async def chat_plain(request: Request):
     reply = llm_service.chat(fake_context, prompt=prompt, language="hebrew")
     return ChatResponse(reply=reply)
 
+
 @app.post("/chat_simple", response_model=ChatResponse)
 async def chat_simple(payload: PromptOnly):
     try:
@@ -140,10 +143,11 @@ async def chat_simple(payload: PromptOnly):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+
 # ---------- Full chat endpoint used by the frontend ----------
 @app.post("/chat", response_model=ChatResponse)
 async def handle_chat(req: ChatRequest):
-    patient = hospital.find_patient(req.patientId)   # ← use patientId
+    patient = hospital.find_patient(req.patientId)  # ← use patientId
     if not patient:
         raise HTTPException(404, "Patient not found")
 
@@ -159,9 +163,7 @@ async def handle_chat(req: ChatRequest):
     return ChatResponse(reply=reply)
 
 
-
 # ---------- Persist on shutdown ----------
 @app.on_event("shutdown")
 def _persist():
     save_hospital(hospital)
-

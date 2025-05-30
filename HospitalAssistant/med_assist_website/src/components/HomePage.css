@@ -1,28 +1,28 @@
 .homepage-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: calc(100vh - 60px); /* Hauteur fixe pour que flex s'applique bien */
-  min-height: calc(100vh - 60px); 
-  background-color: #f4f7f9; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 60px); /* Hauteur fixe pour que flex s'applique bien */
+    min-height: calc(100vh - 60px);
+    background-color: #f4f7f9;
 }
 
 /* Hero Section */
 .hero-section {
-  flex: 1; /* Changé de 2 à 1 pour une répartition 1/2 avec .services-section */
-  width: 100%;
-  padding: 20px; /* Peut nécessiter ajustement pour 1/2 - 1/2 */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; 
-  text-align: center;
-  position: relative;
-  overflow: hidden; 
+    flex: 1; /* Changé de 2 à 1 pour une répartition 1/2 avec .services-section */
+    width: 100%;
+    padding: 20px; /* Peut nécessiter ajustement pour 1/2 - 1/2 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 /* Supprimer les styles pour .hero-section::before et .hero-section::after s'ils existent */
@@ -31,181 +31,189 @@
 }
 
 .hero-logo-container {
-  position: relative; /* Pour positionner le pseudo-élément ::before */
-  z-index: 1; /* Pour être au-dessus du fond de la section hero mais sous le texte */
-  margin-bottom: 15px; /* Espacement entre logo et titre */
-  display: flex; /* Pour s'assurer que la taille s'adapte au logo */
-  align-items: center;
-  justify-content: center;
+    position: relative; /* Pour positionner le pseudo-élément ::before */
+    z-index: 1; /* Pour être au-dessus du fond de la section hero mais sous le texte */
+    margin-bottom: 15px; /* Espacement entre logo et titre */
+    display: flex; /* Pour s'assurer que la taille s'adapte au logo */
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-logo-container::before {
-  content: '';
-  position: absolute;
-  width: 115%; /* Ajusté pour le logo plus grand: 115% de la taille du conteneur du logo */
-  padding-bottom: 115%; 
-  background-color: white;
-  border-radius: 50%;
-  z-index: -1; 
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+    content: '';
+    position: absolute;
+    width: 115%; /* Ajusté pour le logo plus grand: 115% de la taille du conteneur du logo */
+    padding-bottom: 115%;
+    background-color: white;
+    border-radius: 50%;
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .hero-logo {
-  width: 140px; /* Augmenté de 120px à 140px */
-  height: auto; 
-  position: relative; 
-  z-index: 1; 
+    width: 140px; /* Augmenté de 120px à 140px */
+    height: auto;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-title {
-  font-size: 3.4em; /* Ajusté en conséquence */
-  color: #ffffff; 
-  font-weight: bold;
-  margin: 0;
-  position: relative; 
-  z-index: 1; /* Pour être au-dessus du fond de la section hero */
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    font-size: 3.4em; /* Ajusté en conséquence */
+    color: #ffffff;
+    font-weight: bold;
+    margin: 0;
+    position: relative;
+    z-index: 1; /* Pour être au-dessus du fond de la section hero */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* Services Section */
 .services-section {
-  flex: 1; 
-  width: 100%;
-  max-width: 1200px; /* Harmonisé avec la max-width de la grille */
-  padding: 20px; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative; 
-  z-index: 1;
-  overflow-y: auto; 
+    flex: 1;
+    width: 100%;
+    max-width: 1200px; /* Harmonisé avec la max-width de la grille */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    overflow-y: auto;
 }
 
 .services-title {
-  font-size: 2em; /* Légèrement agrandi */
-  color: #333;
-  margin-top: 0; 
-  margin-bottom: 30px; /* Un peu plus d'espace en dessous */
-  width: 100%; /* Pour que text-align:center fonctionne correctement */
-  text-align: center; /* Centrer le titre */
+    font-size: 2em; /* Légèrement agrandi */
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 30px; /* Un peu plus d'espace en dessous */
+    width: 100%; /* Pour que text-align:center fonctionne correctement */
+    text-align: center; /* Centrer le titre */
 }
 
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 30px; 
-  width: 100%;
-  max-width: min(90%, 1200px); 
-  justify-content: center; 
-  padding-bottom: 20px; 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: min(90%, 1200px);
+    justify-content: center;
+    padding-bottom: 20px;
 }
 
 .service-card {
-  background-color: #fff;
-  border-radius: 22px; /* Un peu plus arrondi pour des cartes plus grandes */
-  border: 4px solid transparent; 
-  background-image: linear-gradient(white, white), 
-                    linear-gradient(to bottom right, #00A9E0, #005C7A);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-  padding: 0;
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); /* Ombre un peu plus marquée */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  aspect-ratio: 16 / 12; /* Conserver un ratio équilibré (4/3) */
-  overflow: hidden;
-  min-width: 0; 
+    background-color: #fff;
+    border-radius: 22px; /* Un peu plus arrondi pour des cartes plus grandes */
+    border: 4px solid transparent;
+    background-image: linear-gradient(white, white),
+    linear-gradient(to bottom right, #00A9E0, #005C7A);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); /* Ombre un peu plus marquée */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 16 / 12; /* Conserver un ratio équilibré (4/3) */
+    overflow: hidden;
+    min-width: 0;
 }
 
 .service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
 }
 
 .service-card-icon-container {
-  width: 100%;
-  height: calc(100% - 55px); /* Augmenté l'espace réservé pour le titre (de 50px à 55px) */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding: 10px; 
-  box-sizing: border-box;
+    width: 100%;
+    height: calc(100% - 55px); /* Augmenté l'espace réservé pour le titre (de 50px à 55px) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .service-icon {
-  max-width: 100%; /* Permet à l'icône de prendre toute la largeur de son conteneur */
-  max-height: 100%; /* Permet à l'icône de prendre toute la hauteur de son conteneur */
-  object-fit: contain; 
-  border-radius: 10px; /* Réduit légèrement car l'icône sera plus grande */
+    max-width: 100%; /* Permet à l'icône de prendre toute la largeur de son conteneur */
+    max-height: 100%; /* Permet à l'icône de prendre toute la hauteur de son conteneur */
+    object-fit: contain;
+    border-radius: 10px; /* Réduit légèrement car l'icône sera plus grande */
 }
 
 .service-card-title {
-  width: 100%;
-  padding: 12px 5px; /* Conserver le padding actuel pour l'instant */
-  font-size: 1.1em;    /* Augmenté de 1em à 1.1em */
-  color: #1A6A87; 
-  font-weight: bold;
-  text-align: center;
-  box-sizing: border-box;
-  background-color: rgba(255,255,255,0.85);
-  border-top: 1px solid #e0e0e0;
-  line-height: 1.3; /* Ajout d'un line-height pour un meilleur espacement si le texte passe sur deux lignes */
+    width: 100%;
+    padding: 12px 5px; /* Conserver le padding actuel pour l'instant */
+    font-size: 1.1em; /* Augmenté de 1em à 1.1em */
+    color: #1A6A87;
+    font-weight: bold;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-top: 1px solid #e0e0e0;
+    line-height: 1.3; /* Ajout d'un line-height pour un meilleur espacement si le texte passe sur deux lignes */
 }
 
 /* Responsive adjustments */
-@media (max-width: 1200px) { /* Ajuster le point de rupture si la max-width de la grille change */
-  .services-grid {
-    /* Sur des écrans un peu plus petits que la max-width, on peut vouloir passer à auto-fit */
-    /* ou réduire le nombre de colonnes si 4 ne tiennent plus bien */
-    /* Pour l'instant, on garde les 4 colonnes et on laisse le min(90%,...) gérer la largeur */
-  }
+@media (max-width: 1200px) {
+    /* Ajuster le point de rupture si la max-width de la grille change */
+    .services-grid {
+        /* Sur des écrans un peu plus petits que la max-width, on peut vouloir passer à auto-fit */
+        /* ou réduire le nombre de colonnes si 4 ne tiennent plus bien */
+        /* Pour l'instant, on garde les 4 colonnes et on laisse le min(90%,...) gérer la largeur */
+    }
 }
 
-@media (max-width: 992px) { /* Point de rupture typique pour tablettes en mode paysage */
-  .services-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Revenir à auto-fit */
-    gap: 25px;
-    max-width: 95%;
-  }
-  .services-title {
-    text-align: center; /* Assurer le centrage */
-  }
+@media (max-width: 992px) {
+    /* Point de rupture typique pour tablettes en mode paysage */
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Revenir à auto-fit */
+        gap: 25px;
+        max-width: 95%;
+    }
+
+    .services-title {
+        text-align: center; /* Assurer le centrage */
+    }
 }
 
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.8em; 
-  }
-  .services-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-  }
-  .services-title {
-    font-size: 1.6em;
-  }
-   .service-card {
-     aspect-ratio: 16 / 11; 
-  }
+    .hero-title {
+        font-size: 2.8em;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+    }
+
+    .services-title {
+        font-size: 1.6em;
+    }
+
+    .service-card {
+        aspect-ratio: 16 / 11;
+    }
 }
 
 @media (max-width: 480px) {
-  .hero-logo {
-    width: 100px;
-  }
-  .hero-title {
-    font-size: 2.4em;
-  }
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr); 
-  }
+    .hero-logo {
+        width: 100px;
+    }
+
+    .hero-title {
+        font-size: 2.4em;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* Cleanup: Remove old dashboard navigation styles if no longer used anywhere */

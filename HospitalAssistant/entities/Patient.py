@@ -65,7 +65,7 @@ class Patient:
         abnormal = [v for v in self.vitals if not v.is_within_normal_range()]
         risk = self.compute_risk_score()
 
-        if len(abnormal)>=3:
+        if len(abnormal) >= 3:
             return "urgent"
         elif risk < 0.04:
             return "ready_for_discharge"
@@ -169,6 +169,7 @@ class Patient:
         ]
         patient.assigned_staff = data.get("assigned_staff", [])
         return patient
+
 
 # ---------------------------------------------------------------------------
 # Quick factory for unit-test / demo convenience

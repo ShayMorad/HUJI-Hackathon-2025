@@ -10,7 +10,7 @@ const statusMap = {
 };
 
 // Composant PatientMedicalSummary refactorisé
-function PatientMedicalSummary({ patientInfo, isLoading, error }) {
+function PatientMedicalSummary({patientInfo, isLoading, error}) {
     if (isLoading) {
         return <div className="medical-summary-info">Loading patient overview...</div>;
     }
@@ -55,7 +55,8 @@ function PatientMedicalSummary({ patientInfo, isLoading, error }) {
                 </div>
                 <div className="summary-line">
                     <span className="summary-label">Risk Score: </span>
-                    <span className="summary-value">{typeof riskScore === 'number' ? riskScore.toFixed(2) : riskScore}</span>
+                    <span
+                        className="summary-value">{typeof riskScore === 'number' ? riskScore.toFixed(2) : riskScore}</span>
                 </div>
             </div>
 
@@ -67,7 +68,8 @@ function PatientMedicalSummary({ patientInfo, isLoading, error }) {
                 </div>
                 <div className="summary-line">
                     <span className="summary-label">Caregiver Available: </span>
-                    <span className="summary-value">{caregiverAvailable === true ? 'Yes' : caregiverAvailable === false ? 'No' : 'N/A'}</span>
+                    <span
+                        className="summary-value">{caregiverAvailable === true ? 'Yes' : caregiverAvailable === false ? 'No' : 'N/A'}</span>
                 </div>
                 <div className="summary-line">
                     <span className="summary-label">Home Address: </span>
@@ -80,7 +82,8 @@ function PatientMedicalSummary({ patientInfo, isLoading, error }) {
                         </div>
                         <ul className="summary-list">
                             {supportContacts.map((contact, index) => (
-                                <li key={index} className="summary-list-item">{contact.name} ({contact.relationship}): {contact.phone}</li>
+                                <li key={index}
+                                    className="summary-list-item">{contact.name} ({contact.relationship}): {contact.phone}</li>
                             ))}
                         </ul>
                     </>
@@ -191,8 +194,7 @@ function PatientsStatusPage({currentUser}) {
             }
             setShowMedicalRecordSummary(prev => !prev);
             setShowVitals(false);
-        }
-        else if (buttonName === 'Vitals') {
+        } else if (buttonName === 'Vitals') {
             if (!selectedPatient) {
                 alert("Please select a patient first to view their vitals.");
                 return;
@@ -365,10 +367,12 @@ function PatientsStatusPage({currentUser}) {
                         <div className="middle-top-content">
                             {selectedPatient.assignedStaff && selectedPatient.assignedStaff.length > 0 ? (
                                 <div className="assigned-staff-details">
-                                    <strong style={{fontSize: '2em', paddingLeft: '70px', color: '#003b5e'}}>Assigned Staff:</strong>
+                                    <strong style={{fontSize: '2em', paddingLeft: '70px', color: '#003b5e'}}>Assigned
+                                        Staff:</strong>
                                     <ul>
                                         {selectedPatient.assignedStaff.map(staff => (
-                                            <ol style={{fontSize: '1.8em', textDecoration: 'underline'}} key={staff.name}>{staff.name} ({staff.role})</ol>
+                                            <ol style={{fontSize: '1.8em', textDecoration: 'underline'}}
+                                                key={staff.name}>{staff.name} ({staff.role})</ol>
                                         ))}
                                     </ul>
                                 </div>
@@ -379,7 +383,8 @@ function PatientsStatusPage({currentUser}) {
                         </div>
 
                         <div className="chat-module-container">
-                            <h3 style={{fontSize: '1.8em', backgroundColor: '#f0f0f0', color: '#003b5e'}}>Chat with an AI assistant
+                            <h3 style={{fontSize: '1.8em', backgroundColor: '#f0f0f0', color: '#003b5e'}}>Chat with an
+                                AI assistant
                                 about {selectedPatient.name} (Room: {selectedPatient.room})</h3>
                             <div className="chat-messages-container">
                                 {chatMessages.map(msg => (

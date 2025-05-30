@@ -14,7 +14,7 @@ class Hospital:
     """
     hospital_id: str
     name: str
-    wards: Dict[str, Ward] = field(default_factory=dict)   # keyed by ward_id
+    wards: Dict[str, Ward] = field(default_factory=dict)  # keyed by ward_id
 
     # ------------------------------------------------------------------ #
     # CRUD on wards                                                      #
@@ -36,7 +36,6 @@ class Hospital:
             if patient_id in ward.patients:
                 return ward.patients[patient_id]
         return None
-
 
     # ------------------------------------------------------------------ #
     # Analytics                                                          #

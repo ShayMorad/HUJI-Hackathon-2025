@@ -14,15 +14,15 @@ class Ward:
     patients: Dict[str, Patient] = field(default_factory=dict)  # keyed by patient_id
 
     # ---  original-mapping conveniences -----------------------------------
-    def list_patients(self) -> List[Patient]:                 # NEW
+    def list_patients(self) -> List[Patient]:
         """Return a list of all current patients."""
         return list(self.patients.values())
 
-    def get_bed_availability(self) -> int:                    # NEW
+    def get_bed_availability(self) -> int:
         """Number of free beds right now."""
         return max(0, self.capacity - self.occupancy())
 
-    def generate_occupancy_report(self) -> Dict[str, any]:    # NEW stub
+    def generate_occupancy_report(self) -> Dict[str, any]:
         """
         Return an extended report.
         Later you can add throughput, avg LOS, etc.

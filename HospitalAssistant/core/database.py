@@ -17,7 +17,6 @@ def _default_demo_object() -> Hospital:
     return h
 
 
-
 def load_hospital() -> Hospital:
     import json
     with open("data/hospital_demo_balanced_fixed.json") as f:

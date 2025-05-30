@@ -84,9 +84,9 @@ class HospitalReport(BaseModel):
     bottlenecks: List[Dict[str, Any]]
 
 
-#TODO Get patient discharge prediction
-#TODO Get patient summary
-#TODO Get whole database
+# TODO Get patient discharge prediction
+# TODO Get patient summary
+# TODO Get whole database
 
 # Endpoints (stubs)
 @app.get("/patients/{patient_id}", response_model=PatientResponse)

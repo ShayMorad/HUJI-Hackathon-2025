@@ -11,11 +11,13 @@ Provides:
   - health_check()
 """
 import logging
+
 logger = logging.getLogger("uvicorn.error")
 import google.generativeai as genai
 from google.oauth2 import service_account
 from typing import Dict, Any, List
 import os
+
 
 class LLMService:
     # Available Gemini models with descriptions
@@ -44,7 +46,7 @@ class LLMService:
         try:
             # Initialize credentials from the service account file
             credentials = service_account.Credentials.from_service_account_file(
-                r'C:\Users\samue\Desktop\Codage\HUJI-Hackathon-2025\Gemini\hackathon-team-46_gen-lang-client-0325865525_iam_gserviceaccount_com_1747758552.json'
+                r'C:\Users\noams\PycharmProjects\HUJI-Hackathon-2025\Gemini\hackathon-team-46_gen-lang-client-0325865525_iam_gserviceaccount_com_1747758552.json'
             )
             genai.configure(credentials=credentials)
 
