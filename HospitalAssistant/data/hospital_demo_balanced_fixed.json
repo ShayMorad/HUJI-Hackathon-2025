@@ -1,0 +1,1253 @@
+{
+  "hospital_id": "H-001",
+  "name": "City General",
+  "total_capacity": 50,
+  "total_occupied": 30,
+  "total_free_beds": 20,
+  "utilisation": 0.6,
+  "average_patient_risk": 0.16,
+  "bottlenecks": [],
+  "wards": [
+    {
+      "ward_id": "A1",
+      "name": "Internal Med A",
+      "capacity": 50,
+      "occupancy": 30,
+      "load_factor": 0.6,
+      "is_overloaded": false,
+      "average_risk": 0.16,
+      "patients": [
+        {
+          "patient_id": "P-100",
+          "name": "Liam A",
+          "age": 90,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "pending",
+          "risk_score": 0.15,
+          "room": "200A",
+          "reason": "High BP",
+          "assigned_staff": [
+            "Dr. Levi (Surgeon)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 101.2,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128569+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 88.6,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128569+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 96.1,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128569+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_100",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-101",
+          "name": "Noa B",
+          "age": 85,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.35,
+          "room": "201A",
+          "reason": "Diabetes",
+          "assigned_staff": [
+            "Dr. Levi (Cardiologist)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 117.6,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128616+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 58.3,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128616+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 93.6,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128616+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_101",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-102",
+          "name": "Amit C",
+          "age": 56,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "ready_for_discharge",
+          "risk_score": 0.0,
+          "room": "202A",
+          "reason": "Chest Pain",
+          "assigned_staff": [
+            "Dr. Ronen (Surgeon)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 104.9,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128651+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 77.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128651+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 98.3,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128651+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_102",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-103",
+          "name": "Nadav D",
+          "age": 64,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.2,
+          "room": "203A",
+          "reason": "Headache",
+          "assigned_staff": [
+            "Dr. Levi (Surgeon)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 89.7,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128680+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 101.4,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128680+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 93.4,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128680+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_103",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-104",
+          "name": "Tamar E",
+          "age": 40,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "ready_for_discharge",
+          "risk_score": 0.0,
+          "room": "204A",
+          "reason": "Back Pain",
+          "assigned_staff": [
+            "Dr. Ronen (Surgeon)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 99.8,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128698+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 77.2,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128698+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.6,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128698+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_104",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-105",
+          "name": "Shira F",
+          "age": 81,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.35,
+          "room": "205A",
+          "reason": "Diabetes",
+          "assigned_staff": [
+            "Dr. Katz (Cardiologist)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 79.2,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128714+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 79.8,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128714+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 93.1,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128714+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_105",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-106",
+          "name": "Yoni G",
+          "age": 33,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.1,
+          "room": "206A",
+          "reason": "Headache",
+          "assigned_staff": [
+            "Dr. Katz (Surgeon)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 99.3,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128729+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 66.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128729+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 100.5,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128729+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_106",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-107",
+          "name": "Leah H",
+          "age": 49,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "ready_for_discharge",
+          "risk_score": 0.0,
+          "room": "207A",
+          "reason": "Asthma",
+          "assigned_staff": [
+            "Dr. Katz (Surgeon)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 85.8,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128761+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 62.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128761+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 98.7,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128761+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_107",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-108",
+          "name": "Ziv I",
+          "age": 56,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "ready_for_discharge",
+          "risk_score": 0.0,
+          "room": "208A",
+          "reason": "Routine Check",
+          "assigned_staff": [
+            "Dr. Katz (Cardiologist)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 112.9,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128787+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 61.1,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128787+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.5,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128787+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_108",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-109",
+          "name": "Aviv J",
+          "age": 55,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "ready_for_discharge",
+          "risk_score": 0.0,
+          "room": "209A",
+          "reason": "Headache",
+          "assigned_staff": [
+            "Dr. Katz (Surgeon)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 111.3,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128805+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 77.5,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128805+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.8,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128805+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_109",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-110",
+          "name": "Omer K",
+          "age": 34,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "ready_for_discharge",
+          "risk_score": 0.0,
+          "room": "210A",
+          "reason": "Headache",
+          "assigned_staff": [
+            "Dr. Katz (Cardiologist)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 97.6,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128829+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 91.5,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128829+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 95.6,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128829+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_110",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-111",
+          "name": "Tal L",
+          "age": 83,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.35,
+          "room": "211A",
+          "reason": "Surgery Recovery",
+          "assigned_staff": [
+            "Dr. Ronen (Surgeon)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 87.4,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128853+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 100.7,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128853+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 93.4,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128853+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_111",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-112",
+          "name": "Gal M",
+          "age": 41,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.1,
+          "room": "212A",
+          "reason": "Asthma",
+          "assigned_staff": [
+            "Dr. Levi (Cardiologist)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 80.7,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128868+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 81.7,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128868+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 94.5,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128868+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_112",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-113",
+          "name": "Noga N",
+          "age": 39,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.2,
+          "room": "213A",
+          "reason": "Surgery Recovery",
+          "assigned_staff": [
+            "Dr. Katz (Cardiologist)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 83.6,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128882+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 101.1,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128882+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 94.8,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128882+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_113",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-114",
+          "name": "Bar O",
+          "age": 50,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.1,
+          "room": "214A",
+          "reason": "Routine Check",
+          "assigned_staff": [
+            "Dr. Katz (Surgeon)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 103.2,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128897+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 73.3,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128897+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 93.0,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128897+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_114",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-115",
+          "name": "Dana P",
+          "age": 70,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.1,
+          "room": "215A",
+          "reason": "Routine Check",
+          "assigned_staff": [
+            "Dr. Ronen (Surgeon)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 89.2,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128912+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 91.1,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128912+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 93.4,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128912+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_115",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-116",
+          "name": "Itay Q",
+          "age": 78,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "pending",
+          "risk_score": 0.15,
+          "room": "216A",
+          "reason": "Back Pain",
+          "assigned_staff": [
+            "Dr. Ronen (Cardiologist)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 109.0,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128934+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 63.9,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128934+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 96.8,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128934+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_116",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-117",
+          "name": "Kfir R",
+          "age": 39,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.1,
+          "room": "217A",
+          "reason": "High BP",
+          "assigned_staff": [
+            "Dr. Katz (Cardiologist)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 111.6,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128960+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 91.6,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128960+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 100.2,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128960+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_117",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-118",
+          "name": "Sivan S",
+          "age": 41,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.1,
+          "room": "218A",
+          "reason": "Surgery Recovery",
+          "assigned_staff": [
+            "Dr. Levi (Cardiologist)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 116.9,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.128987+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 79.6,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.128987+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 94.0,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.128987+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_118",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-119",
+          "name": "Eden T",
+          "age": 84,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.25,
+          "room": "219A",
+          "reason": "Diabetes",
+          "assigned_staff": [
+            "Dr. Levi (Cardiologist)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 100.3,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.129011+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 98.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.129011+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 100.1,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.129011+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_119",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-120",
+          "name": "Tom U",
+          "age": 61,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.30000000000000004,
+          "room": "220A",
+          "reason": "Back Pain",
+          "assigned_staff": [
+            "Dr. Katz (Surgeon)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 71.2,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.129026+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 47.9,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.129026+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 88.9,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.129026+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_120",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-121",
+          "name": "Hila V",
+          "age": 50,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.30000000000000004,
+          "room": "221A",
+          "reason": "Asthma",
+          "assigned_staff": [
+            "Dr. Ronen (Cardiologist)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 127.8,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.129044+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 45.4,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.129044+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 86.5,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.129044+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_121",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-122",
+          "name": "Elad W",
+          "age": 79,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.45000000000000007,
+          "room": "222A",
+          "reason": "Asthma",
+          "assigned_staff": [
+            "Dr. Levi (Surgeon)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 135.0,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.129060+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 49.6,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.129060+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 85.1,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.129060+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_122",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-123",
+          "name": "Maya X",
+          "age": 38,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.30000000000000004,
+          "room": "223A",
+          "reason": "Chest Pain",
+          "assigned_staff": [
+            "Dr. Katz (Surgeon)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 67.5,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.129076+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 52.0,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.129076+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 84.2,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.129076+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_123",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-124",
+          "name": "Alon Y",
+          "age": 79,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.45000000000000007,
+          "room": "224A",
+          "reason": "Headache",
+          "assigned_staff": [
+            "Dr. Levi (Surgeon)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 133.4,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.129099+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 109.2,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.129099+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 105.1,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.129099+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_124",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-125",
+          "name": "Rotem Z",
+          "age": 61,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "urgent",
+          "risk_score": 0.30000000000000004,
+          "room": "225A",
+          "reason": "Fracture",
+          "assigned_staff": [
+            "Dr. Levi (Surgeon)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 125.0,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.129127+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 108.5,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.129127+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 109.1,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.129127+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_125",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-126",
+          "name": "Eli A",
+          "age": 51,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "ready_for_discharge",
+          "risk_score": 0.0,
+          "room": "226A",
+          "reason": "High BP",
+          "assigned_staff": [
+            "Dr. Ronen (Cardiologist)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 86.9,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.129160+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 90.9,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.129160+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.4,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.129160+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_126",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-127",
+          "name": "Sapir B",
+          "age": 66,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "ready_for_discharge",
+          "risk_score": 0.0,
+          "room": "227A",
+          "reason": "Asthma",
+          "assigned_staff": [
+            "Dr. Katz (Cardiologist)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 105.0,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.129177+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 91.9,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.129177+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.7,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.129177+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_127",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-128",
+          "name": "Lior C",
+          "age": 61,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "ready_for_discharge",
+          "risk_score": 0.0,
+          "room": "228A",
+          "reason": "Headache",
+          "assigned_staff": [
+            "Dr. Katz (Cardiologist)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 83.1,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.129193+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 86.4,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.129193+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.0,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.129193+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_128",
+            "support_contacts": []
+          }
+        },
+        {
+          "patient_id": "P-129",
+          "name": "Ron D",
+          "age": 38,
+          "ward_id": "A1",
+          "preferred_language": "hebrew",
+          "status": "ready_for_discharge",
+          "risk_score": 0.0,
+          "room": "229A",
+          "reason": "Diabetes",
+          "assigned_staff": [
+            "Dr. Levi (Cardiologist)"
+          ],
+          "vitals": [
+            {
+              "name": "BP",
+              "value": 94.6,
+              "unit": "mmHg",
+              "timestamp": "2025-05-29T23:49:29.129217+00:00"
+            },
+            {
+              "name": "HR",
+              "value": 72.5,
+              "unit": "bpm",
+              "timestamp": "2025-05-29T23:49:29.129217+00:00"
+            },
+            {
+              "name": "SpO2",
+              "value": 97.4,
+              "unit": "%",
+              "timestamp": "2025-05-29T23:49:29.129217+00:00"
+            }
+          ],
+          "social_profile": {
+            "living_situation": "family",
+            "caregiver_available": false,
+            "home_address": "Haifa",
+            "profile_id": "profile_129",
+            "support_contacts": []
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -30,10 +30,10 @@ export const fetchPatients = async () => {
                   mappedStatus = 'pending'; // Or another appropriate status like 'ready_to_discharge'
                   break;
                 // Add cases for other statuses your API might return
-                case 'critical':
+                case 'urgent':
                   mappedStatus = 'urgent';
                   break;
-                case 'ready for discharge':
+                case 'ready_for_discharge':
                 mappedStatus = 'ready_to_discharge';
                 break;
                 default:

@@ -62,12 +62,15 @@ class Patient:
     # Derived helpers
     # ------------------------------------------------------------------------
     def update_status(self) -> str:
-        """
-        Return 'stable' if every vital sign lies within the normal range,
-        otherwise 'unstable'.
-        """
         abnormal = [v for v in self.vitals if not v.is_within_normal_range()]
-        return "unstable" if abnormal else "stable"
+        risk = self.compute_risk_score()
+
+        if abnormal:
+            return "urgent"
+        elif risk < 0.15:
+            return "ready_for_discharge"
+        else:
+            return "pending"
 
     # ------------------------------------------------------------------------
     # Data-loading helpers
