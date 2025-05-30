@@ -54,47 +54,6 @@ function PatientsStatusPage({currentUser}) {
 
     useEffect(scrollToBottom, [chatMessages]);
 
-    // Commenting out simulateUpdateAndSortPatients as we will load from API
-    /*
-    const simulateUpdateAndSortPatients = () => {
-      console.log("Simulating patient data update...");
-      let updatedPatientsSource = JSON.parse(JSON.stringify(processedInitialPatientsData));
-
-      if (Math.random() < 0.1 && updatedPatientsSource.length > 1 && selectedPatient) {
-        const patientToRemoveIndex = updatedPatientsSource.findIndex(p => p.id === selectedPatient.id);
-        if (patientToRemoveIndex !== -1) {
-          console.log(`Simulating removal of selected patient: ${updatedPatientsSource[patientToRemoveIndex].name}`);
-          updatedPatientsSource.splice(patientToRemoveIndex, 1);
-        } else {
-          const randomIdxToDrop = Math.floor(Math.random() * updatedPatientsSource.length);
-          console.log(`Simulating removal of random patient: ${updatedPatientsSource[randomIdxToDrop].name}`);
-          updatedPatientsSource.splice(randomIdxToDrop, 1);
-        }
-      } else {
-        if (updatedPatientsSource.length > 0) {
-          const randomIndex = Math.floor(Math.random() * updatedPatientsSource.length);
-          const randomStatusIndex = Math.floor(Math.random() * statusTypes.length);
-          updatedPatientsSource[randomIndex].status = statusTypes[randomStatusIndex];
-        }
-      }
-
-      const sortedPatients = updatedPatientsSource.sort((a, b) => {
-        return statusMap[a.status].order - statusMap[b.status].order;
-      });
-      setPatients(sortedPatients);
-
-      if (selectedPatient) {
-        const stillExists = sortedPatients.find(p => p.id === selectedPatient.id);
-        if (!stillExists) {
-          console.log(`Selected patient ${selectedPatient.name} no longer in list. Closing chat.`);
-          setSelectedPatient(null);
-          setChatMessages([]);
-          setCurrentMessage('');
-        }
-      }
-    };
-    */
-
     useEffect(() => {
         document.title = "MedAssist AI - Patients Status";
 
