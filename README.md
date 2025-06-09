@@ -89,15 +89,11 @@ Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑day
 │   │   ├── hospital_15_patients.json
 │   │   └── hospital_demo_balanced.json
 │   ├── services/                  # External integrations & service controllers
-│   │   ├── EMRConnector.py        # EMR data extraction
-│   │   ├── ConversationService.py # Chat/interaction logic
-│   │   ├── LLMService.py          # Gemini/LLM orchestration
-│   │   ├── NotificationService.py # Teams/Slack routing
-│   │   └── PredictiveModelController.py # ML inference handler
-│   └── tests/                     # Unit tests
-│       └── test_patient.py        # Tests for Patient logic
-├── presentation/                  # Pitch deck and assets
-│   └── MedAssist AI.pptx         # Hackathon slide deck
+│       ├── EMRConnector.py        # EMR data extraction
+│       ├── ConversationService.py # Chat/interaction logic
+│       ├── LLMService.py          # Gemini/LLM orchestration
+│       ├── NotificationService.py # Teams/Slack routing
+│       └── PredictiveModelController.py # ML inference handler   
 └── docs/                          # Documentation assets
     ├── images/                    # Screenshots for README
     │   ├── landing.png
