@@ -1,4 +1,4 @@
-# MedAssist AI 🚑🤖
+# MedAssist AI 
 
 > Revolutionizing hospital discharge decisions with predictive intelligence and actionable insights
 
