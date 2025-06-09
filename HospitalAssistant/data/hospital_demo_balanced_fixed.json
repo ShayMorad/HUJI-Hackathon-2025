@@ -5,7 +5,7 @@
   "total_occupied": 30,
   "total_free_beds": 20,
   "utilisation": 0.6,
-  "average_patient_risk": 0.16,
+  "average_patient_risk": 0.17,
   "bottlenecks": [],
   "wards": [
     {
@@ -15,20 +15,22 @@
       "occupancy": 30,
       "load_factor": 0.6,
       "is_overloaded": false,
-      "average_risk": 0.16,
+      "average_risk": 0.17,
       "patients": [
         {
           "patient_id": "P-100",
-          "name": "Liam A",
+          "name": "Liam Aharon",
           "age": 90,
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "pending",
           "risk_score": 0.15,
-          "room": "200A",
+          "room": "200B",
           "reason": "High BP",
           "assigned_staff": [
-            "Dr. Levi (Surgeon)"
+            "Dr. Sarah Cohen (Cardiologist)",
+            "Dr. Tali Ben-David (Radiologist)",
+            "Maya Rubin (Nurse)"
           ],
           "vitals": [
             {
@@ -60,7 +62,7 @@
         },
         {
           "patient_id": "P-101",
-          "name": "Noa B",
+          "name": "Noa Benishti",
           "age": 85,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -69,7 +71,9 @@
           "room": "201A",
           "reason": "Diabetes",
           "assigned_staff": [
-            "Dr. Levi (Cardiologist)"
+            "Dr. Levi (Cardiologist)",
+            "Dr. Rachel Kaplan (Pediatrician)",
+            "Amit Katz (Nurse)"
           ],
           "vitals": [
             {
@@ -101,35 +105,37 @@
         },
         {
           "patient_id": "P-102",
-          "name": "Amit C",
+          "name": "Amit Cohen",
           "age": 56,
           "ward_id": "A1",
           "preferred_language": "hebrew",
-          "status": "ready_for_discharge",
-          "risk_score": 0.0,
-          "room": "202A",
+          "status": "urgent",
+          "risk_score": 0.30000000000000004,
+          "room": "202B",
           "reason": "Chest Pain",
           "assigned_staff": [
-            "Dr. Ronen (Surgeon)"
+            "Dr. Ronen (Surgeon)",
+            "Dr. Daniel Barak (Dermatologist)",
+            "Sharon Baruh (Nurse)"
           ],
           "vitals": [
             {
               "name": "BP",
-              "value": 104.9,
+              "value": 130.0,
               "unit": "mmHg",
-              "timestamp": "2025-05-29T23:49:29.128651+00:00"
+              "timestamp": "2025-05-29T23:49:29.129060+00:00"
             },
             {
               "name": "HR",
-              "value": 77.0,
+              "value": 105.6,
               "unit": "bpm",
-              "timestamp": "2025-05-29T23:49:29.128651+00:00"
+              "timestamp": "2025-05-29T23:49:29.129060+00:00"
             },
             {
               "name": "SpO2",
-              "value": 98.3,
+              "value": 80.1,
               "unit": "%",
-              "timestamp": "2025-05-29T23:49:29.128651+00:00"
+              "timestamp": "2025-05-29T23:49:29.129060+00:00"
             }
           ],
           "social_profile": {
@@ -142,16 +148,18 @@
         },
         {
           "patient_id": "P-103",
-          "name": "Nadav D",
+          "name": "Nadav Doron",
           "age": 64,
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "pending",
           "risk_score": 0.2,
-          "room": "203A",
+          "room": "203C",
           "reason": "Headache",
           "assigned_staff": [
-            "Dr. Levi (Surgeon)"
+            "Dr. Levi (Surgeon)",
+            "Dr. David Rosenfeld (Neurologist)",
+            "Moshe Yaakov (Nurse)"
           ],
           "vitals": [
             {
@@ -183,16 +191,18 @@
         },
         {
           "patient_id": "P-104",
-          "name": "Tamar E",
+          "name": "Tamar Eliya",
           "age": 40,
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "ready_for_discharge",
           "risk_score": 0.0,
-          "room": "204A",
+          "room": "204C",
           "reason": "Back Pain",
           "assigned_staff": [
-            "Dr. Ronen (Surgeon)"
+            "Dr. Ronen (Surgeon)",
+            "Dr. Eli Katz (Psychiatrist)",
+            "Maya Rubin (Nurse)"
           ],
           "vitals": [
             {
@@ -224,7 +234,7 @@
         },
         {
           "patient_id": "P-105",
-          "name": "Shira F",
+          "name": "Shira Feldman",
           "age": 81,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -233,7 +243,9 @@
           "room": "205A",
           "reason": "Diabetes",
           "assigned_staff": [
-            "Dr. Katz (Cardiologist)"
+            "Dr. Ronen (Surgeon)",
+            "Dr. Daniel Barak (Dermatologist)",
+            "Sharon Baruh (Nurse)"
           ],
           "vitals": [
             {
@@ -265,16 +277,18 @@
         },
         {
           "patient_id": "P-106",
-          "name": "Yoni G",
+          "name": "Yoni Gilboa",
           "age": 33,
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "pending",
           "risk_score": 0.1,
-          "room": "206A",
+          "room": "206D",
           "reason": "Headache",
           "assigned_staff": [
-            "Dr. Katz (Surgeon)"
+            "Dr. Levi (Surgeon)",
+            "Dr. David Rosenfeld (Neurologist)",
+            "Moshe Yaakov (Nurse)"
           ],
           "vitals": [
             {
@@ -306,16 +320,18 @@
         },
         {
           "patient_id": "P-107",
-          "name": "Leah H",
+          "name": "Leah Huri",
           "age": 49,
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "ready_for_discharge",
           "risk_score": 0.0,
-          "room": "207A",
+          "room": "207B",
           "reason": "Asthma",
           "assigned_staff": [
-            "Dr. Katz (Surgeon)"
+            "Dr. Ronen (Surgeon)",
+            "Dr. Daniel Barak (Dermatologist)",
+            "Sharon Baruh (Nurse)"
           ],
           "vitals": [
             {
@@ -347,16 +363,18 @@
         },
         {
           "patient_id": "P-108",
-          "name": "Ziv I",
+          "name": "Ziv Cohen",
           "age": 56,
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "ready_for_discharge",
           "risk_score": 0.0,
-          "room": "208A",
+          "room": "208B",
           "reason": "Routine Check",
           "assigned_staff": [
-            "Dr. Katz (Cardiologist)"
+            "Dr. Tali Ben-David (Radiologist)",
+            "Dr. David Rosenfeld (Neurologist)",
+            "Lior Shitrit (Nurse)"
           ],
           "vitals": [
             {
@@ -388,16 +406,18 @@
         },
         {
           "patient_id": "P-109",
-          "name": "Aviv J",
+          "name": "Aviv Menachem",
           "age": 55,
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "ready_for_discharge",
           "risk_score": 0.0,
-          "room": "209A",
+          "room": "209C",
           "reason": "Headache",
           "assigned_staff": [
-            "Dr. Katz (Surgeon)"
+            "Dr. Ronen (Surgeon)",
+            "Dr. Eli Katz (Psychiatrist)",
+            "Maya Rubin (Nurse)"
           ],
           "vitals": [
             {
@@ -429,16 +449,18 @@
         },
         {
           "patient_id": "P-110",
-          "name": "Omer K",
+          "name": "Omer Kaplan",
           "age": 34,
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "ready_for_discharge",
           "risk_score": 0.0,
-          "room": "210A",
+          "room": "210B",
           "reason": "Headache",
           "assigned_staff": [
-            "Dr. Katz (Cardiologist)"
+            "Dr. Levi (Cardiologist)",
+            "Dr. Rachel Kaplan (Pediatrician)",
+            "Amit Katz (Nurse)"
           ],
           "vitals": [
             {
@@ -470,7 +492,7 @@
         },
         {
           "patient_id": "P-111",
-          "name": "Tal L",
+          "name": "Tal Leibovitch",
           "age": 83,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -479,7 +501,9 @@
           "room": "211A",
           "reason": "Surgery Recovery",
           "assigned_staff": [
-            "Dr. Ronen (Surgeon)"
+            "Dr. Ronen (Surgeon)",
+            "Dr. Noam Eli (Anesthesiologist)",
+            "Rachel Kats (Nurse)"
           ],
           "vitals": [
             {
@@ -511,16 +535,18 @@
         },
         {
           "patient_id": "P-112",
-          "name": "Gal M",
+          "name": "Gal Melamed",
           "age": 41,
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "pending",
           "risk_score": 0.1,
-          "room": "212A",
+          "room": "212C",
           "reason": "Asthma",
           "assigned_staff": [
-            "Dr. Levi (Cardiologist)"
+            "Dr. Miriam Aaron (Oncologist)",
+            "Dr. Yael Adler (Pulmonologist)",
+            "Sharon Cohen (Nurse)"
           ],
           "vitals": [
             {
@@ -552,7 +578,7 @@
         },
         {
           "patient_id": "P-113",
-          "name": "Noga N",
+          "name": "Noga Noy",
           "age": 39,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -561,7 +587,9 @@
           "room": "213A",
           "reason": "Surgery Recovery",
           "assigned_staff": [
-            "Dr. Katz (Cardiologist)"
+            "Dr. Jonathan Levi (Orthopedic Surgeon)",
+            "Dr. Tali Ben-David (Radiologist)",
+            "Maya Rubin (Nurse)"
           ],
           "vitals": [
             {
@@ -593,16 +621,18 @@
         },
         {
           "patient_id": "P-114",
-          "name": "Bar O",
+          "name": "Bar Ohad",
           "age": 50,
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "pending",
           "risk_score": 0.1,
-          "room": "214A",
+          "room": "214C",
           "reason": "Routine Check",
           "assigned_staff": [
-            "Dr. Katz (Surgeon)"
+            "Dr. Tali Ben-David (Radiologist)",
+            "Dr. David Rosenfeld (Neurologist)",
+            "Lior Shitrit (Nurse)"
           ],
           "vitals": [
             {
@@ -634,7 +664,7 @@
         },
         {
           "patient_id": "P-115",
-          "name": "Dana P",
+          "name": "Dana Poli",
           "age": 70,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -643,7 +673,9 @@
           "room": "215A",
           "reason": "Routine Check",
           "assigned_staff": [
-            "Dr. Ronen (Surgeon)"
+            "Dr. Ronen (Surgeon)",
+            "Dr. Daniel Barak (Dermatologist)",
+            "Sharon Baruh (Nurse)"
           ],
           "vitals": [
             {
@@ -675,16 +707,18 @@
         },
         {
           "patient_id": "P-116",
-          "name": "Itay Q",
+          "name": "Itay Kadima",
           "age": 78,
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "pending",
           "risk_score": 0.15,
-          "room": "216A",
+          "room": "216D",
           "reason": "Back Pain",
           "assigned_staff": [
-            "Dr. Ronen (Cardiologist)"
+            "Dr. Tali Ben-David (Radiologist)",
+            "Dr. David Rosenfeld (Neurologist)",
+            "Lior Shitrit (Nurse)"
           ],
           "vitals": [
             {
@@ -716,7 +750,7 @@
         },
         {
           "patient_id": "P-117",
-          "name": "Kfir R",
+          "name": "Kfir Ronen",
           "age": 39,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -725,7 +759,9 @@
           "room": "217A",
           "reason": "High BP",
           "assigned_staff": [
-            "Dr. Katz (Cardiologist)"
+            "Dr. Sarah Cohen (Cardiologist)",
+            "Dr. Tali Ben-David (Radiologist)",
+            "Maya Rubin (Nurse)"
           ],
           "vitals": [
             {
@@ -757,16 +793,18 @@
         },
         {
           "patient_id": "P-118",
-          "name": "Sivan S",
+          "name": "Sivan Shem-tov",
           "age": 41,
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "pending",
           "risk_score": 0.1,
-          "room": "218A",
+          "room": "218D",
           "reason": "Surgery Recovery",
           "assigned_staff": [
-            "Dr. Levi (Cardiologist)"
+            "Dr. Tali Ben-David (Radiologist)",
+            "Dr. David Rosenfeld (Neurologist)",
+            "Lior Shitrit (Nurse)"
           ],
           "vitals": [
             {
@@ -798,7 +836,7 @@
         },
         {
           "patient_id": "P-119",
-          "name": "Eden T",
+          "name": "Eden Tabiv",
           "age": 84,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -807,7 +845,9 @@
           "room": "219A",
           "reason": "Diabetes",
           "assigned_staff": [
-            "Dr. Levi (Cardiologist)"
+            "Dr. Ronen (Surgeon)",
+            "Dr. Daniel Barak (Dermatologist)",
+            "Sharon Baruh (Nurse)"
           ],
           "vitals": [
             {
@@ -839,16 +879,18 @@
         },
         {
           "patient_id": "P-120",
-          "name": "Tom U",
+          "name": "Tom Omer",
           "age": 61,
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "urgent",
           "risk_score": 0.30000000000000004,
-          "room": "220A",
+          "room": "220D",
           "reason": "Back Pain",
           "assigned_staff": [
-            "Dr. Katz (Surgeon)"
+            "Dr. Leah Greenberg (Endocrinologist)",
+            "Dr. Avi Schwartz (Nephrologist)",
+            "Dr. Jonathan Levi (Orthopedic Surgeon)"
           ],
           "vitals": [
             {
@@ -880,7 +922,7 @@
         },
         {
           "patient_id": "P-121",
-          "name": "Hila V",
+          "name": "Hila Yochai",
           "age": 50,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -889,7 +931,9 @@
           "room": "221A",
           "reason": "Asthma",
           "assigned_staff": [
-            "Dr. Ronen (Cardiologist)"
+            "Dr. Eli Katz (Psychiatrist)",
+            "Dr. Amir Shapira (Emergency Medicine)",
+            "Leah Shalom (Nurse)"
           ],
           "vitals": [
             {
@@ -921,16 +965,18 @@
         },
         {
           "patient_id": "P-122",
-          "name": "Elad W",
+          "name": "Elad Epstein",
           "age": 79,
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "urgent",
           "risk_score": 0.45000000000000007,
-          "room": "222A",
+          "room": "222C",
           "reason": "Asthma",
           "assigned_staff": [
-            "Dr. Levi (Surgeon)"
+            "Dr. Ronen (Surgeon)",
+            "Dr. Daniel Barak (Dermatologist)",
+            "Sharon Baruh (Nurse)"
           ],
           "vitals": [
             {
@@ -962,7 +1008,7 @@
         },
         {
           "patient_id": "P-123",
-          "name": "Maya X",
+          "name": "Yuval Haruv",
           "age": 38,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -971,7 +1017,9 @@
           "room": "223A",
           "reason": "Chest Pain",
           "assigned_staff": [
-            "Dr. Katz (Surgeon)"
+            "Dr. Tali Ben-David (Radiologist)",
+            "Dr. David Rosenfeld (Neurologist)",
+            "Lior Shitrit (Nurse)"
           ],
           "vitals": [
             {
@@ -1003,16 +1051,18 @@
         },
         {
           "patient_id": "P-124",
-          "name": "Alon Y",
+          "name": "Alon Adam",
           "age": 79,
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "urgent",
           "risk_score": 0.45000000000000007,
-          "room": "224A",
+          "room": "224D",
           "reason": "Headache",
           "assigned_staff": [
-            "Dr. Levi (Surgeon)"
+            "Dr. Leah Greenberg (Endocrinologist)",
+            "Dr. Avi Schwartz (Nephrologist)",
+            "Dr. Jonathan Levi (Orthopedic Surgeon)"
           ],
           "vitals": [
             {
@@ -1044,7 +1094,7 @@
         },
         {
           "patient_id": "P-125",
-          "name": "Rotem Z",
+          "name": "Rotem Ziv",
           "age": 61,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -1053,7 +1103,9 @@
           "room": "225A",
           "reason": "Fracture",
           "assigned_staff": [
-            "Dr. Levi (Surgeon)"
+            "Dr. Levi (Surgeon)",
+            "Dr. David Rosenfeld (Neurologist)",
+            "Moshe Yaakov (Nurse)"
           ],
           "vitals": [
             {
@@ -1085,16 +1137,18 @@
         },
         {
           "patient_id": "P-126",
-          "name": "Eli A",
+          "name": "Eli Aharon",
           "age": 51,
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "ready_for_discharge",
           "risk_score": 0.0,
-          "room": "226A",
+          "room": "226C",
           "reason": "High BP",
           "assigned_staff": [
-            "Dr. Ronen (Cardiologist)"
+            "Dr. Ronen (Surgeon)",
+            "Dr. Daniel Barak (Dermatologist)",
+            "Sharon Baruh (Nurse)"
           ],
           "vitals": [
             {
@@ -1126,16 +1180,18 @@
         },
         {
           "patient_id": "P-127",
-          "name": "Sapir B",
+          "name": "Sapir Benishti",
           "age": 66,
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "ready_for_discharge",
           "risk_score": 0.0,
-          "room": "227A",
+          "room": "227B",
           "reason": "Asthma",
           "assigned_staff": [
-            "Dr. Katz (Cardiologist)"
+            "Dr. Levi (Surgeon)",
+            "Dr. David Rosenfeld (Neurologist)",
+            "Moshe Yaakov (Nurse)"
           ],
           "vitals": [
             {
@@ -1167,7 +1223,7 @@
         },
         {
           "patient_id": "P-128",
-          "name": "Lior C",
+          "name": "Yoav Benihai",
           "age": 61,
           "ward_id": "A1",
           "preferred_language": "hebrew",
@@ -1176,7 +1232,9 @@
           "room": "228A",
           "reason": "Headache",
           "assigned_staff": [
-            "Dr. Katz (Cardiologist)"
+            "Dr. Leah Greenberg (Endocrinologist)",
+            "Dr. Avi Schwartz (Nephrologist)",
+            "Dr. Jonathan Levi (Orthopedic Surgeon)"
           ],
           "vitals": [
             {
@@ -1208,16 +1266,18 @@
         },
         {
           "patient_id": "P-129",
-          "name": "Ron D",
+          "name": "Ron Dahan",
           "age": 38,
           "ward_id": "A1",
           "preferred_language": "hebrew",
           "status": "ready_for_discharge",
           "risk_score": 0.0,
-          "room": "229A",
+          "room": "229B",
           "reason": "Diabetes",
           "assigned_staff": [
-            "Dr. Levi (Cardiologist)"
+            "Dr. Tali Ben-David (Radiologist)",
+            "Dr. David Rosenfeld (Neurologist)",
+            "Lior Shitrit (Nurse)"
           ],
           "vitals": [
             {

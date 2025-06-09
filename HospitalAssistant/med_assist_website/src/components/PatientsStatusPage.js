@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react';
 import './PatientsStatusPage.css'; // <-- Assurez-vous que cette ligne est bien présente et pointe vers le bon fichier CSS
 import {sendChatMessagePost, fetchPatients, fetchPatientById} from '../api/patientApi';
-
+import VisualCharts from './VitalsCharts';
 // Helper to map status to a sort order and color class
 const statusMap = {
     urgent: {order: 1, className: 'status-urgent'},
@@ -255,7 +255,7 @@ function PatientsStatusPage({currentUser}) {
             if (!isChatting && !isInputFocused) {
                 loadPatients();
             }
-        }, 5000);
+        }, 15000);
 
         return () => clearInterval(intervalId);
 
@@ -272,7 +272,7 @@ function PatientsStatusPage({currentUser}) {
                 sender: 'system'
             }
         ]);
-        setCurrentMessage("Please summarize the patient's chart.");
+        setCurrentMessage("What's the patient's vitals, information and clinical summary?");
     };
 
     const handleSendMessage = async () => {
@@ -438,29 +438,16 @@ function PatientsStatusPage({currentUser}) {
                         <span>Vitals</span>
                     </button>
                 </div>
-                {showVitals && selectedPatient && selectedPatientVitals && (
+                                {showVitals && selectedPatient && selectedPatientVitals && (
                     <div className="vitals-display-container">
                         <h4>Vitals for {selectedPatient.name}</h4>
-                        <div className="vitals-boxes">
-                            <div className="vital-box">
-                                <span className="vital-label">BP:</span>
-                                <span
-                                    className="vital-value">{selectedPatientVitals.BP.value} {selectedPatientVitals.BP.unit}</span>
-                                <span className="vital-trend">(Trend: {selectedPatientVitals.BP.trend})</span>
-                            </div>
-                            <div className="vital-box">
-                                <span className="vital-label">HR:</span>
-                                <span
-                                    className="vital-value">{selectedPatientVitals.HR.value} {selectedPatientVitals.HR.unit}</span>
-                                <span className="vital-trend">(Trend: {selectedPatientVitals.HR.trend})</span>
-                            </div>
-                            <div className="vital-box">
-                                <span className="vital-label">SpO2:</span>
-                                <span
-                                    className="vital-value">{selectedPatientVitals.SpO2.value} {selectedPatientVitals.SpO2.unit}</span>
-                                <span className="vital-trend">(Trend: {selectedPatientVitals.SpO2.trend})</span>
-                            </div>
-                        </div>
+
+                        {/* live mini-plots */}
+                        <VisualCharts
+                            bpSys={Number(selectedPatientVitals.BP.value.split('/')[0])}  // e.g. 120
+                            hr={Number(selectedPatientVitals.HR.value)}                   // e.g. 75
+                            spo2={Number(selectedPatientVitals.SpO2.value)}               // e.g. 98
+                        />
                     </div>
                 )}
             </div>
