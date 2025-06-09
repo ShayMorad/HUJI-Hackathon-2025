@@ -94,7 +94,7 @@ Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑day
     │   ├── doctor_dashboard.png
     │   └── login.png
     └── demo/                      # Demo video/GIF
-        └── medassist_demo.gif
+        └── medassist_demo.mp4
 
 ````
 
