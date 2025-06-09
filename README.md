@@ -57,16 +57,22 @@ Extensibility: Modular adapters allow swapping LLMs, ML models, or database back
 | <img src="docs/images/landing.jpg" alt="Landing Page" width="600" /> | <img src="docs/images/doctor_dashboard.jpg" alt="Doctor Dashboard" width="600" /> | <img src="docs/images/login.jpg" alt="Login Screen" width="600" /> |
 
 
- ## 🎥 Demo Video
+## 🎥 Demo Video
 
 <details>
-<summary>Watch a quick demo</summary>
+  <summary>▶️ Watch the full demo</summary>
 
-<p align="center">
-  ▶️ [Click here to watch the demo video](https://youtu.be/jakP6N2kDo8)
-</p>
+  <p align="center">
+    <a href="https://youtu.be/jakP6N2kDo8" target="_blank">
+      <img src="https://img.youtube.com/vi/jakP6N2kDo8/maxresdefault.jpg" alt="MedAssist AI Demo Thumbnail" width="600" />
+    </a>
+  </p>
 
+  <p align="center">
+    ▶️ <strong><a href="https://youtu.be/jakP6N2kDo8" target="_blank">Play Demo on YouTube</a></strong>
+  </p>
 </details>
+
 
 ---
 
