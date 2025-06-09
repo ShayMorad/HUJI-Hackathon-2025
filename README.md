@@ -35,6 +35,20 @@ Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑day
 | 🔌 **Plugin-Friendly**           | Swap ML models or EMR connectors                                                |
 
 ---
+## 📐 Architecture
+| Layer                          | Technology & Role                                                                 |
+| -------------------------------- | ------------------------------------------------------------------------------- |
+| Backend API   | Python 3.12, FastAPI, Pydantic v2, Uvicorn; /hospital, /patients, /chat and more endpoints       |
+| Logic Layer | OO Entities       |
+| Data Layer         | JSON seed files (in-memory), SQLite (demo), with save-on-shutdown for persistence               |
+| Frontend        | React, Tailwind CSS; <PatientsTable>, <PatientMedicalSummary>, color-coded rows           |
+| AI/NLP      | XGBoost for risk; Google Gemini for chat summarization & blocker NLP      |
+| Infra & CI         | Docker Compose; GitHub Actions CI/CD; Swagger UI for API docs          |
+
+
+Extensibility: Modular adapters allow swapping LLMs, ML models, or database backends independently.
+
+--- 
 
 ## 📸 Screenshots
 
