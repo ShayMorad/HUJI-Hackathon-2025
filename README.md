@@ -29,12 +29,12 @@ Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑day
 | 🔌 **Plugin-Friendly**           | Swap ML models or EMR connectors (FHIR, HL7) with modular adapters              |
 
 ---
-
+![Feature vs Magnitude](images/feature_vs_magnitude.png)
 ## 📸 Screenshots
 
 | Landing Page                                                                                                                                | Doctor Dashboard                                                                                                                                         | Login Screen                                                                                                                              |
 | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/images/landing.jpg" alt="Landing Page" width="300" /> | <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/images/doctor_dashboard.jpg" alt="Doctor Dashboard" width="300" /> | <img src="HUJI-Hackathon-2025/main/docs/images/login.jpg" alt="Login Screen" width="300" /> |
+| <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/images/landing.jpg" alt="Landing Page" width="300" /> | <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/images/doctor_dashboard.jpg" alt="Doctor Dashboard" width="300" /> | <img src="docs/images/login.jpg" alt="Login Screen" width="300" /> |
 
 ## 🎥 Demo Video
 <details>
