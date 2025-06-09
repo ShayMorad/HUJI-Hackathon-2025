@@ -48,6 +48,7 @@ Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑day
 </p>
 
 </details>
+
 ---
 
 ## ⚙️ Tech Stack & Architecture
