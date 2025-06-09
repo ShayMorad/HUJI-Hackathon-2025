@@ -34,7 +34,7 @@ Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑day
 
 | Landing Page                                                                                                                                | Doctor Dashboard                                                                                                                                         | Login Screen                                                                                                                              |
 | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| <img src="docs/images/landing.jpg" alt="Landing Page" width="500" /> | <img src="docs/images/doctor_dashboard.jpg" alt="Doctor Dashboard" width="500" /> | <img src="docs/images/login.jpg" alt="Login Screen" width="500" /> |
+| <img src="docs/images/landing.jpg" alt="Landing Page" width="600" /> | <img src="docs/images/doctor_dashboard.jpg" alt="Doctor Dashboard" width="600" /> | <img src="docs/images/login.jpg" alt="Login Screen" width="600" /> |
 
 ## 🎥 Demo Video
 <details>
