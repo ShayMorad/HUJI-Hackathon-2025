@@ -44,11 +44,7 @@ class LLMService:
             raise ValueError(f"Invalid model. Available models: {list(self.AVAILABLE_MODELS.keys())}")
 
         try:
-            # Initialize credentials from the service account file
-            credentials = service_account.Credentials.from_service_account_file(
-                r'C:\Users\shaym\Desktop\ComputerScience\Hackathon\Project\HUJI-Hackathon-2025\Gemini\hackathon-team-46_gen-lang-client-0325865525_iam_gserviceaccount_com_1747758552.json'
-            )
-            genai.configure(credentials=credentials)
+            genai.configure(api_key="AIzaSyATRYFRvkaFVBA6Hcf2ApVJUIH_9xsWnCc")
 
             # Initialize model and chat
             self.model = genai.GenerativeModel(model_name)

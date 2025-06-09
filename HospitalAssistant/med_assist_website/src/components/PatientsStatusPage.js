@@ -1,4 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
+import ReactMarkdown from 'react-markdown';
 import './PatientsStatusPage.css'; // <-- Assurez-vous que cette ligne est bien présente et pointe vers le bon fichier CSS
 import {sendChatMessagePost, fetchPatients, fetchPatientById} from '../api/patientApi';
 import VisualCharts from './VitalsCharts';
@@ -387,11 +388,17 @@ function PatientsStatusPage({currentUser}) {
                                 AI assistant
                                 about {selectedPatient.name} (Room: {selectedPatient.room})</h3>
                             <div className="chat-messages-container">
-                                {chatMessages.map(msg => (
-                                    <div key={msg.id} className={`chat-message ${msg.sender}`}>
-                                        <p style={{fontSize: '1.2em'}}>{msg.text}</p>
-                                    </div>
-                                ))}
+{chatMessages.map(msg => (
+    <div key={msg.id} className={`chat-message ${msg.sender}`}>
+        {msg.sender === 'bot' ? (
+            <div className="markdown-message">
+                <ReactMarkdown>{msg.text}</ReactMarkdown>
+            </div>
+        ) : (
+            <p style={{fontSize: '1.2em'}}>{msg.text}</p>
+        )}
+    </div>
+))}
                                 <div ref={chatMessagesEndRef}/>
                             </div>
                             <div className="chat-input-area">

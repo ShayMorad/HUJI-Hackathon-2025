@@ -400,3 +400,9 @@
     color: #d9534f;
     font-weight: bold;
 }
+
+.chat-message.bot > .markdown-message {
+    text-align: left;
+    font-size: 1.1em;
+    line-height: 1.5;
+}
