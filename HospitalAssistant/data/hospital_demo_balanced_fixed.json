@@ -5,7 +5,7 @@
   "total_occupied": 30,
   "total_free_beds": 20,
   "utilisation": 0.6,
-  "average_patient_risk": 0.16,
+  "average_patient_risk": 0.17,
   "bottlenecks": [],
   "wards": [
     {
@@ -15,7 +15,7 @@
       "occupancy": 30,
       "load_factor": 0.6,
       "is_overloaded": false,
-      "average_risk": 0.16,
+      "average_risk": 0.17,
       "patients": [
         {
           "patient_id": "P-100",
@@ -109,8 +109,8 @@
           "age": 56,
           "ward_id": "A1",
           "preferred_language": "hebrew",
-          "status": "ready_for_discharge",
-          "risk_score": 0.0,
+          "status": "urgent",
+          "risk_score": 0.30000000000000004,
           "room": "202B",
           "reason": "Chest Pain",
           "assigned_staff": [
@@ -121,21 +121,21 @@
           "vitals": [
             {
               "name": "BP",
-              "value": 104.9,
+              "value": 130.0,
               "unit": "mmHg",
-              "timestamp": "2025-05-29T23:49:29.128651+00:00"
+              "timestamp": "2025-05-29T23:49:29.129060+00:00"
             },
             {
               "name": "HR",
-              "value": 77.0,
+              "value": 105.6,
               "unit": "bpm",
-              "timestamp": "2025-05-29T23:49:29.128651+00:00"
+              "timestamp": "2025-05-29T23:49:29.129060+00:00"
             },
             {
               "name": "SpO2",
-              "value": 98.3,
+              "value": 80.1,
               "unit": "%",
-              "timestamp": "2025-05-29T23:49:29.128651+00:00"
+              "timestamp": "2025-05-29T23:49:29.129060+00:00"
             }
           ],
           "social_profile": {
