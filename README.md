@@ -2,13 +2,6 @@
 
 > Revolutionizing hospital discharge decisions with predictive intelligence and actionable insights
 
-<p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" /></a>
-  <a href="#tech-stack--architecture"><img src="https://img.shields.io/badge/Backend-FastAPI-green.svg" alt="Built with FastAPI" /></a>
-  <a href="#tech-stack--architecture"><img src="https://img.shields.io/badge/Frontend-React-blue.svg" alt="React Frontend" /></a>
-  <a href="https://github.com/Noamshabat1/HUJI-Hackathon-2025/actions/workflows/ci.yml/badge.svg"><img src="https://img.shields.io/badge/CI-Status-brightgreen.svg" alt="CI Status" /></a>
-</p>
-
 ---
 
 ## 🔍 Overview
@@ -39,152 +32,70 @@ Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑day
 
 ## 📸 Screenshots
 
-<details>
-<summary>View screenshots</summary>
-
-| Landing Page                                                         | Doctor Dashboard                                                                  | Login Screen                                                       |
-| -------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| <img src="docs/images/landing.png" alt="Landing Page" width="300" /> | <img src="docs/images/doctor_dashboard.png" alt="Doctor Dashboard" width="300" /> | <img src="docs/images/login.png" alt="Login Screen" width="300" /> |
-
-</details>
+| Landing Page | Doctor Dashboard | Login Screen |
+| ------------ | ---------------- | ------------ |
+|              |                  |              |
 
 ## 🎥 Demo Video
-
-<details>
-<summary>Watch a quick demo</summary>
-
-<p align="center">
-  <!-- Replace with your actual demo video or GIF -->
-  <a href="docs/demo/medassist_demo.gif">
-    <img src="docs/demo/medassist_demo.gif" alt="MedAssist AI Demo" width="600" />
-  </a>
-  <p>Click to view the full demo</p>
-</p>
-
-</details>
 
 ---
 
 ## ⚙️ Tech Stack & Architecture
 
-<details>
-<summary>View architecture details</summary>
-
 ```plaintext
 📦 HUJI-Hackathon-2025
-├── .git/                           # Git version history
-├── .idea/                          # IDE config files
-├── LICENSE                         # Project license (MIT)
-├── README.md                       # This documentation
-├── docker-compose.yml              # Docker orchestration for API, frontend & services
-├── package.json                    # Web frontend dependencies & scripts
-├── package-lock.json               # Web frontend lockfile
-├── Gemini/                         # Google Gemini NLP client & examples
-│   ├── examples.py                 # Usage demos
-│   ├── gemini.py                   # API wrapper
-│   ├── main.py                     # CLI demo
-│   ├── README.md                   # Gemini module docs
-│   └── requirements.txt            # Gemini SDK dependencies
-├── HospitalAssistant/              # Backend core services (FastAPI + logic)
-│   ├── api/                        # FastAPI routes
-│   │   ├── app.py                  # Main application and router
-│   │   ├── app_full.py             # Extended endpoints (med_assist_api)
-│   │   └── __init__.py             # Package init file
-│   ├── core/                       # Data layer & schemas
-│   │   ├── database.py             # SQLite & in-memory storage setup
-│   │   ├── schemas.py              # Pydantic models for requests/responses
-│   │   └── __init__.py             # Package init file
-│   ├── entities/                   # Domain models (OO logic)
+├── .git/                          # Git version history
+├── .idea/                         # IDE config files
+├── LICENSE                        # MIT license
+├── README.md                      # Project documentation
+├── docker-compose.yml             # Service orchestration: backend, frontend, services
+├── package.json                   # Frontend dependencies & scripts
+├── package-lock.json              # Frontend lockfile
+├── Gemini/                        # Google Gemini NLP integration
+│   ├── examples.py                # Usage examples for Gemini client
+│   ├── gemini.py                  # API wrapper for Gemini
+│   ├── main.py                    # CLI demonstration
+│   └── requirements.txt           # Gemini SDK dependencies
+├── HospitalAssistant/             # Core backend (FastAPI + domain logic)
+│   ├── api/                       # FastAPI routes
+│   │   ├── __init__.py            # Package marker
+│   │   ├── app.py                 # Main application and router
+│   │   └── app_full.py            # Extended endpoints for med_assist_api
+│   ├── core/                      # Data layer & schemas
+│   │   ├── __init__.py            # Package marker
+│   │   ├── database.py            # SQLite/in-memory storage setup
+│   │   └── schemas.py             # Pydantic models for requests/responses
+│   ├── entities/                  # Domain models (OO logic)
+│   │   ├── __init__.py            # Package marker
 │   │   ├── Hospital.py
 │   │   ├── MedicalRecord.py
 │   │   ├── Patient.py
 │   │   ├── SocialProfile.py
 │   │   ├── VitalSign.py
-│   │   ├── Ward.py
-│   │   └── __init__.py             # Package init file
-│   ├── data/                       # Sample hospital datasets (JSON)
+│   │   └── Ward.py
+│   ├── data/                      # Sample hospital datasets (JSON)
 │   │   ├── demo_hospital.json
 │   │   ├── demo_hospital_data.json
 │   │   ├── hospital_15_patients.json
 │   │   └── hospital_demo_balanced.json
-│   ├── med_assist_website/         # React-based staff dashboard
-│   │   ├── package.json            # Frontend dependencies
-│   │   ├── public/                 # Static assets & HTML
-│   │   ├── src/                    # React source code
-│   │   │   ├── components/         # UI components
-│   │   │   ├── services/           # API service wrappers
-│   │   │   └── ...                 # Other React files
-│   │   └── node_modules/           # Frontend modules
-│   ├── nurse_online/               # Nurse-focused UI (Vue/React)
-│   │   ├── src/                    # Source code
-│   │   └── node_modules/           # Dependencies
-│   ├── services/                   # Integration & service controllers
-│   │   ├── EMRConnector.py         # EMR data extraction logic
-│   │   ├── ConversationService.py  # Chat/interaction logic
-│   │   ├── LLMService.py           # Gemini/LLM orchestration
-│   │   ├── NotificationService.py  # Teams/Slack routing
-│   │   └── PredictiveModelController.py # Handles ML inference
-│   └── tests/                      # Unit tests
-│       └── test_patient.py         # Tests for Patient logic
-└── presentation/                   # Pitch deck and assets
-    └── MedAssist AI.pptx          # Hackathon slide deck
-```
-
-├── .git/                      # Git version history
-├── .idea/                     # IDE config files
-├── LICENSE                    # Project license (MIT)
-├── README.md                  # This documentation
-├── docker-compose.yml         # Docker orchestration for API, frontend & services
-├── package.json               # Web frontend dependencies & scripts
-├── package-lock.json          # Web frontend lockfile
-├── Gemini/                    # Google Gemini NLP client & examples
-│   ├── examples.py            # Usage demos
-│   ├── gemini.py              # API wrapper
-│   ├── main.py                # CLI demo
-│   ├── README.md              # Gemini module docs
-│   └── requirements.txt       # Gemini SDK deps
-├── HospitalAssistant/         # Backend core services (FastAPI + logic)
-│   ├── api/                   # FastAPI routes
-│   │   ├── app.py             # Main application and router
-│   │   ├── app\_full.py        # Extended endpoints (med\_assist\_api)
-│   │   └── **init**.py        # Package init
-│   ├── core/                  # Data layer & schemas
-│   │   ├── database.py        # SQLite & in-memory storage setup
-│   │   ├── schemas.py         # Pydantic models for requests/responses
-│   │   └── **init**.py
-│   ├── entities/              # Domain models (OO logic)
-│   │   ├── Hospital.py
-│   │   ├── MedicalRecord.py
-│   │   ├── Patient.py
-│   │   ├── SocialProfile.py
-│   │   ├── VitalSign.py
-│   │   ├── Ward.py
-│   │   └── **init**.py
-│   ├── data/                  # Sample hospital datasets (JSON)
-│   │   ├── demo\_hospital.json
-│   │   ├── demo\_hospital\_data.json
-│   │   ├── hospital\_15\_patients.json
-│   │   └── hospital\_demo\_balanced.json
-│   ├── med\_assist\_website/    # React-based staff dashboard
-│   │   ├── package.json       # Frontend dependencies
-│   │   ├── public/            # Static assets & HTML
-│   │   ├── src/               # React source code
-│   │   │   ├── components/    # UI components
-│   │   │   ├── services/      # API service wrappers
-│   │   │   └── ...
-│   ├── nurse\_online/          # Nurse-focused UI (Vue/React)
-│   │   ├── src/
-│   │   └── node\_modules/
-│   ├── services/              # Integration & service controllers
-│   │   ├── EMRConnector.py    # EMR data extraction logic
+│   ├── services/                  # External integrations & service controllers
+│   │   ├── EMRConnector.py        # EMR data extraction
 │   │   ├── ConversationService.py # Chat/interaction logic
-│   │   ├── LLMService.py      # Gemini/LLM orchestration
+│   │   ├── LLMService.py          # Gemini/LLM orchestration
 │   │   ├── NotificationService.py # Teams/Slack routing
-│   │   └── PredictiveModelController.py # Handles ML inference
-│   └── tests/                 # Unit tests
-│       └── test\_patient.py    # Tests for Patient logic
-└── presentation/              # Pitch deck and assets
-└── MedAssist AI.pptx
+│   │   └── PredictiveModelController.py # ML inference handler
+│   └── tests/                     # Unit tests
+│       └── test_patient.py        # Tests for Patient logic
+├── presentation/                  # Pitch deck and assets
+│   └── MedAssist AI.pptx         # Hackathon slide deck
+└── docs/                          # Documentation assets
+    ├── images/                    # Screenshots for README
+    │   ├── landing.png
+    │   ├── doctor_dashboard.png
+    │   └── login.png
+    └── demo/                      # Demo video/GIF
+        └── medassist_demo.gif
+```
 
 ````
 
@@ -204,6 +115,7 @@ Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑day
 
 ---
 
+
 ## 🚀 Quick Start
 ```bash
 # Clone repo
@@ -214,7 +126,7 @@ cd HUJI-Hackathon-2025
 
 # Launch Backend Server
 cd HospitalAssistant
-uvicorn api.app:app --port 8003 --log-level debug
+uvicorn api.app:app --port 8003 --log-level debug
 
 # Launch Frontend Server
 cd HospitalAssistant/med_assist_website
@@ -227,9 +139,6 @@ npm start
 
 ## 📡 API Reference
 
-<details>
-<summary>Show endpoints</summary>
-
 | Method | Path                | Description                                         |
 | ------ | ------------------- | --------------------------------------------------- |
 | GET    | `/v1/beds`          | Current bed census & predicted discharge timestamps |
@@ -238,8 +147,6 @@ npm start
 | GET    | `/v1/health`        | Liveness probe                                      |
 
 Swagger UI available at [http://localhost:8000/docs](http://localhost:8000/docs).
-
-</details>
 
 ---
 
@@ -252,7 +159,7 @@ Swagger UI available at [http://localhost:8000/docs](http://localhost:8000/docs)
 | Shay Morad     | Product Designer    | UX Specialist, Tel-Aviv Medical Center |
 | Samuel Hayard  | Clinical Advisor    | RN; 10 years in inpatient flow mgmt    |
 
-*Built in 24 h at **HUJI Hackathon 2025** (May 29–30, Jerusalem).*
+*Built in 24 h at ********HUJI Hackathon 2025******** (May 29–30, Jerusalem).*
 
 ---
 
