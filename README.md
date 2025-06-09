@@ -34,7 +34,7 @@ Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑day
 
 | Landing Page                                                                                                                                | Doctor Dashboard                                                                                                                                         | Login Screen                                                                                                                              |
 | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/images/landing.png" alt="Landing Page" width="300" /> | <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/images/doctor_dashboard.png" alt="Doctor Dashboard" width="300" /> | <img src="HUJI-Hackathon-2025/main/docs/images/login.png" alt="Login Screen" width="300" /> |
+| <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/images/landing.jpg" alt="Landing Page" width="300" /> | <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/images/doctor_dashboard.jpg" alt="Doctor Dashboard" width="300" /> | <img src="HUJI-Hackathon-2025/main/docs/images/login.jpg" alt="Login Screen" width="300" /> |
 
 ## 🎥 Demo Video
 <details>
@@ -42,7 +42,7 @@ Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑day
 
 <p align="center">
   <a href="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/demo/medassist_demo">
-    <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/demo/medassist_demo.gif" alt="MedAssist AI Demo" width="600" />
+    <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/demo/medassist_demo.mp4" alt="MedAssist AI Demo" width="600" />
   </a>
   <p>Click to view the full demo</p>
 </p>
@@ -96,9 +96,9 @@ Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑day
 │       └── PredictiveModelController.py # ML inference handler   
 └── docs/                          # Documentation assets
     ├── images/                    # Screenshots for README
-    │   ├── landing.png
-    │   ├── doctor_dashboard.png
-    │   └── login.png
+    │   ├── landing.jpg
+    │   ├── doctor_dashboard.jpg
+    │   └── login.jpg
     └── demo/                      # Demo video/GIF
         └── medassist_demo.mp4
 
