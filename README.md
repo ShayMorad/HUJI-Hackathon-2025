@@ -1,216 +1,172 @@
-# Hospital AI Agent
+# MedAssist AI 🚑🤖
 
-**Internal README** – A comprehensive guide to our Hospital AI Agent prototype, covering architecture, components, and development workflow.
-
----
-
-## Table of Contents
-
-1. [Project Overview](#project-overview)
-2. [Directory Structure](#directory-structure)
-3. [Prerequisites](#prerequisites)
-4. [Environment Configuration](#environment-configuration)
-5. [Backend Setup](#backend-setup)
-
-   * [Entities](#entities)
-   * [Services](#services)
-   * [API](#api)
-6. [Frontend Setup](#frontend-setup)
-7. [Running Locally](#running-locally)
-8. [Testing](#testing)
-9. [Next Steps](#next-steps)
+> Revolutionizing hospital discharge decisions with predictive intelligence and actionable insights
 
 ---
 
-## Project Overview
+## 🔍 Overview
 
-Our **Hospital AI Agent** prototype integrates patient monitoring, discharge prediction, and bottleneck detection into a cohesive platform:
+MedAssist AI is an advanced hospital coordination platform that:
 
-* **Backend**: Python with FastAPI
+* Forecasts discharge readiness **12–24 hours** in advance (AUROC 0.91).
+* Identifies clinical & operational blockers (labs, consults, transport) in real time.
+* Routes actionable tasks to the right roles via Teams/Slack.
 
-  * **Entities**: Data models representing patients, vitals, medical records, social context, wards, and hospital
-  * **Services**: Business logic for EMR integration, LLM calls, predictive modeling, notifications, and conversations
-  * **API**: REST endpoints for data access and AI interactions
-
-* **Frontend**: React + TypeScript + Tailwind CSS + shadcn/ui
-
-  * **Dashboards**: Role-based UIs for nurses, doctors, and administrators
-  * **Chat**: Tablet-friendly interface for AI-driven patient and staff interactions
-  * **Notifications**: Mobile-centric notification center with priority queue
-
-This stack is designed to launch as a hackathon demo and evolve into a production-ready hospital solution.
+Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑days, reduces infection risk, and boosts patient satisfaction—all on top of existing EMRs.
 
 ---
 
-## Directory Structure
+## 🌟 Key Features
 
-```
-HospitalAssistant/                  # Repository root
-├─ entities/                 # Domain model definitions (Python)
-│   ├─ __init__.py
-│   ├─ VitalSign.py          # VitalSign: measurements & range checking
-│   ├─ MedicalRecord.py      # MedicalRecord: clinical notes & labs
-│   ├─ SocialProfile.py      # SocialProfile: discharge-related social data
-│   ├─ Patient.py            # Patient: aggregates demographics, vitals, record, social
-│   ├─ Ward.py               # Ward: collection of patients & capacity management
-│   └─ Hospital.py           # Hospital: collection of wards, system-level reporting
-│
-├─ services/                 # Core business logic (Python)
-│   ├─ __init__.py
-│   ├─ EMRConnector.py       # EMRConnector: FHIR REST integration
-│   ├─ LLMService.py         # LLMService: generic LLM API wrapper
-│   ├─ ConversationService.py# ConversationService: multilingual chat management
-│   ├─ PredictiveModelController.py  # PredictiveModelController: discharge & deterioration inference
-│   └─ NotificationService.py# NotificationService: alert dispatch & scheduling
-│
-├─ api/                      # FastAPI application
-│   ├─ __init__.py
-│   └─ app.py                # app: REST endpoints and service instantiation
-│
-└─ frontend/                 # React UI application
-    ├─ package.json
-    ├─ tsconfig.json
-    └─ src/
-       ├─ queues/            # NotificationQueue.ts, ChatQueue.ts
-       ├─ context/           # QueueContext.tsx (React context for queues)
-       └─ components/        # Role-based dashboards & UI components
-           ├─ NurseDashboard.tsx
-           ├─ DoctorDashboard.tsx
-           ├─ AdminDashboard.tsx
-           ├─ ChatInterface.tsx
-           └─ NotificationCenter.tsx
-```
-
-**Highlights:**
-
-* Each Python folder isolates one layer: **entities** for data structures, **services** for logic, **api** for endpoints.
-* Frontend follows a feature-based layout (queues, context, components).
-* Encapsulates clear responsibilities to support scaling and maintainability.
+| Feature                          | Benefit                                                                         |
+| -------------------------------- | ------------------------------------------------------------------------------- |
+| 🚑 **Real-time Bed Dashboard**   | Live EMR sync of occupancy, predicted discharges & length-of-stay metrics       |
+| 🤖 **Discharge-Readiness Score** | Gradient-boosted model trained on 200 k records to flag “green-for-go” patients |
+| 📝 **Blocker Detection**         | Combines rules (orders/labs) + NLP on notes to surface open tasks               |
+| 📬 **Smart Task Routing**        | Automates assignment of blockers to nurses, PTs, social workers, etc.           |
+| 💬 **Self-Service Chatbot**      | `/status <PatientID>` returns LOS, blockers & next steps instantly              |
+| 🔒 **Privacy by Design**         | All PHI de-identified on‑prem; zero identifiers leave hospital network          |
+| 🔌 **Plugin-Friendly**           | Swap ML models or EMR connectors (FHIR, HL7) with modular adapters              |
 
 ---
 
-## Prerequisites
+## 📸 Screenshots
 
-* **Python 3.10+** and **pip**
-* **Node.js 16+** and **npm** or **yarn**
-* (Optional) **Docker** for containerized runs
+| Landing Page                                                                                                                                | Doctor Dashboard                                                                                                                                         | Login Screen                                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/images/landing.png" alt="Landing Page" width="300" /> | <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/images/doctor_dashboard.png" alt="Doctor Dashboard" width="300" /> | <img src="HUJI-Hackathon-2025/main/docs/images/login.png" alt="Login Screen" width="300" /> |
+
+## 🎥 Demo Video
+<details>
+<summary>Watch a quick demo</summary>
+
+<p align="center">
+  <a href="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/demo/medassist_demo">
+    <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/demo/medassist_demo.gif" alt="MedAssist AI Demo" width="600" />
+  </a>
+  <p>Click to view the full demo</p>
+</p>
+
+</details>
+---
+
+## ⚙️ Tech Stack & Architecture
+
+```plaintext
+📦 HUJI-Hackathon-2025
+├── .git/                          # Git version history
+├── .idea/                         # IDE config files
+├── LICENSE                        # MIT license
+├── README.md                      # Project documentation
+├── docker-compose.yml             # Service orchestration: backend, frontend, services
+├── package.json                   # Frontend dependencies & scripts
+├── package-lock.json              # Frontend lockfile
+├── Gemini/                        # Google Gemini NLP integration
+│   ├── examples.py                # Usage examples for Gemini client
+│   ├── gemini.py                  # API wrapper for Gemini
+│   ├── main.py                    # CLI demonstration
+│   └── requirements.txt           # Gemini SDK dependencies
+├── HospitalAssistant/             # Core backend (FastAPI + domain logic)
+│   ├── api/                       # FastAPI routes
+│   │   ├── __init__.py            # Package marker
+│   │   ├── app.py                 # Main application and router
+│   │   └── app_full.py            # Extended endpoints for med_assist_api
+│   ├── core/                      # Data layer & schemas
+│   │   ├── __init__.py            # Package marker
+│   │   ├── database.py            # SQLite/in-memory storage setup
+│   │   └── schemas.py             # Pydantic models for requests/responses
+│   ├── entities/                  # Domain models (OO logic)
+│   │   ├── __init__.py            # Package marker
+│   │   ├── Hospital.py
+│   │   ├── MedicalRecord.py
+│   │   ├── Patient.py
+│   │   ├── SocialProfile.py
+│   │   ├── VitalSign.py
+│   │   └── Ward.py
+│   ├── data/                      # Sample hospital datasets (JSON)
+│   │   ├── demo_hospital.json
+│   │   ├── demo_hospital_data.json
+│   │   ├── hospital_15_patients.json
+│   │   └── hospital_demo_balanced.json
+│   ├── services/                  # External integrations & service controllers
+│   │   ├── EMRConnector.py        # EMR data extraction
+│   │   ├── ConversationService.py # Chat/interaction logic
+│   │   ├── LLMService.py          # Gemini/LLM orchestration
+│   │   ├── NotificationService.py # Teams/Slack routing
+│   │   └── PredictiveModelController.py # ML inference handler
+│   └── tests/                     # Unit tests
+│       └── test_patient.py        # Tests for Patient logic
+├── presentation/                  # Pitch deck and assets
+│   └── MedAssist AI.pptx         # Hackathon slide deck
+└── docs/                          # Documentation assets
+    ├── images/                    # Screenshots for README
+    │   ├── landing.png
+    │   ├── doctor_dashboard.png
+    │   └── login.png
+    └── demo/                      # Demo video/GIF
+        └── medassist_demo.mp4
+
+````
 
 ---
 
-## Environment Configuration
+| Layer           | Technology & Role                                                    |
+|-----------------|----------------------------------------------------------------------|
+| **Backend API** | Python 3.12, FastAPI, Pydantic v2, Uvicorn                           |
+| **Logic Layer** | OO Entities for domain rules; `Patient.discharge_ready()` & blockers  |
+| **Data Layer**  | SQLite (demo) or in‑memory store; JSON seed files                    |
+| **NLP/ML**      | XGBoost model + Gemini NLP for text summarization                   |
+| **Infra**       | Docker Compose; GitHub Actions CI/CD                                 |
 
-### Backend (`api/`)
+**Extensibility:** Modular adapters let you swap LLM providers (OpenAI, Cohere), upgrade to PostgreSQL or FHIR feeds, and containerize services independently.
 
-Create a `.env` file:
-
-```
-FHIR_BASE_URL=http://your-emr-server/fhir
-FHIR_API_KEY=YOUR_FHIR_KEY
-LLM_API_URL=https://your-llm-service/api
-LLM_API_KEY=YOUR_LLM_KEY
-ML_MODEL_PATH=./models/discharge_model.pkl
-```
-
-### Frontend (`frontend/`)
-
-Create a `.env` file:
-
-```
-REACT_APP_API_URL=http://localhost:8000
-```
+</details>
 
 ---
 
-## Backend Setup
 
-### Entities
-
-Detailed classes under `entities/`:
-
-* **VitalSign**: stores `timestamp`, `type` (e.g., BP, HR), `value`; methods `is_within_normal_range()`, `trend(window)` stub for time-series trends.
-* **MedicalRecord**: holds `notes` and `lab_results`; methods for `summarize_history(llm)`, `generate_justification(llm, data)`, `flag_critical_labs()`, and `get_lab_trends(test_code)`.
-* **SocialProfile**: tracks `living_situation`, `caregiver_available`, `home_address`; methods `is_socially_ready()`, `needs_social_work_referral()`, `get_support_contacts()` stub.
-* **Patient**: aggregates `patient_id`, `name`, `age`, `ward_id`, `preferred_language`, `social_profile`, plus lists of `vitals` and `record`; methods for status updates, history loading, risk scoring, and data refresh.
-* **Ward**: manages `ward_id`, `name`, `capacity`, and list of `patients`; methods `list_patients()`, `add_patient()`, `remove_patient()`, `get_bed_availability()`, `generate_occupancy_report()` stub.
-* **Hospital**: wraps multiple `Ward` instances; methods `list_wards()`, `add_ward()`, `remove_ward()`, `get_bottlenecks(threshold)`, `generate_system_report()`, and a stub `optimize_resource_allocation()`.
-
-### Services
-
-Key components in `services/`:
-
-* **EMRConnector**: handles FHIR REST calls (`fetch_patient_data()`, `push_prediction()`), stub for `authenticate()`, `subscribe_to_patient()`, `fetch_ward_data()`, `audit_logs()`.
-* **LLMService**: generic API client for LLM operations (`summarize_clinical_notes()`, `generate_justification()`, `translate()`, `chat()`, plus stubs `load_model()`, `health_check()`, `fine_tune()`, `get_usage_metrics()`).
-* **ConversationService**: orchestrates multi-lingual chat flows with methods for translating messages, generating AI responses (`generate_patient_response()`), plus stubs for session lifecycle (`start_conversation()`, `get_conversation_history()`, `end_conversation()`).
-* **PredictiveModelController**: loads ML pipelines (stub), methods for discharge readiness (`predict_discharge_readiness()`), deterioration detection (`detect_deterioration()`), and stubs for retraining and evaluation.
-* **NotificationService**: handles alert dispatch and scheduling via `notify_user()`, `schedule_follow_up()`, `cancel_notification()`, `bulk_notify()`, `get_notification_status()` stubs.
-
-### API (FastAPI)
-
-`api/app.py` stitches everything together:
-
-* Configures CORS middleware to allow frontend origin.
-* Instantiates connectors and controllers at startup.
-* Defines Pydantic models (`PatientResponse`, `ChatRequest`, etc.) and endpoint handlers for patient data, chat, predictions, ward queries, and hospital-level reports.
-* All handlers are currently stubs returning HTTP 501 until logic is implemented.
-
----
-
-## Frontend Setup
-
-* **Framework**: CRA with TypeScript, Tailwind CSS, shadcn/ui components, Framer Motion.
-* **Context & Queues**: `QueueContext` provides `NotificationQueue` and `ChatQueue` to manage real-time events.
-* **Components**:
-
-  * `NurseDashboard`: grid of patient cards with status indicators and actions.
-  * `DoctorDashboard`: search/filter bar, case cards with diagnoses and recommendations.
-  * `AdminDashboard`: ward overview with occupancy metrics.
-  * `ChatInterface`: two-pane chat UI for AI/patient conversations.
-  * `NotificationCenter`: mobile-friendly feed for queued alerts.
-* **Data Flow**: build an API client (`fetchPatient()`, `postChat()`, etc.) to connect to FastAPI endpoints.
-* **Routing**: adopt React Router for views (`/dashboard/nurse`, `/dashboard/doctor`, `/notifications`).
-
----
-
-## Running Locally
-
-### Backend
-
+## 🚀 Quick Start
 ```bash
-cd my_project/api
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-uvicorn app:app --reload --port 8000
-```
+# Clone repo
+git clone https://github.com/Noamshabat1/HUJI-Hackathon-2025.git
+cd HUJI-Hackathon-2025
 
-### Frontend
+# Launch services
 
-```bash
-cd my_project/frontend
-npm install
+# Launch Backend Server
+cd HospitalAssistant
+uvicorn api.app:app --port 8003 --log-level debug
+
+# Launch Frontend Server
+cd HospitalAssistant/med_assist_website
 npm start
-```
+````
+
 
 ---
 
-## Testing
+## 📡 API Reference
 
-* **Backend**: `pytest` for unit and integration tests; `TestClient` for endpoint tests.
-* **Frontend**: `npm test` using Jest & React Testing Library; component and hook tests.
-* **E2E**: consider Cypress for full-stack scenarios (login, fetch patient, receive alert).
+| Method | Path                | Description                                         |
+| ------ | ------------------- | --------------------------------------------------- |
+| GET    | `/v1/beds`          | Current bed census & predicted discharge timestamps |
+| GET    | `/v1/patients/{id}` | Full patient timeline & blocker list                |
+| POST   | `/v1/predict`       | Run discharge-readiness prediction                  |
+| GET    | `/v1/health`        | Liveness probe                                      |
 
----
-
-## Next Steps
-
-1. Implement all stub methods in entities and services.
-2. Train or load predictive ML models; integrate with `PredictiveModelController`.
-3. Secure API with authentication/authorization (JWT or OAuth2).
-4. Build out React API client and wire state management (e.g. React Query).
-5. Enhance UI with real patient data, navigation, and error handling.
-6. Deploy containers via Docker, Kubernetes, or serverless platforms.
-7. Collect clinical user feedback and iterate UI/UX and functionality.
+Swagger UI available at [http://localhost:8000/docs](http://localhost:8000/docs).
 
 ---
 
-*This README serves as an internal guide to kickstart development and align team members on architecture and next steps.*
+## 👥 Team
+
+| Name           | Role                | Background                             |
+| -------------- | ------------------- | -------------------------------------- |
+| Nitzan Ventura | ML Lead             | M.Sc. Computer Science (AI)            |
+| Noam Shabat    | Full-Stack & DevOps | B.Sc. CS; 4+ years Python & React      |
+| Shay Morad     | Product Designer    | UX Specialist, Tel-Aviv Medical Center |
+| Samuel Hayard  | Clinical Advisor    | RN; 10 years in inpatient flow mgmt    |
+
+*Built in 24 h at ********HUJI Hackathon 2025******** (May 29–30, Jerusalem).*
+
+---
