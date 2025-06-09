@@ -140,9 +140,6 @@ npm start
 
 ---
 
-
----
-
 ## 👥 Team
 
 | Name           | Role                | Background                             |
