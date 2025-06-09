@@ -1,241 +1,153 @@
 # MedAssist AI 🚑🤖
 
-**Revolutionizing hospital discharge decisions with predictive intelligence and actionable insights.**
+> Revolutionizing hospital discharge decisions with predictive intelligence and actionable insights
 
-MedAssist AI is an advanced hospital coordination platform that forecasts discharge readiness, identifies clinical and operational blockers, and routes tasks to the right roles in real time. Built for hospitals overwhelmed by capacity strain and inefficiencies, our system helps reclaim lost bed-days, reduce infection risk, and improve patient satisfaction—all while integrating seamlessly with existing EMRs.
-
-Whether you're a provider, policymaker, or investor, MedAssist AI provides a measurable impact on cost, flow, and care quality—starting day one.
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Built with FastAPI](https://img.shields.io/badge/Backend-FastAPI-green)](#tech-stack--architecture)
-[![React Frontend](https://img.shields.io/badge/Frontend-React-blue)](#tech-stack--architecture)
-[![CI Status](https://github.com/Noamshabat1/HUJI-Hackathon-2025/actions/workflows/ci.yml/badge.svg)](https://github.com/Noamshabat1/HUJI-Hackathon-2025/actions)
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" /></a>
+  <a href="#tech-stack--architecture"><img src="https://img.shields.io/badge/Backend-FastAPI-green.svg" alt="Built with FastAPI" /></a>
+  <a href="#tech-stack--architecture"><img src="https://img.shields.io/badge/Frontend-React-blue.svg" alt="React Frontend" /></a>
+  <a href="https://github.com/Noamshabat1/HUJI-Hackathon-2025/actions/workflows/ci.yml/badge.svg"><img src="https://img.shields.io/badge/CI-Status-brightgreen.svg" alt="CI Status" /></a>
+</p>
 
 ---
 
-## Table of Contents
+## 🔍 Overview
 
-1. [Why MedAssist AI?](#why-medassist-ai)
-2. [Live Demo & Screenshots](#live-demo--screenshots)
-3. [Feature Highlights](#feature-highlights)
-4. [Tech Stack & Architecture](#tech-stack--architecture)
-5. [Quick Start](#quick-start)
-6. [API Reference](#api-reference)
-7. [Team](#team)
-8. [License](#license)
+MedAssist AI is an advanced hospital coordination platform that:
 
----
+* Forecasts discharge readiness **12–24 hours** in advance (AUROC 0.91).
+* Identifies clinical & operational blockers (labs, consults, transport) in real time.
+* Routes actionable tasks to the right roles via Teams/Slack.
 
-## Why MedAssist AI?
-
-### Hospitals are at a breaking point
-
-* Global inpatient occupancy has hovered above **90 %** since 2021, leaving virtually no surge buffer.
-* Every avoidable inpatient day costs **US \$500–2 000**, ties up **≈ 6 h** of nursing time, and raises the risk of hospital‑acquired infection by **7 %**.
-* ER boarding has become the norm: in the U.S. **> 1 million hours** of ambulance downtime were logged in 2024 because no beds were available.
-
-### Discharge is the hidden lever
-
-Clinical discharge orders are only half the story. **10–15 % of beds** are occupied by “green‑for‑go” patients who cannot leave because one last task is stuck in limbo—waiting for transport, a social‑work assessment, or a single lab result. These micro‑delays create macro‑gridlock.
-
-### What clinicians say — Interview insights from Prof. Michael Rosenberg
-
-Prof. Rosenberg, Division Director of Interventional Radiology, confirms:
-
-> "The biggest challenge in discharging a patient isn’t always clinical—it’s logistical. The patient may be ready, but transport, paperwork, or social support isn't."
-> "Everything is technically documented in the EMR: clinical history, pending orders, social notes—but we don’t have a smart way to pull the pieces together to guide action."
-
-He emphasizes that:
-
-* The **entire discharge process spans multiple roles**—nurses, residents, case managers—often needing **3–4 hours per patient**.
-* **Most information already exists** in digital form, but there's no system smart enough to summarize, infer readiness, and surface blockers.
-* **Explainability is essential**: "If an AI suggests something, we must know why—what data led to that suggestion and what actions it recommends."
-
-### MedAssist AI shifts work **up‑stream**
-
-1. **See the future —** A gradient‑boosted model ingests live EMR, orders, and free‑text notes to forecast discharge readiness **a full day in advance** (AUROC 0.91).
-2. **Expose root blockers —** An explainability layer maps the prediction to actionable items (*“CBC pending”*, *“MRI 08:00”*, *“PT clearance needed”*).
-3. **Orchestrate resolution —** A rules engine routes each blocker to the right role (nurse, porter, PT, social worker) via Teams/Slack, turning a reactive scramble into a proactive workflow.
-
-### What that means in dollars *and* lives
-
-* **Zero‑integration pilot** — Works off FHIR/HL7 feeds already exposed by all major EMRs.
-* **Explainable AI** — SHAP‑based blocker breakdown earns clinician trust.
-* **Edge‑only deployment** — Inference runs on‑prem; no PHI leaves the hospital, smoothing the path through InfoSec and HIPAA/GDPR compliance.
-* **Regulatory tailwinds** — The EU AI Act explicitly exempts decision‑support tools that keep a human in the loop, de‑risking certification.
+Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑days, reduces infection risk, and boosts patient satisfaction—all on top of existing EMRs.
 
 ---
 
-## Live Demo & Screenshots
+## 🌟 Key Features
 
-> ℹ️ **Tip:** Replace the image files below with real screenshots (PNG/JPG/GIF) or a short video GIF. Keep filenames but overwrite the images for automatic README updates.
-
-| Landing Page                        | Doctor Dashboard                               | Login Screen                    |
-| ----------------------------------- | ---------------------------------------------- | ------------------------------- |
-| ![Landing](docs/images/landing.png) | ![Dashboard](docs/images/doctor_dashboard.png) | ![Login](docs/images/login.png) |
-
-*A 60‑second product tour video will be available soon.*
-
----
-
-## Feature Highlights
-
-| Category                         | What it does                                                                                               |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| **Real‑time Bed Dashboard**      | Live sync with the EMR showing occupancy, predicted discharges, and risk‑adjusted LOS.                     |
-| **AI Discharge‑Readiness Score** | Gradient‑boosted model trained on 200 k anonymised stays; **AUROC ≈ 0.91**.                                |
-| **Blocker Detection**            | Rules (orders/labs) + NLP on free‑text notes surface open tasks instantly.                                 |
-| **Smart Task Routing**           | Assigns each blocker to the correct role (nurse, resident, PT, social worker) and pushes to Teams / Slack. |
-| **Self‑service Chat**            | `/status <PatientID>` bot returns LOS, blockers, and next steps—instantly.                                 |
-| **Privacy by Design**            | De‑identifies PHI at source; no patient identifiers leave the hospital network.                            |
-| **Plugin Friendly**              | Swap model providers (OpenAI, AzureML) or EMR connectors (FHIR, HL7) with drop‑in modules.                 |
+| Feature                          | Benefit                                                                         |
+| -------------------------------- | ------------------------------------------------------------------------------- |
+| 🚑 **Real-time Bed Dashboard**   | Live EMR sync of occupancy, predicted discharges & length-of-stay metrics       |
+| 🤖 **Discharge-Readiness Score** | Gradient-boosted model trained on 200 k records to flag “green-for-go” patients |
+| 📝 **Blocker Detection**         | Combines rules (orders/labs) + NLP on notes to surface open tasks               |
+| 📬 **Smart Task Routing**        | Automates assignment of blockers to nurses, PTs, social workers, etc.           |
+| 💬 **Self-Service Chatbot**      | `/status <PatientID>` returns LOS, blockers & next steps instantly              |
+| 🔒 **Privacy by Design**         | All PHI de-identified on‑prem; zero identifiers leave hospital network          |
+| 🔌 **Plugin-Friendly**           | Swap ML models or EMR connectors (FHIR, HL7) with modular adapters              |
 
 ---
 
-## Tech Stack & Architecture
+## 📸 Screenshots
 
-```
+<details>
+<summary>View screenshots</summary>
+
+| Landing Page                                                         | Doctor Dashboard                                                                  | Login Screen                                                       |
+| -------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| <img src="docs/images/landing.png" alt="Landing Page" width="300" /> | <img src="docs/images/doctor_dashboard.png" alt="Doctor Dashboard" width="300" /> | <img src="docs/images/login.png" alt="Login Screen" width="300" /> |
+
+</details>
+
+## 🎥 Demo Video
+
+<details>
+<summary>Watch a quick demo</summary>
+
+<p align="center">
+  <!-- Replace with your actual demo video or GIF -->
+  <a href="docs/demo/medassist_demo.gif">
+    <img src="docs/demo/medassist_demo.gif" alt="MedAssist AI Demo" width="600" />
+  </a>
+  <p>Click to view the full demo</p>
+</p>
+
+</details>
+
+---
+
+## ⚙️ Tech Stack & Architecture
+
+<details>
+<summary>View architecture details</summary>
+
+```plaintext
 📦 HUJI-Hackathon-2025
-├── 🧠 Gemini/               # Gemini language model client & example scripts
-│   ├── gemini.py           # Language model API wrapper
-│   ├── main.py             # CLI demo
-│   └── requirements.txt    # Dependencies (Google AI SDK, etc.)
-│
-├── 🏥 HospitalAssistant/    # Main backend service
-│   ├── api/                # FastAPI entrypoints
-│   │   └── app.py          # Main route definitions
-│   ├── core/               # DB logic and Pydantic schemas
-│   │   ├── database.py     # In-memory DB or SQLite logic
-│   │   └── schemas.py      # Request/response data models
-│   ├── entities/           # Business logic: hospital, patients, vitals, etc.
-│   │   ├── Patient.py      # Core patient state and behavior
-│   │   ├── Hospital.py     # Ward structure, bed logic
-│   │   └── ...             # MedicalRecord, VitalSign, etc.
-│   └── data/               # Demo hospital datasets (JSON)
-│
-├── frontend/               # (Optional: not in zip, assumed React app)
-│
-├── docker-compose.yml      # Orchestration for API, ML, and DB
+├── HospitalAssistant/       # Backend service (FastAPI)
+│   ├── api/app.py          # Route definitions
+│   ├── core/               # DB & schemas (Pydantic + SQLite)
+│   ├── entities/           # OO models: Patient, Ward, Record...
+│   └── data/               # Demo JSON datasets
+├── Gemini/                 # Google Gemini NLP client
+│   └── gemini.py           # Summaries & NLP hooks
+├── docker-compose.yml      # API + ML + infra orchestration
 └── README.md
 ```
 
-### System Architecture Diagram
+| Layer           | Technology & Role                                                    |
+| --------------- | -------------------------------------------------------------------- |
+| **Backend API** | Python 3.12, FastAPI, Pydantic v2, Uvicorn                           |
+| **Logic Layer** | OO Entities for domain rules; `Patient.discharge_ready()` & blockers |
+| **Data Layer**  | SQLite (demo) or in‑memory store; JSON seed files                    |
+| **NLP/ML**      | XGBoost model + Gemini NLP for text summarization                    |
+| **Infra**       | Docker Compose; GitHub Actions CI/CD                                 |
 
-#### High-Level Overview
+**Extensibility:** Modular adapters let you swap LLM providers (OpenAI, Cohere), upgrade to PostgreSQL or FHIR feeds, and containerize services independently.
 
-```
-                       ┌──────────────────────────┐
-                       │  🌐 React Frontend (TBD)   │
-                       │  - Patient dashboards     │
-                       │  - Alerts and summaries   │
-                       └────────────┬─────────────┘
-                                    │ REST API
-                         ┌──────────▼───────────┐
-                         │  🚀 FastAPI Backend     │
-                         │  - app.py (routing)    │
-                         │  - schemas, database   │
-                         └───────┬───────▲────────┘
-                                 │       │
-         ┌──────────────────────▼───┐ ┌──▼──────────────────┐
-         │ 🧠 Business Entities     │ │ 🧾 Core / Pydantic     │
-         │ (Patient, Hospital...) │ │ + In-Memory/SQLite DB│
-         └─────────────────────────┘ └──────────────────────┘
-                                 │       ▲
-                                 │       │
-                       ┌─────────▼───────▼────────────┐
-                       │ 🤖 Gemini Language API Client │
-                       │ - Text summarization / NLP    │
-                       └──────────────────────────────┘
-```
-
-#### Component Responsibilities
-
-| Component               | Description                                                                              |
-| ----------------------- | ---------------------------------------------------------------------------------------- |
-| **Frontend (React)**    | (Future) UI for staff to view beds, patient status, and discharge blockers.              |
-| **FastAPI API**         | Core backend server handling REST requests, orchestrating predictions and routing.       |
-| **Entities (OO logic)** | Models like `Patient`, `MedicalRecord`, and `Ward` to reflect real-world hospital state. |
-| **Core DB Layer**       | Pydantic-based schemas and SQLite-backed storage for all operations.                     |
-| **Gemini Integration**  | Enables free-text understanding, summarization of patient status, and NLP queries.       |
-
-> 🧩 Everything is modular, with `HospitalAssistant/` as the base: swap in new ML models, connect to real EMR feeds, or plug into existing hospital dashboards.
+</details>
 
 ---
 
-* **Modular backend** with clear separation between API, logic, and data models.
-* **Entity-centric design** mimics real hospital structure (Patient, Ward, MedicalRecord).
-* **Gemini integration** enables natural language explanations or future chat interfaces.
-* **Datasets in JSON** make testing flexible and reproducible.
-
-If React-based frontend exists or is planned, it can slot in seamlessly via REST to FastAPI.
-
----
-
-## Quick Start
+## 🚀 Quick Start
 
 ```bash
-# 1 ▸ Clone the repo
+# Clone repo
 git clone https://github.com/Noamshabat1/HUJI-Hackathon-2025.git
 cd HUJI-Hackathon-2025
 
-# 2 ▸ Spin up the full stack (frontend, API, DB, ML‑service)
+# Launch services
 docker compose up --build
 
-# 3 ▸ Load demo data (50 synthetic patient stays)
+# Seed demo data (50 synthetic stays)
 python scripts/seed_demo_data.py
 ```
 
-Open **[http://localhost:5173](http://localhost:5173)** and log in with `demo / demo123`.
-
-> **Local only:** Demo data are randomly generated and fully anonymised.
+⚡️ Open [http://localhost:5173](http://localhost:5173) and log in with `demo / demo123`.
 
 ---
 
-## API Reference
+## 📡 API Reference
 
-*Base URL `http://localhost:8000`*
+<details>
+<summary>Show endpoints</summary>
 
-| Method | Path                | Description                                        |
-| ------ | ------------------- | -------------------------------------------------- |
-| `GET`  | `/v1/beds`          | Current bed census & predicted discharge times     |
-| `GET`  | `/v1/patients/{id}` | Full patient timeline & blocker list               |
-| `POST` | `/v1/predict`       | Run discharge‑readiness inference on supplied JSON |
-| `GET`  | `/v1/health`        | Liveness probe                                     |
+| Method | Path                | Description                                         |
+| ------ | ------------------- | --------------------------------------------------- |
+| GET    | `/v1/beds`          | Current bed census & predicted discharge timestamps |
+| GET    | `/v1/patients/{id}` | Full patient timeline & blocker list                |
+| POST   | `/v1/predict`       | Run discharge-readiness prediction                  |
+| GET    | `/v1/health`        | Liveness probe                                      |
 
-Interactive Swagger UI at **`/docs`**.
+Swagger UI available at [http://localhost:8000/docs](http://localhost:8000/docs).
 
----
-
-\----|-------|
-\| **Model type** | Gradient‑boosted decision trees (XGBoost 1.7) |
-\| **Training data** | 2018‑2024 anonymised inpatient stays (≈ 200 000) from three Israeli hospitals |
-\| **Features** | Age, primary Dx, lab deltas, procedures, consults, vitals trends |
-\| **Label** | `1` if discharge occurred within next 24 h |
-\| **AUROC** | 0.91 ± 0.02 (5‑fold CV) |
-\| **Fairness** | Performance parity across sex & age groups (≤ 2 p.p. difference) |
-\| **Intended use** | Decision‑support *only*—not a standalone discharge order |
-\| **Limitations** | Does not capture social determinants (home caregiving, transport capacity) |
+</details>
 
 ---
 
-## Team
+## 👥 Team
 
-| Name               | Role                | Background                             |
-| ------------------ | ------------------- | -------------------------------------- |
-| **Nitzan Ventura** | ML Lead             | M.Sc. in Computer Science (AI)         |
-| **Noam Shabat**    | Full‑Stack & DevOps | B.Sc. CS, 4 + years Python/React       |
-| **Shay Morad**     | Product Designer    | UX specialist, Tel‑Aviv Medical Center |
-| **Samuel Hayard**  | Clinical Advisor    | RN, 10 years inpatient flow mgmt       |
+| Name           | Role                | Background                             |
+| -------------- | ------------------- | -------------------------------------- |
+| Nitzan Ventura | ML Lead             | M.Sc. Computer Science (AI)            |
+| Noam Shabat    | Full-Stack & DevOps | B.Sc. CS; 4+ years Python & React      |
+| Shay Morad     | Product Designer    | UX Specialist, Tel-Aviv Medical Center |
+| Samuel Hayard  | Clinical Advisor    | RN; 10 years in inpatient flow mgmt    |
 
-*Built in 24 h at **HUJI Hackathon 2025** (Jerusalem, May 29–30).*
+*Built in 24 h at **HUJI Hackathon 2025** (May 29–30, Jerusalem).*
 
 ---
 
-## License
+## 📄 License
 
 Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
 
----
-
-> **MedAssist AI is a decision‑support tool—not approved for direct clinical use.
-> Always verify recommendations with licensed medical professionals.**
+> ⚠️ **Disclaimer:** MedAssist AI is a decision-support tool **not approved for direct clinical use**. Always verify recommendations with licensed medical professionals.
