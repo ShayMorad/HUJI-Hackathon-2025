@@ -34,15 +34,15 @@ Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑day
 
 | Landing Page                                                                                                                                | Doctor Dashboard                                                                                                                                         | Login Screen                                                                                                                              |
 | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/images/landing.jpg" alt="Landing Page" width="300" /> | <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/images/doctor_dashboard.jpg" alt="Doctor Dashboard" width="300" /> | <img src="docs/images/login.jpg" alt="Login Screen" width="300" /> |
+| <img src="docs/images/landing.jpg" alt="Landing Page" width="500" /> | <img src="docs/images/doctor_dashboard.jpg" alt="Doctor Dashboard" width="500" /> | <img src="docs/images/login.jpg" alt="Login Screen" width="500" /> |
 
 ## 🎥 Demo Video
 <details>
 <summary>Watch a quick demo</summary>
 
 <p align="center">
-  <a href="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/demo/medassist_demo">
-    <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/demo/medassist_demo.mp4" alt="MedAssist AI Demo" width="600" />
+  <a href="docs/demo/medassist_demo">
+    <img src="docs/demo/medassist_demo.mp4" alt="MedAssist AI Demo" width="800" />
   </a>
   <p>Click to view the full demo</p>
 </p>
