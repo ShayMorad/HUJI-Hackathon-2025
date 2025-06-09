@@ -37,14 +37,14 @@ Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑day
 | <img src="docs/images/landing.jpg" alt="Landing Page" width="600" /> | <img src="docs/images/doctor_dashboard.jpg" alt="Doctor Dashboard" width="600" /> | <img src="docs/images/login.jpg" alt="Login Screen" width="600" /> |
 
 ## 🎥 Demo Video
+
 <details>
 <summary>Watch a quick demo</summary>
 
 <p align="center">
-  <a href="docs/demo/medassist_demo">
-    <img src="docs/demo/medassist_demo.mp4" alt="MedAssist AI Demo" width="800" />
-  </a>
-  <p>Click to view the full demo</p>
+  <video src="docs/demo/medassist_demo.mp4" controls width="600">
+    Your browser does not support the video tag.
+  </video>
 </p>
 
 </details>
