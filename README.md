@@ -94,29 +94,79 @@ He emphasizes that:
 ## Tech Stack & Architecture
 
 ```
-                             ┌───────────────┐
-     Web / Ward Dashboard    │   React UI    │
-                             │  (Vite+MUI)   │
-                             └──────┬────────┘
-                                    │ REST / WS
-                             ┌──────▼────────┐
-    Teams / Slack Bot  ─────►│  FastAPI API  │◄─ gRPC ───┐
-                             │  (Uvicorn)    │           │
-                             └──────┬────────┘           │
-                                    │                   ▼
-                             ┌──────▼────────┐    ┌────────────┐
-                             │   ML Service   │    │ Postgres   │
-                             │ (XGBoost 1.7)  │    │ 16 + Times │
-                             └─▲──────────▲───┘    └────────────┘
-                               │          │
-FHIR/HL7 feed ────────────────┘          └─▶ S3‑compatible object storage
+📦 HUJI-Hackathon-2025
+├── 🧠 Gemini/               # Gemini language model client & example scripts
+│   ├── gemini.py           # Language model API wrapper
+│   ├── main.py             # CLI demo
+│   └── requirements.txt    # Dependencies (Google AI SDK, etc.)
+│
+├── 🏥 HospitalAssistant/    # Main backend service
+│   ├── api/                # FastAPI entrypoints
+│   │   └── app.py          # Main route definitions
+│   ├── core/               # DB logic and Pydantic schemas
+│   │   ├── database.py     # In-memory DB or SQLite logic
+│   │   └── schemas.py      # Request/response data models
+│   ├── entities/           # Business logic: hospital, patients, vitals, etc.
+│   │   ├── Patient.py      # Core patient state and behavior
+│   │   ├── Hospital.py     # Ward structure, bed logic
+│   │   └── ...             # MedicalRecord, VitalSign, etc.
+│   └── data/               # Demo hospital datasets (JSON)
+│
+├── frontend/               # (Optional: not in zip, assumed React app)
+│
+├── docker-compose.yml      # Orchestration for API, ML, and DB
+└── README.md
 ```
 
-* **Frontend** — React 18, Vite, MUI, Chart.js, Tailwind.
-* **Backend API** — Python 3.12, FastAPI, SQLModel, Pydantic v2, Uvicorn.
-* **ML Service** — XGBoost + Optuna; containerised for hot‑swap retraining.
-* **DB** — PostgreSQL 16 with `LISTEN/NOTIFY` for real‑time bed events.
-* **Infra** — Docker + docker‑compose; GitHub Actions → Railway (demo) / on‑prem K8s.
+### System Architecture Diagram
+
+#### High-Level Overview
+
+```
+                       ┌──────────────────────────┐
+                       │  🌐 React Frontend (TBD)   │
+                       │  - Patient dashboards     │
+                       │  - Alerts and summaries   │
+                       └────────────┬─────────────┘
+                                    │ REST API
+                         ┌──────────▼───────────┐
+                         │  🚀 FastAPI Backend     │
+                         │  - app.py (routing)    │
+                         │  - schemas, database   │
+                         └───────┬───────▲────────┘
+                                 │       │
+         ┌──────────────────────▼───┐ ┌──▼──────────────────┐
+         │ 🧠 Business Entities     │ │ 🧾 Core / Pydantic     │
+         │ (Patient, Hospital...) │ │ + In-Memory/SQLite DB│
+         └─────────────────────────┘ └──────────────────────┘
+                                 │       ▲
+                                 │       │
+                       ┌─────────▼───────▼────────────┐
+                       │ 🤖 Gemini Language API Client │
+                       │ - Text summarization / NLP    │
+                       └──────────────────────────────┘
+```
+
+#### Component Responsibilities
+
+| Component               | Description                                                                              |
+| ----------------------- | ---------------------------------------------------------------------------------------- |
+| **Frontend (React)**    | (Future) UI for staff to view beds, patient status, and discharge blockers.              |
+| **FastAPI API**         | Core backend server handling REST requests, orchestrating predictions and routing.       |
+| **Entities (OO logic)** | Models like `Patient`, `MedicalRecord`, and `Ward` to reflect real-world hospital state. |
+| **Core DB Layer**       | Pydantic-based schemas and SQLite-backed storage for all operations.                     |
+| **Gemini Integration**  | Enables free-text understanding, summarization of patient status, and NLP queries.       |
+
+> 🧩 Everything is modular, with `HospitalAssistant/` as the base: swap in new ML models, connect to real EMR feeds, or plug into existing hospital dashboards.
+
+---
+
+* **Modular backend** with clear separation between API, logic, and data models.
+* **Entity-centric design** mimics real hospital structure (Patient, Ward, MedicalRecord).
+* **Gemini integration** enables natural language explanations or future chat interfaces.
+* **Datasets in JSON** make testing flexible and reproducible.
+
+If React-based frontend exists or is planned, it can slot in seamlessly via REST to FastAPI.
 
 ---
 
