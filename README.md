@@ -72,23 +72,130 @@ Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑day
 
 ```plaintext
 📦 HUJI-Hackathon-2025
-├── HospitalAssistant/       # Backend service (FastAPI)
-│   ├── api/app.py          # Route definitions
-│   ├── core/               # DB & schemas (Pydantic + SQLite)
-│   ├── entities/           # OO models: Patient, Ward, Record...
-│   └── data/               # Demo JSON datasets
-├── Gemini/                 # Google Gemini NLP client
-│   └── gemini.py           # Summaries & NLP hooks
-├── docker-compose.yml      # API + ML + infra orchestration
-└── README.md
+├── .git/                           # Git version history
+├── .idea/                          # IDE config files
+├── LICENSE                         # Project license (MIT)
+├── README.md                       # This documentation
+├── docker-compose.yml              # Docker orchestration for API, frontend & services
+├── package.json                    # Web frontend dependencies & scripts
+├── package-lock.json               # Web frontend lockfile
+├── Gemini/                         # Google Gemini NLP client & examples
+│   ├── examples.py                 # Usage demos
+│   ├── gemini.py                   # API wrapper
+│   ├── main.py                     # CLI demo
+│   ├── README.md                   # Gemini module docs
+│   └── requirements.txt            # Gemini SDK dependencies
+├── HospitalAssistant/              # Backend core services (FastAPI + logic)
+│   ├── api/                        # FastAPI routes
+│   │   ├── app.py                  # Main application and router
+│   │   ├── app_full.py             # Extended endpoints (med_assist_api)
+│   │   └── __init__.py             # Package init file
+│   ├── core/                       # Data layer & schemas
+│   │   ├── database.py             # SQLite & in-memory storage setup
+│   │   ├── schemas.py              # Pydantic models for requests/responses
+│   │   └── __init__.py             # Package init file
+│   ├── entities/                   # Domain models (OO logic)
+│   │   ├── Hospital.py
+│   │   ├── MedicalRecord.py
+│   │   ├── Patient.py
+│   │   ├── SocialProfile.py
+│   │   ├── VitalSign.py
+│   │   ├── Ward.py
+│   │   └── __init__.py             # Package init file
+│   ├── data/                       # Sample hospital datasets (JSON)
+│   │   ├── demo_hospital.json
+│   │   ├── demo_hospital_data.json
+│   │   ├── hospital_15_patients.json
+│   │   └── hospital_demo_balanced.json
+│   ├── med_assist_website/         # React-based staff dashboard
+│   │   ├── package.json            # Frontend dependencies
+│   │   ├── public/                 # Static assets & HTML
+│   │   ├── src/                    # React source code
+│   │   │   ├── components/         # UI components
+│   │   │   ├── services/           # API service wrappers
+│   │   │   └── ...                 # Other React files
+│   │   └── node_modules/           # Frontend modules
+│   ├── nurse_online/               # Nurse-focused UI (Vue/React)
+│   │   ├── src/                    # Source code
+│   │   └── node_modules/           # Dependencies
+│   ├── services/                   # Integration & service controllers
+│   │   ├── EMRConnector.py         # EMR data extraction logic
+│   │   ├── ConversationService.py  # Chat/interaction logic
+│   │   ├── LLMService.py           # Gemini/LLM orchestration
+│   │   ├── NotificationService.py  # Teams/Slack routing
+│   │   └── PredictiveModelController.py # Handles ML inference
+│   └── tests/                      # Unit tests
+│       └── test_patient.py         # Tests for Patient logic
+└── presentation/                   # Pitch deck and assets
+    └── MedAssist AI.pptx          # Hackathon slide deck
 ```
 
+├── .git/                      # Git version history
+├── .idea/                     # IDE config files
+├── LICENSE                    # Project license (MIT)
+├── README.md                  # This documentation
+├── docker-compose.yml         # Docker orchestration for API, frontend & services
+├── package.json               # Web frontend dependencies & scripts
+├── package-lock.json          # Web frontend lockfile
+├── Gemini/                    # Google Gemini NLP client & examples
+│   ├── examples.py            # Usage demos
+│   ├── gemini.py              # API wrapper
+│   ├── main.py                # CLI demo
+│   ├── README.md              # Gemini module docs
+│   └── requirements.txt       # Gemini SDK deps
+├── HospitalAssistant/         # Backend core services (FastAPI + logic)
+│   ├── api/                   # FastAPI routes
+│   │   ├── app.py             # Main application and router
+│   │   ├── app\_full.py        # Extended endpoints (med\_assist\_api)
+│   │   └── **init**.py        # Package init
+│   ├── core/                  # Data layer & schemas
+│   │   ├── database.py        # SQLite & in-memory storage setup
+│   │   ├── schemas.py         # Pydantic models for requests/responses
+│   │   └── **init**.py
+│   ├── entities/              # Domain models (OO logic)
+│   │   ├── Hospital.py
+│   │   ├── MedicalRecord.py
+│   │   ├── Patient.py
+│   │   ├── SocialProfile.py
+│   │   ├── VitalSign.py
+│   │   ├── Ward.py
+│   │   └── **init**.py
+│   ├── data/                  # Sample hospital datasets (JSON)
+│   │   ├── demo\_hospital.json
+│   │   ├── demo\_hospital\_data.json
+│   │   ├── hospital\_15\_patients.json
+│   │   └── hospital\_demo\_balanced.json
+│   ├── med\_assist\_website/    # React-based staff dashboard
+│   │   ├── package.json       # Frontend dependencies
+│   │   ├── public/            # Static assets & HTML
+│   │   ├── src/               # React source code
+│   │   │   ├── components/    # UI components
+│   │   │   ├── services/      # API service wrappers
+│   │   │   └── ...
+│   ├── nurse\_online/          # Nurse-focused UI (Vue/React)
+│   │   ├── src/
+│   │   └── node\_modules/
+│   ├── services/              # Integration & service controllers
+│   │   ├── EMRConnector.py    # EMR data extraction logic
+│   │   ├── ConversationService.py # Chat/interaction logic
+│   │   ├── LLMService.py      # Gemini/LLM orchestration
+│   │   ├── NotificationService.py # Teams/Slack routing
+│   │   └── PredictiveModelController.py # Handles ML inference
+│   └── tests/                 # Unit tests
+│       └── test\_patient.py    # Tests for Patient logic
+└── presentation/              # Pitch deck and assets
+└── MedAssist AI.pptx
+
+````
+
+---
+
 | Layer           | Technology & Role                                                    |
-| --------------- | -------------------------------------------------------------------- |
+|-----------------|----------------------------------------------------------------------|
 | **Backend API** | Python 3.12, FastAPI, Pydantic v2, Uvicorn                           |
-| **Logic Layer** | OO Entities for domain rules; `Patient.discharge_ready()` & blockers |
+| **Logic Layer** | OO Entities for domain rules; `Patient.discharge_ready()` & blockers  |
 | **Data Layer**  | SQLite (demo) or in‑memory store; JSON seed files                    |
-| **NLP/ML**      | XGBoost model + Gemini NLP for text summarization                    |
+| **NLP/ML**      | XGBoost model + Gemini NLP for text summarization                   |
 | **Infra**       | Docker Compose; GitHub Actions CI/CD                                 |
 
 **Extensibility:** Modular adapters let you swap LLM providers (OpenAI, Cohere), upgrade to PostgreSQL or FHIR feeds, and containerize services independently.
@@ -98,21 +205,21 @@ Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑day
 ---
 
 ## 🚀 Quick Start
-
 ```bash
 # Clone repo
 git clone https://github.com/Noamshabat1/HUJI-Hackathon-2025.git
 cd HUJI-Hackathon-2025
 
 # Launch services
-# Launch backend server
+
+# Launch Backend Server
 cd HospitalAssistant
 uvicorn api.app:app --port 8003 --log-level debug
-# Launch frontend server
+
+# Launch Frontend Server
 cd HospitalAssistant/med_assist_website
 npm start
-```
-
+````
 
 ---
 
