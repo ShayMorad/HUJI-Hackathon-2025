@@ -102,11 +102,12 @@ Extensibility: Modular adapters allow swapping LLMs, ML models, or database back
 │   │   ├── hospital_15_patients.json
 │   │   └── hospital_demo_balanced.json
 │   ├── services/                  # External integrations & service controllers
-│       ├── EMRConnector.py        # EMR data extraction
-│       ├── ConversationService.py # Chat/interaction logic
-│       ├── LLMService.py          # Gemini/LLM orchestration
-│       ├── NotificationService.py # Teams/Slack routing
-│       └── PredictiveModelController.py # ML inference handler   
+│   |    ├── EMRConnector.py        # EMR data extraction
+│   |    ├── ConversationService.py # Chat/interaction logic
+│   |   ├── LLMService.py          # Gemini/LLM orchestration
+│   |    ├── NotificationService.py # Teams/Slack routing
+│   |    └── PredictiveModelController.py # ML inference handler
+|   └── med_assist_website         # Frontend using JS, React, CSS, HTML
 └── docs/                          # Documentation assets
     ├── images/                    # Screenshots for README
     │   ├── landing.jpg
