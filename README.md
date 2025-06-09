@@ -6,13 +6,19 @@
 
 ## 🔍 Overview
 
-MedAssist AI is an advanced hospital coordination platform that:
+MedAssist AI is a comprehensive hospital coordination platform built in 24 hours at the HUJI Hackathon 2025. Combining a Python FastAPI backend, a React front-end dashboard, and Google’s Gemini AI models, MedAssist AI:
 
-* Forecasts discharge readiness hours in advance.
-* Identifies clinical & operational blockers (labs, consults, transport) in real time.
-* Routes actionable tasks to the right roles.
+* Forecasts discharge readiness hours in advance using heuristic risk scores.
 
-Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑days, reduces infection risk, and boosts patient satisfaction—all on top of existing EMRs.
+* Identifies clinical & operational blockers (labs, consults, transport) in real time via rules-based and NLP-powered detection.
+
+* Routes actionable tasks to the right roles (nurses, PTs, social workers, etc.).
+
+* Supports interactive AI chat for on-demand patient summaries, vitals, and next steps.
+
+Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑days, reduces infection risk, and boosts patient satisfaction—seamlessly integrating on top of existing EMRs.
+
+
 
 ---
 
