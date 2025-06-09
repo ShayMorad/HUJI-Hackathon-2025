@@ -1,6 +1,10 @@
 # MedAssist AI 🚑🤖
 
-*Smarter hospital flow, with AI at your side.*
+**Revolutionizing hospital discharge decisions with predictive intelligence and actionable insights.**
+
+MedAssist AI is an advanced hospital coordination platform that forecasts discharge readiness, identifies clinical and operational blockers, and routes tasks to the right roles in real time. Built for hospitals overwhelmed by capacity strain and inefficiencies, our system helps reclaim lost bed-days, reduce infection risk, and improve patient satisfaction—all while integrating seamlessly with existing EMRs.
+
+Whether you're a provider, policymaker, or investor, MedAssist AI provides a measurable impact on cost, flow, and care quality—starting day one.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Built with FastAPI](https://img.shields.io/badge/Backend-FastAPI-green)](#tech-stack--architecture)
@@ -17,11 +21,8 @@
 4. [Tech Stack & Architecture](#tech-stack--architecture)
 5. [Quick Start](#quick-start)
 6. [API Reference](#api-reference)
-7. [Model Card](#model-card)
-8. [Roadmap](#roadmap)
-9. [Contributing](#contributing)
-10. [Team](#team)
-11. [License](#license)
+7. [Team](#team)
+8. [License](#license)
 
 ---
 
@@ -205,39 +206,15 @@ Interactive Swagger UI at **`/docs`**.
 
 ---
 
-## Model Card
-
-| Field             | Value                                                                         |
-| ----------------- | ----------------------------------------------------------------------------- |
-| **Model type**    | Gradient‑boosted decision trees (XGBoost 1.7)                                 |
-| **Training data** | 2018‑2024 anonymised inpatient stays (≈ 200 000) from three Israeli hospitals |
-| **Features**      | Age, primary Dx, lab deltas, procedures, consults, vitals trends              |
-| **Label**         | `1` if discharge occurred within next 24 h                                    |
-| **AUROC**         | 0.91 ± 0.02 (5‑fold CV)                                                       |
-| **Fairness**      | Performance parity across sex & age groups (≤ 2 p.p. difference)              |
-| **Intended use**  | Decision‑support *only*—not a standalone discharge order                      |
-| **Limitations**   | Does not capture social determinants (home caregiving, transport capacity)    |
-
----
-
-## Roadmap
-
-* [ ] **eMAR integration** for real‑time medication completion checks
-* [ ] **Explainability UI** (per‑patient SHAP waterfalls)
-* [ ] **Hebrew interface** for local staff
-* [ ] **Edge model** for offline ward kiosks (Raspberry Pi)
-* [ ] **ISO 13485 quality plan** toward Class IIa certification
-
----
-
-## Contributing
-
-1. **Fork** → create feature branch → **PR** against `main`.
-2. Pre‑commit hooks run **ruff**, **black**, and **isort** automatically.
-3. Every PR must pass `pytest -q` and keep coverage ≥ 90 %.
-4. Be kind—our code of conduct lives in `CODE_OF_CONDUCT.md`.
-
-We welcome PRs that improve docs, add tests, or tackle roadmap items.
+\----|-------|
+\| **Model type** | Gradient‑boosted decision trees (XGBoost 1.7) |
+\| **Training data** | 2018‑2024 anonymised inpatient stays (≈ 200 000) from three Israeli hospitals |
+\| **Features** | Age, primary Dx, lab deltas, procedures, consults, vitals trends |
+\| **Label** | `1` if discharge occurred within next 24 h |
+\| **AUROC** | 0.91 ± 0.02 (5‑fold CV) |
+\| **Fairness** | Performance parity across sex & age groups (≤ 2 p.p. difference) |
+\| **Intended use** | Decision‑support *only*—not a standalone discharge order |
+\| **Limitations** | Does not capture social determinants (home caregiving, transport capacity) |
 
 ---
 
