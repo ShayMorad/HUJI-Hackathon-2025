@@ -111,7 +111,6 @@ docker compose up --build
 python scripts/seed_demo_data.py
 ```
 
-⚡️ Open [http://localhost:5173](http://localhost:5173) and log in with `demo / demo123`.
 
 ---
 
