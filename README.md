@@ -27,12 +27,12 @@ Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑day
 | Feature                          | Benefit                                                                         |
 | -------------------------------- | ------------------------------------------------------------------------------- |
 | 🚑 **Real-time Bed Dashboard**   | Live EMR sync of occupancy, predicted discharges & length-of-stay metrics       |
-| 🤖 **Discharge-Readiness Score** | Gradient-boosted model trained on 200 k records to flag “green-for-go” patients |
+| 🤖 **Discharge-Readiness Score** | Model trained based on hospital configurations and set metrics limitations      |
 | 📝 **Blocker Detection**         | Combines rules (orders/labs) + NLP on notes to surface open tasks               |
 | 📬 **Smart Task Routing**        | Automates assignment of blockers to nurses, PTs, social workers, etc.           |
-| 💬 **Self-Service Chatbot**      | `/status <PatientID>` returns LOS, blockers & next steps instantly              |
+| 💬 **Self-Service Chatbot**      | /chat endpoint powered by Gemini: ask for vitals, status, clinical summary and next steps      |
 | 🔒 **Privacy by Design**         | All PHI de-identified on‑prem; zero identifiers leave hospital network          |
-| 🔌 **Plugin-Friendly**           | Swap ML models or EMR connectors (FHIR, HL7) with modular adapters              |
+| 🔌 **Plugin-Friendly**           | Swap ML models or EMR connectors                                                |
 
 ---
 
