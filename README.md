@@ -63,7 +63,7 @@ Extensibility: Modular adapters allow swapping LLMs, ML models, or database back
 <summary>Watch a quick demo</summary>
 
 <p align="center">
-  ▶️ [Click here to watch the demo video](https://https://youtu.be/jakP6N2kDo8)
+  ▶️ [Click here to watch the demo video](https://youtu.be/jakP6N2kDo8)
 </p>
 
 </details>
