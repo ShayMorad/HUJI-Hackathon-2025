@@ -221,6 +221,8 @@ cd HospitalAssistant/med_assist_website
 npm start
 ````
 
+⚡️ Open [http://localhost:5173](http://localhost:5173) and log in with `demo / demo123`.
+
 ---
 
 ## 📡 API Reference
