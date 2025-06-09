@@ -29,7 +29,7 @@ Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑day
 | 🔌 **Plugin-Friendly**           | Swap ML models or EMR connectors (FHIR, HL7) with modular adapters              |
 
 ---
-![Feature vs Magnitude](images/feature_vs_magnitude.png)
+
 ## 📸 Screenshots
 
 | Landing Page                                                                                                                                | Doctor Dashboard                                                                                                                                         | Login Screen                                                                                                                              |
