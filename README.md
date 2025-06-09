@@ -105,7 +105,12 @@ git clone https://github.com/Noamshabat1/HUJI-Hackathon-2025.git
 cd HUJI-Hackathon-2025
 
 # Launch services
-docker compose up --build
+# Launch backend server
+cd HospitalAssistant
+uvicorn api.app:app --port 8003 --log-level debug
+# Launch frontend server
+cd HospitalAssistant/med_assist_website
+npm start
 
 # Seed demo data (50 synthetic stays)
 python scripts/seed_demo_data.py
