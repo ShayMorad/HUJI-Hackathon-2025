@@ -131,32 +131,31 @@ Extensibility: Modular adapters allow swapping LLMs, ML models, or database back
 
 ## 🚀 Quick Start
 ```bash
-# Clone repo
+# Clone repository
 git clone https://github.com/Noamshabat1/HUJI-Hackathon-2025.git
 cd HUJI-Hackathon-2025
 
-# Launch services
-
-# Launch Backend Server
+# Start backend server
 cd HospitalAssistant
 uvicorn api.app:app --port 8003 --log-level debug
 
-# Launch Frontend Server
-cd HospitalAssistant/med_assist_website
+# Start frontend server
+cd med_assist_website
+npm install
 npm start
 ````
 
 
 ---
 
-## 👥 Team
+## 👥 Team & Roles
 
-| Name           | Role                | Background                             |
-| -------------- | ------------------- | -------------------------------------- |
-| Nitzan Ventura | ML Lead             | M.Sc. Computer Science (AI)            |
-| Noam Shabat    | Full-Stack & DevOps | B.Sc. CS; 4+ years Python & React      |
-| Shay Morad     | Product Designer    | UX Specialist, Tel-Aviv Medical Center |
-| Samuel Hayard  | Clinical Advisor    | RN; 10 years in inpatient flow mgmt    |
+| Name           | Role                |
+| -------------- | ------------------- |
+| Shay Morad | Team Lead & Backend     |
+| Noam Shabat    | Full-Stack & DevOps & UX/UI | 
+| Nitzan Ventura     | Full-Stack & UX/UI    |
+| Samuel Hayat  | Frontend    |
 
 *Built in 24 h at ********HUJI Hackathon 2025******** (May 29–30, Jerusalem).*
 
