@@ -32,12 +32,22 @@ Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑day
 
 ## 📸 Screenshots
 
-| Landing Page | Doctor Dashboard | Login Screen |
-| ------------ | ---------------- | ------------ |
-|              |                  |              |
+| Landing Page                                                                                                                                | Doctor Dashboard                                                                                                                                         | Login Screen                                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/images/landing.png" alt="Landing Page" width="300" /> | <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/images/doctor_dashboard.png" alt="Doctor Dashboard" width="300" /> | <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/images/login.png" alt="Login Screen" width="300" /> |
 
 ## 🎥 Demo Video
+<details>
+<summary>Watch a quick demo</summary>
 
+<p align="center">
+  <a href="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/demo/medassist_demo.gif">
+    <img src="https://raw.githubusercontent.com/Noamshabat1/HUJI-Hackathon-2025/main/docs/demo/medassist_demo.gif" alt="MedAssist AI Demo" width="600" />
+  </a>
+  <p>Click to view the full demo</p>
+</p>
+
+</details>
 ---
 
 ## ⚙️ Tech Stack & Architecture
@@ -160,9 +170,3 @@ Swagger UI available at [http://localhost:8000/docs](http://localhost:8000/docs)
 *Built in 24 h at ********HUJI Hackathon 2025******** (May 29–30, Jerusalem).*
 
 ---
-
-## 📄 License
-
-Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
-
-> ⚠️ **Disclaimer:** MedAssist AI is a decision-support tool **not approved for direct clinical use**. Always verify recommendations with licensed medical professionals.
