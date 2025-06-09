@@ -8,9 +8,9 @@
 
 MedAssist AI is an advanced hospital coordination platform that:
 
-* Forecasts discharge readiness **12–24 hours** in advance (AUROC 0.91).
+* Forecasts discharge readiness hours in advance.
 * Identifies clinical & operational blockers (labs, consults, transport) in real time.
-* Routes actionable tasks to the right roles via Teams/Slack.
+* Routes actionable tasks to the right roles.
 
 Designed for capacity‑strained hospitals, MedAssist AI reclaims lost bed‑days, reduces infection risk, and boosts patient satisfaction—all on top of existing EMRs.
 
@@ -140,16 +140,6 @@ npm start
 
 ---
 
-## 📡 API Reference
-
-| Method | Path                | Description                                         |
-| ------ | ------------------- | --------------------------------------------------- |
-| GET    | `/v1/beds`          | Current bed census & predicted discharge timestamps |
-| GET    | `/v1/patients/{id}` | Full patient timeline & blocker list                |
-| POST   | `/v1/predict`       | Run discharge-readiness prediction                  |
-| GET    | `/v1/health`        | Liveness probe                                      |
-
-Swagger UI available at [http://localhost:8000/docs](http://localhost:8000/docs).
 
 ---
 
