@@ -66,19 +66,10 @@ Extensibility: Modular adapters allow swapping LLMs, ML models, or database back
 ├── .idea/                         # IDE config files
 ├── LICENSE                        # MIT license
 ├── README.md                      # Project documentation
-├── docker-compose.yml             # Service orchestration: backend, frontend, services
-├── package.json                   # Frontend dependencies & scripts
-├── package-lock.json              # Frontend lockfile
-├── Gemini/                        # Google Gemini NLP integration
-│   ├── examples.py                # Usage examples for Gemini client
-│   ├── gemini.py                  # API wrapper for Gemini
-│   ├── main.py                    # CLI demonstration
-│   └── requirements.txt           # Gemini SDK dependencies
 ├── HospitalAssistant/             # Core backend (FastAPI + domain logic)
 │   ├── api/                       # FastAPI routes
 │   │   ├── __init__.py            # Package marker
-│   │   ├── app.py                 # Main application and router
-│   │   └── app_full.py            # Extended endpoints for med_assist_api
+│   │   └── app.py                 # Main application and router
 │   ├── core/                      # Data layer & schemas
 │   │   ├── __init__.py            # Package marker
 │   │   ├── database.py            # SQLite/in-memory storage setup
