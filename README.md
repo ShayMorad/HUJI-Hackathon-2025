@@ -123,7 +123,7 @@ Extensibility: Modular adapters allow swapping LLMs, ML models, or database back
 | Layer           | Technology & Role                                                    |
 |-----------------|----------------------------------------------------------------------|
 | **Backend API** | Python 3.12, FastAPI, Pydantic v2, Uvicorn                           |
-| **Logic Layer** | OO Entities for domain rules; `Patient.discharge_ready()` & blockers  |
+| **Logic Layer** | OO Entities for domain rules & blockers  |
 | **Data Layer**  | SQLite (demo) or in‑memory store; JSON seed files                    |
 | **NLP/ML**      | XGBoost model + Gemini NLP for text summarization                   |
 | **Infra**       | Docker Compose; GitHub Actions CI/CD                                 |
